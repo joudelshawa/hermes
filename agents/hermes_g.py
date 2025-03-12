@@ -6,8 +6,8 @@ class KnowledgeGraph:
         self.client = OllamaClient()
 
     def run(self, text):
-        prompt = f"Extract key entities and relationships as a knowledge graph from the following text:\n{text}"
-        role_content = "You are an assistant of a doctor. You generate knowledge graph from the structured notes of the doctor"
+        role_content = "You are a medical assistant specializing in clinical data processing. Your task is to generate a knowledge graph from the doctor's structured notes. Ensure accuracy, clarity, and a meaningful representation of the data."
+        prompt = f"Extract key medical entities and their relationships as a knowledge graph from the following text:\n{text}"
         response = self.client.generate_response(prompt, role_content)
 
         return remove_think_text(response)
