@@ -21,3 +21,6 @@ Thumbs.db  # Windows
 .vscode/
 .idea/
 *.swp
+
+# Ignore Temp folder
+Temp/*
