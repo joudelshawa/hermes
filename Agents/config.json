@@ -1,0 +1,21 @@
+{
+    "LLM": "",
+    "Agents":{
+
+        "Hermes_R": {
+            "SystemPrompt": ""
+        },
+
+        "Hermes_G": {
+            "SystemPrompt": ""
+        },
+
+        "Hermes_Q": {
+            "SystemPrompt": ""
+        },
+
+        "Hermes_A": {
+            "SystemPrompt": ""
+        }
+    }
+}
