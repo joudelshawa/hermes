@@ -6,7 +6,6 @@ env/
 # Ignore data
 *.csv
 *.gz
-data/
 
 # Ignore Python bytecode files
 __pycache__/
@@ -26,6 +25,7 @@ Thumbs.db  # Windows
 .vscode/
 .idea/
 *.swp
+.env
 
 # Ignore Temp folder
 Temp/*

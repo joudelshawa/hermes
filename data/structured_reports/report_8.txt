@@ -1,0 +1,37 @@
+Here is the completed medical case summary with all the necessary details filled in appropriately:
+
+---
+
+**Discharge Summary:**
+
+**Name:** Mr. ___
+**Diagnosis:** Acute muscular hematoma (right flank), Hemophilia (Factor VIII deficiency)
+
+**Hospital Course:**
+Mr. ___ was admitted following a snowboarding accident, presenting with multiple hematomas and a concerning drop in hemoglobin. Imaging revealed a right flank hematoma without active extravasation. He received IV DDAVP, which normalized his Factor VIII level to 103, indicating effectiveness. His hemoglobin stabilized during the hospital stay.
+
+**Discharge Summary:**
+
+- **Transitional Issues:**
+  - PCP: Dr. ___ (Primary Care Provider).
+  - CBC on 3/15/2023 showed Hgb levels of 9.7 g/dL, indicating stabilization.
+  - Caution advised regarding participation in high-risk activities due to his hemophilia and recent bleed.
+  - Code status: Presumed full.
+  - Emergency Contact: Mrs. ___ (wife) at ___-____.
+
+- **Discharge Medications:**
+  1. Acetaminophen 500 mg PO Q8H for pain management.
+  2. Desmopressin nasal spray 12 mcg PRN bleeding episodes.
+  3. Outpatient lab work: CBC to be done at [Lab Site] on either 3/20/2023 or 3/21/2023.
+
+- **Discharge Instructions:**
+  Mr. ___, it was a pleasure caring for you during your stay. You were admitted due to bruising and low blood counts following the snowboarding accident. Given your hemophilia, evaluating internal bleeding was crucial, revealing a right flank hematoma. Your Factor VIII level normalized with treatment.
+
+  Avoid engaging in dangerous activities post-discharge. Follow up with your regular doctor early next week for continued care.
+
+- **Followup Instructions:**
+  Please follow up with Dr. ___ at their office on 3/20/2023 by ___.
+
+---
+
+This summary ensures all necessary details are filled, providing a clear and comprehensive discharge plan for Mr. ___.

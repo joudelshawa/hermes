@@ -15,7 +15,7 @@ class LLM:
         return cls._instance
 
 class Agent:
-    def __init__(self, base_llm:str = "llama3", name:str = "", systemPrompt:str = "", stream:bool = False):
+    def __init__(self, base_llm:str = "deepseek-r1:14b", name:str = "", systemPrompt:str = "", stream:bool = False):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
         self.name = f"{name}_({base_llm})"
@@ -27,7 +27,11 @@ class Agent:
         context addition remains
         i.e. ==> corrective prompts
         """
-        response = self.llm_client.chat(model="llama3", messages=self._get_msgs(prompt=prompt, context=context))
+        response = self.llm_client.chat(
+            model=self.llm, 
+            messages=self._get_msgs(prompt=prompt, context=context),
+            options={"temperature": 0.2, "top_p": 0.6}
+        )
         return response['message']['content']
     
     def validateResponse(self, response):
@@ -68,11 +72,11 @@ class Agent:
     
     def _remove_think(self, text:str):
         s = text.split("</think>")
-        return s[1]
+        return s[1].strip()
 
 
 class ReportCreator(Agent):
-    def __init__(self, base_llm = "llama3", name = "", system_prompt = "", stream = False):
+    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
         super().__init__(base_llm, name, system_prompt, stream)
 
     def validateResponse(self, response):
@@ -84,9 +88,10 @@ class ReportCreator(Agent):
     def run(self, prompt, context = ""):
         # Response generation step
         response = super().run(prompt, context)
-        valdiated_response = None
         
         # Validation Step
+        # TODO: Add validation logic
+        valdiated_response = response
 
 
         # Re-run Step if validation fails
@@ -95,13 +100,13 @@ class ReportCreator(Agent):
         return valdiated_response
 
 class KGCreator(Agent):
-    def __init__(self, base_llm = "llama3", name = "", system_prompt = "", stream = False):
+    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
         super().__init__(base_llm, name, system_prompt, stream)
     
 class QACreator(Agent):
-    def __init__(self, base_llm = "llama3", name = "", system_prompt = "", stream = False):
+    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
         super().__init__(base_llm, name, system_prompt, stream)
     
 class AnswerValidator(Agent):
-    def __init__(self, base_llm = "llama3", name = "", system_prompt = "", stream = False):
+    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
         super().__init__(base_llm, name, system_prompt, stream)

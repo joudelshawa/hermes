@@ -1,9 +1,9 @@
-from Agents import Hermes
+from agents import Hermes
 
 if __name__ == "__main__":
     hermes = Hermes.HermesAgenticSystem()
     # Load raw notes
-    with open("/Data/rawNote1.txt", "r", encoding="utf-8") as file:
+    with open("data/unstructured_reports/report_1.txt", "r", encoding="utf-8") as file:
         rawNotes = file.read()
     kGraph, report = hermes.completeRun(rawNotes=rawNotes)
     print(f"Report: {report}")

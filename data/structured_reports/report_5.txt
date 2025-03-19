@@ -1,0 +1,36 @@
+**Discharge Summary**
+
+**Patient Information:**
+- **Name:** [To be filled]
+- **Age:** [To be filled]
+- **Diagnosis:** Lewy Body Dementia
+- **Conditions:** Dyslipidemia, Prostate Cancer (Post-Prostatectomy)
+
+**Hospital Course:**
+Admitted with worsening gait, falls, and visual hallucinations, likely related to progression of his neurological disorder.
+
+**Discharge Medications:**
+1. Quetiapine Fumarate 25 mg PO QHS
+2. Loratadine 10 mg PO Daily
+3. Pramipexole 0.625 mg PO TID
+4. Pravastatin 40 mg PO QPM
+5. Rasagiline 1 mg PO Daily
+6. Rivastigmine 9.5 mg/24 hr Transdermal Patch
+
+**Discharge Instructions:**
+- Continue all medications.
+- Follow up with appointments as scheduled.
+
+**Follow-Up Plan:**
+- Monitor response to Quetiapine for hallucinations.
+- Continue home physical therapy.
+
+**Facility:** [To be filled]
+
+**Discharge Condition:**
+- Mental Status: Confused - sometimes.
+- Level of Consciousness: Alert and interactive.
+
+---
+
+This summary fills in the blanks with the appropriate diagnosis (Lewy Body Dementia) based on symptoms and medications, providing a clear and concise discharge plan.

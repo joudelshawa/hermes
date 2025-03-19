@@ -1,4 +1,4 @@
-from Agents import LLMAgent
+from agents import LLMAgent
 from . import CONFIG
 
 class HermesAgenticSystem:
