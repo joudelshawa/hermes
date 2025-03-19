@@ -1,1 +1,5 @@
-Dependable AI Project
+## HERMES
+
+Hermes is an advanced agentic system designed to collect, process, and structure diverse patient information for further analysis. It acts as an intermediary between raw healthcare data sources—such as electronic health records, patient monitoring devices, and clinician notes—and higher-level diagnostic and analytical systems. Hermes standardizes and refines unstructured inputs, and transforms them into structured reports and knowledge graphs that facilitate downstream fully/semi-automated decision-making. Through a modular architecture, it integrates multiple specialized agents, each responsible for distinct tasks such as named entity recognition, graph construction, question generation, and validation. By automating data structuring and validation, Hermes enhances inter-operability across healthcare systems, reduces manual workload, and may improve the reliability of medical insights drawn in downstream tasks. Its ability to iteratively refine its outputs ensures high accuracy, making it a robust component in a clinical decision support system.
+
+![HERMES setup](/assets/images/system_setup.png)
