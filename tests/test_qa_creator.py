@@ -8,21 +8,33 @@ if __name__ == "__main__":
 
     hermes = Hermes.HermesAgenticSystem(config=config)
 
-    knowledge_graphs_path = "data/knowledge_graphs" # TODO update based on what aarat decides to name it
+    knowledge_graphs_path = "data/knowledge_graphs_TMP" # TODO update based on what aarat decides to name it but now setting for testing
     qa_path = "data/qa_pairs"
 
     if os.path.isdir(knowledge_graphs_path):
         for filename in os.listdir(knowledge_graphs_path):
             print(filename)
             if filename.endswith('.txt'): # check what the file types of the knowledge graphs are
+                
                 file_path = os.path.join(knowledge_graphs_path, filename)
+                
                 with open(file_path, "r", encoding="utf-8") as file:
                     knowledge_graph = file.read()
-                qa_pairs = hermes.getQA(knowledge_graph, context=config['Agents']['Hermes_Q']['Context'])
-                qa_file_path = os.path.join(qa_path, filename)
-                # FIX - will probably want to output to json so we can retrieve the questions more easily later
-                with open(qa_path, "w") as file:
-                    file.write(qa_pairs)
+                
+                qa_pairs = hermes.getQA(
+                                        knowledge_graph, 
+                                        context=config['Agents']['Hermes_Q']['Context']
+                                        )
+                
+                base_name = os.path.splitext(filename)[0]
+                output_filename = base_name + ".json"
+
+                qa_file_path = os.path.join(qa_path, output_filename)
+                
+                # output to json so we can retrieve the questions more easily later for the answer validator
+                with open(qa_file_path, "w", encoding="utf-8") as file:
+                    json.dump(qa_pairs, file, ensure_ascii=False, indent=2)
+                
                 print(f"Question-Answer pairs saved at {qa_file_path}")
     else:
         print(f"No knowledge graphs found in {knowledge_graphs_path}")

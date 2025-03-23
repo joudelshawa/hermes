@@ -1,5 +1,5 @@
 {
-    "LLM": "deepseek-r1:32b",
+    "LLM": "llama3.2:latest",
     "Agents":{
 
         "Hermes_R": {
