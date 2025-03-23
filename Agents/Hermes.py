@@ -3,7 +3,9 @@ from . import CONFIG
 
 class HermesAgenticSystem:
     def __init__(self, config:dict=CONFIG):
+
         self.CONFIG = config
+
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
         
