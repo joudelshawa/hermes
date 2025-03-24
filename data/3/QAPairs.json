@@ -1,0 +1,42 @@
+[
+    {
+        "Question": "Was the patient admitted to the urology service?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Does the patient have a renal mass?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Was the renal cell carcinoma diagnosed via MRI?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Is the patient's condition nonspecific right axis deviation?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Does the patient have a previous cesarean section?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Are lab results available for admission?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Did the renal mass result in a PACU transfer?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Is POD1 followed by POD2?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Does the follow-up appointment include medications?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Does the follow-up appointment include immediate contact instructions?",
+        "Answer": "Yes"
+    }
+]

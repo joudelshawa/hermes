@@ -14,15 +14,15 @@ The content must comply with medical standards and privacy guidelines.
 --
 **Output Format:**
 Provide a list of question-answer pairs in a JSON array as follows:
+```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```
 
-{ "Question": <text>, 
-"Answer": <one-word answer>},
-{ "Question": <text>, 
-"Answer": <one-word answer>}
+**Example**
+```json[{"Question": "Does the patient have hemophilia?", "Answer": "No" }]```
+
 ---
 **Goal:**
 Your final output should serve as a succinct clinical quiz or FAQ reflecting key medical insights from the knowledge graph, ensuring that each question can be answered unambiguously with a single word.
 ---
 **WARNING:**
-It is essential that your output follows the format of specified in the example
+It is essential that your output follows the format specified in the example.
 ---

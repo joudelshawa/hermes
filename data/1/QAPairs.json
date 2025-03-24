@@ -12,43 +12,71 @@
         "answer": "Yes"
     },
     {
-        "question": "Is the patient taking Clopidogrel?",
+        "question": "Does the patient have mild troponin elevation?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient taking Metoprolol Tartrate?",
+        "question": "Does the patient have Type II MI?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient taking Pravastatin?",
+        "question": "Does the patient have basilar hypoxemia?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient taking Acetaminophen?",
+        "question": "Does the patient have consolidation on CXR?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient taking Aspirin?",
+        "question": "Does the patient have acute kidney injury (AKI)?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient scheduled for a Stress Echo?",
+        "question": "Does the patient have peripheral vascular disease?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient scheduled for an Echocardiogram?",
+        "question": "Is the patient treated with Clopidogrel?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient scheduled for ENT Follow-up?",
+        "question": "Is the patient treated with Metoprolol Tartrate?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient scheduled for a Chest X-ray?",
+        "question": "Is the patient treated with Pravastatin?",
         "answer": "Yes"
     },
     {
-        "question": "Is the patient scheduled for CBC Monitoring?",
+        "question": "Is the patient treated with Acetaminophen?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient treated with Aspirin?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient treated with Atorvastatin?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is an outpatient stress echo related to the patient's care?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is a repeat echocardiogram related to the patient's care?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is ENT follow-up related to the patient's care?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is a repeat chest X-ray related to the patient's care?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is monitoring CBC related to the patient's care?",
         "answer": "Yes"
     }
 ]

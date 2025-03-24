@@ -24,11 +24,12 @@ class QACreator(Agent):
                 result["extracted_response"] = json_content
             except json.JSONDecodeError:
                 result["is_valid"] = False
-                result["errors"].append("Invalid JSON format")
+                # reminding it of the structure required
+                result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
                 return result
         else:
             result["is_valid"] = False
-            result["errors"].append("Invalid JSON format")
+            result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
             return result
 
         # check layout
@@ -51,11 +52,11 @@ class QACreator(Agent):
                 result["errors"].append(f"Item {i} missing required keys or has extra keys: {keys}")
             
             # checking that both values are not empty strings
-            if not isinstance(item.get("question"), str) or not item.get("question").strip():
+            if not isinstance(standardized_item.get("question"), str) or not standardized_item.get("question").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Question'.")
             
-            if not isinstance(item.get("answer"), str) or not item.get("answer").strip():
+            if not isinstance(standardized_item.get("answer"), str) or not standardized_item.get("answer").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
 

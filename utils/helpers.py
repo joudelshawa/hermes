@@ -50,7 +50,22 @@ def saveQAPairsAsText(qa_pairs, folder_path):
     with open(folder_path + "QAPairs.json", "w") as file:
         qa_pairs_json = json.loads(qa_pairs) # load json so properly formatting
         json.dump(qa_pairs_json, file, indent=4)
-    
+
+def saveAVPairsAsText(av_pairs, folder_path):
+    with open(folder_path + "AVPairs.json", "w") as file:
+        av_pairs_json = json.loads(av_pairs) # load json so properly formatting
+        json.dump(av_pairs_json, file, indent=4)
+
+def readQuestions(folder_path):
+    with open(folder_path + "QAPairs.json", "r") as file:
+        qa_pairs = json.load(file)
+        questions = []
+        for item in qa_pairs:
+            standardized_item = {k.lower(): v for k, v in item.items()}
+            if "question" in standardized_item:
+                questions.append(standardized_item["question"])
+        return questions
+
 def remove_think(text:str):
     s = text.split("</think>")
     return s[1].strip()

@@ -43,9 +43,10 @@ class HermesAgenticSystem:
     def getQA(self, prompt, context = "") -> tuple[str, str]:
         return self.QACreator.run(prompt=prompt, context=context)
     
-    def getAnswers(self, questions, context = "") -> str:
-        # Have to handle context in this case...
-        return self.AnswerValidator.run(prompt=questions, context=context)
+    def getAnswers(self, questions, report, context = "") -> str:
+        # Have to handle context in this case... maybe like this??:
+        updated_prompt = f"**Unstructured Report:**\n{report}\n\n**Questions:**\n{questions}\n---"
+        return self.AnswerValidator.run(prompt=updated_prompt, context=context)
     
     def validateAnswers(self, ansQA, ansAV):
         # To implement

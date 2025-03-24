@@ -1,0 +1,181 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Urology Service",
+            "color": "#ff7675"
+        },
+        {
+            "id": 3,
+            "label": "Renal Mass",
+            "color": "#00ff00"
+        },
+        {
+            "id": 4,
+            "label": "Dr. ___",
+            "color": "#00ff00"
+        },
+        {
+            "id": 5,
+            "label": "Dr. ___",
+            "color": "#00ff00"
+        },
+        {
+            "id": 6,
+            "label": "MRI",
+            "color": "#ff7675"
+        },
+        {
+            "id": 7,
+            "label": "Renal Cell Carcinoma (RCC)",
+            "color": "#ffffff"
+        },
+        {
+            "id": 8,
+            "label": "Nonspecific Right Axis Deviation",
+            "color": "#ff7675"
+        },
+        {
+            "id": 9,
+            "label": "Cesarean Section",
+            "color": "#00ff00"
+        },
+        {
+            "id": 10,
+            "label": "Lab Results",
+            "color": "#ffffff"
+        },
+        {
+            "id": 11,
+            "label": "Admission",
+            "color": "#ff7675"
+        },
+        {
+            "id": 12,
+            "label": "PACU Transfer",
+            "color": "#00ff00"
+        },
+        {
+            "id": 13,
+            "label": "POD0",
+            "color": "#ffffff"
+        },
+        {
+            "id": 14,
+            "label": "POD1",
+            "color": "#ff7675"
+        },
+        {
+            "id": 15,
+            "label": "POD2",
+            "color": "#00ff00"
+        },
+        {
+            "id": 16,
+            "label": "Follow-Up Appointment",
+            "color": "#ffffff"
+        },
+        {
+            "id": 17,
+            "label": "Medications",
+            "color": "#ff7675"
+        },
+        {
+            "id": 18,
+            "label": "Monitor Symptoms",
+            "color": "#00ff00"
+        },
+        {
+            "id": 19,
+            "label": "Immediate Contact",
+            "color": "#ffffff"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "Admitted to"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "Chief Complaint"
+        },
+        {
+            "from": 4,
+            "to": 3,
+            "label": "Performed by"
+        },
+        {
+            "from": 5,
+            "to": 3,
+            "label": "Performed by"
+        },
+        {
+            "from": 6,
+            "to": 7,
+            "label": "Diagnosed via"
+        },
+        {
+            "from": 7,
+            "to": 3,
+            "label": "Cause of"
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "Has Condition"
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "Previous Surgery"
+        },
+        {
+            "from": 10,
+            "to": 11,
+            "label": "Part of"
+        },
+        {
+            "from": 3,
+            "to": 12,
+            "label": "Resulted in"
+        },
+        {
+            "from": 3,
+            "to": 14,
+            "label": "Followed by"
+        },
+        {
+            "from": 13,
+            "to": 14,
+            "label": "Followed by"
+        },
+        {
+            "from": 14,
+            "to": 15,
+            "label": "Followed by"
+        },
+        {
+            "from": 16,
+            "to": 17,
+            "label": "Includes"
+        },
+        {
+            "from": 16,
+            "to": 18,
+            "label": "Includes"
+        },
+        {
+            "from": 16,
+            "to": 19,
+            "label": "Includes"
+        }
+    ]
+}

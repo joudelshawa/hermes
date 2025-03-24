@@ -3,229 +3,239 @@
         {
             "id": 1,
             "label": "Patient",
-            "color": "#007bff"
+            "color": "#ffffff"
         },
         {
             "id": 2,
-            "label": "Nasal Fracture",
-            "color": "#ff6b6b"
+            "label": "Nasal fracture",
+            "color": "#ff7675"
         },
         {
             "id": 3,
             "label": "Epistaxis",
-            "color": "#ff6b6b"
+            "color": "#ff7675"
         },
         {
             "id": 4,
             "label": "NSTEMI",
-            "color": "#ff6b6b"
+            "color": "#ff7675"
         },
         {
             "id": 5,
-            "label": "Controlled Epistaxis",
-            "color": "#6c757d"
+            "label": "Clopidogrel",
+            "color": "#80bfff"
         },
         {
             "id": 6,
-            "label": "Mild Troponin Elevation",
-            "color": "#6c757d"
+            "label": "Metoprolol Tartrate",
+            "color": "#80bfff"
         },
         {
             "id": 7,
-            "label": "Basilar Hypoxemia",
-            "color": "#6c757d"
+            "label": "Pravastatin",
+            "color": "#80bfff"
         },
         {
             "id": 8,
-            "label": "Consolidation on CXR",
-            "color": "#6c757d"
+            "label": "Acetaminophen",
+            "color": "#80bfff"
         },
         {
             "id": 9,
-            "label": "Blood Aspiration",
-            "color": "#6c757d"
+            "label": "Aspirin",
+            "color": "#80bfff"
         },
         {
             "id": 10,
-            "label": "Acute Kidney Injury (AKI)",
-            "color": "#6c757d"
+            "label": "Atorvastatin",
+            "color": "#80bfff"
         },
         {
             "id": 11,
-            "label": "Creatinine Stabilization",
-            "color": "#6c757d"
+            "label": "Outpatient stress echo",
+            "color": "#98fb98"
         },
         {
             "id": 12,
-            "label": "Peripheral Vascular Disease",
-            "color": "#6c757d"
+            "label": "Repeat echocardiogram",
+            "color": "#98fb98"
         },
         {
             "id": 13,
-            "label": "Clopidogrel",
-            "color": "#4dbd78"
+            "label": "ENT or Plastic Surgery follow-up",
+            "color": "#98fb98"
         },
         {
             "id": 14,
-            "label": "Metoprolol Tartrate",
-            "color": "#4dbd78"
+            "label": "Repeat chest X-ray",
+            "color": "#98fb98"
         },
         {
             "id": 15,
-            "label": "Pravastatin",
-            "color": "#4dbd78"
+            "label": "Monitor CBC",
+            "color": "#98fb98"
         },
         {
             "id": 16,
-            "label": "Acetaminophen",
-            "color": "#4dbd78"
+            "label": "Mild troponin elevation",
+            "color": "#ff7675"
         },
         {
             "id": 17,
-            "label": "Aspirin",
-            "color": "#4dbd78"
+            "label": "Type II MI",
+            "color": "#ff7675"
         },
         {
             "id": 18,
-            "label": "Increased Metoprolol Dose",
-            "color": "#4dbd78"
+            "label": "Basilar hypoxemia",
+            "color": "#ff7675"
         },
         {
             "id": 19,
-            "label": "Atorvastatin",
-            "color": "#4dbd78"
+            "label": "Consolidation on CXR",
+            "color": "#ff7675"
         },
         {
             "id": 20,
-            "label": "Stress Echo",
-            "color": "#f39c12"
+            "label": "Acute kidney injury (AKI)",
+            "color": "#ff7675"
         },
         {
             "id": 21,
-            "label": "Echocardiogram",
-            "color": "#f39c12"
+            "label": "Peripheral vascular disease",
+            "color": "#ff7675"
         },
         {
             "id": 22,
-            "label": "ENT Follow-up",
-            "color": "#f39c12"
+            "label": "Avoid NSAIDs",
+            "color": "#80bfff"
         },
         {
             "id": 23,
-            "label": "Chest X-ray",
-            "color": "#f39c12"
+            "label": "Antiplatelet therapy",
+            "color": "#80bfff"
         },
         {
             "id": 24,
-            "label": "CBC Monitoring",
-            "color": "#f39c12"
+            "label": "Metoprolol succinate",
+            "color": "#80bfff"
         }
     ],
     "edges": [
         {
             "from": 1,
             "to": 2,
-            "label": "has"
+            "label": "has diagnosis"
         },
         {
             "from": 1,
             "to": 3,
-            "label": "has"
+            "label": "has diagnosis"
         },
         {
             "from": 1,
             "to": 4,
-            "label": "has"
+            "label": "has diagnosis"
         },
         {
-            "from": 5,
-            "to": 2,
-            "label": "related to"
+            "from": 1,
+            "to": 5,
+            "label": "treated with"
         },
         {
-            "from": 6,
-            "to": 4,
-            "label": "related to"
+            "from": 1,
+            "to": 6,
+            "label": "treated with"
         },
         {
-            "from": 7,
+            "from": 1,
+            "to": 7,
+            "label": "treated with"
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "treated with"
+        },
+        {
+            "from": 1,
             "to": 9,
-            "label": "due to"
+            "label": "treated with"
         },
         {
-            "from": 8,
-            "to": 9,
-            "label": "due to"
+            "from": 1,
+            "to": 10,
+            "label": "treated with"
         },
         {
-            "from": 10,
+            "from": 1,
             "to": 11,
-            "label": "resulting in"
+            "label": "related to"
         },
         {
-            "from": 12,
-            "to": 4,
+            "from": 1,
+            "to": 12,
             "label": "related to"
         },
         {
             "from": 1,
             "to": 13,
-            "label": "takes"
+            "label": "related to"
         },
         {
             "from": 1,
             "to": 14,
-            "label": "takes"
+            "label": "related to"
         },
         {
             "from": 1,
             "to": 15,
-            "label": "takes"
+            "label": "related to"
         },
         {
             "from": 1,
             "to": 16,
-            "label": "takes"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 17,
-            "label": "takes"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 18,
-            "label": "receives"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 19,
-            "label": "receives"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 20,
-            "label": "scheduled for"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 21,
-            "label": "scheduled for"
+            "label": "has condition"
         },
         {
-            "from": 1,
+            "from": 8,
             "to": 22,
-            "label": "scheduled for"
+            "label": "related to"
         },
         {
-            "from": 1,
+            "from": 9,
             "to": 23,
-            "label": "scheduled for"
+            "label": "related to"
         },
         {
-            "from": 1,
+            "from": 6,
             "to": 24,
-            "label": "scheduled for"
+            "label": "related to"
         }
     ]
 }
