@@ -4,10 +4,10 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 import Hermes
 import os
-from Utils.Helpers import *
+from utils.helpers import *
 
 REPORT_NUM = -1
-PATH_DATA = "Data/"
+PATH_DATA = "data/"
 PATH_EXAMPLE = ""
 
 if __name__ == "__main__":

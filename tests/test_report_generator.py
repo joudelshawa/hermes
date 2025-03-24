@@ -5,9 +5,9 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 import os
 import Hermes
 import json
-from Utils.Helpers import *
+from utils.helpers import *
 
-PATH_DATA = "Data/"
+PATH_DATA = "data/"
 PATH_EXAMPLE = ""
 REPORT_NUM = 2 #change to -1 for going through all the examples
 
