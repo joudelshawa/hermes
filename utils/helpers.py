@@ -2,6 +2,7 @@ import networkx as nx
 import matplotlib.pyplot as plt
 import json
 import re
+from pyvis.network import Network
 
 def saveGraphAsImage(graph_data, folder_path):
     # Create a graph
@@ -29,6 +30,59 @@ def saveGraphAsText(graph_data, folder_path):
     graph_data = json.loads(graph_data)
     with open(folder_path + "KGraph.json", "w") as file:
         json.dump(graph_data, file, indent=4)
+
+def saveGraphAsHTML(graph_data, folder_path):
+    # Initialize the network
+    net = Network(
+        height="750px",
+        width="100%",
+        bgcolor="#222222",  # Dark background for visibility
+        font_color="white",
+        notebook=False
+    )
+
+    # Add nodes with labels and colors
+    for node in graph_data["nodes"]:
+        net.add_node(
+            node["id"],
+            label=node["label"],
+            color=node["color"],
+            font={"color": "black"}  # Text color for visibility
+        )
+
+    # Add edges with labels
+    for edge in graph_data["edges"]:
+        net.add_edge(
+            edge["from"],
+            edge["to"],
+            title=edge["label"],  # Shows on hover
+            label=edge["label"],  # Displayed on the edge
+            color="white"  # Edge color
+        )
+
+    # Configure physics for better layout
+    net.set_options("""
+    {
+    "physics": {
+        "stabilization": {
+        "enabled": true,
+        "iterations": 1000
+        },
+        "solver": "forceAtlas2Based",
+        "forceAtlas2Based": {
+        "gravitationalConstant": -50,
+        "centralGravity": 0.01,
+        "springLength": 100,
+        "springConstant": 0.08,
+        "damping": 0.4,
+        "avoidOverlap": 0.1
+        }
+    }
+    }
+    """)
+
+    # Save and show the graph
+    net.write_html(folder_path + "KGraph.html")
 
 def saveReportAsText(text_data, folder_path):
     with open(folder_path + "structured_report.txt", "w") as file:

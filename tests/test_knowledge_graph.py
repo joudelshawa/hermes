@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print(f"Report Number {REPORT_NUM}:\n\tGenerating knowledge graph...")
         KGraph = hermes.getKnowledgeGraph(structured_report)
         saveGraphAsText(KGraph, PATH_EXAMPLE)
-        saveGraphAsImage(KGraph, PATH_EXAMPLE)
+        saveGraphAsHTML(KGraph, PATH_EXAMPLE)
         print(KGraph)
 
     else:
@@ -31,6 +31,6 @@ if __name__ == "__main__":
             print(f"Report Number {ex}:\n\tGenerating knowledge graph...")
             KGraph = hermes.getKnowledgeGraph(structured_report)
             saveGraphAsText(KGraph, PATH_EXAMPLE)
-            saveGraphAsImage(KGraph, PATH_EXAMPLE)
+            saveGraphAsHTML(KGraph, PATH_EXAMPLE)
 
         
