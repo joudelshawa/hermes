@@ -30,7 +30,7 @@ class Agent:
         response = self.llm_client.chat(
             model=self.llm, 
             messages=self._get_msgs(prompt=prompt, context=context),
-            options={"temperature": 0.2, "top_p": 0.6}
+            options={"temperature": 0.2, "top_p": 0.5}
         )
         return response['message']['content']
     
@@ -44,7 +44,7 @@ class Agent:
         Output:
             (bool, error) - (True, None) if validated else (False, "Error: ...")
         """
-        pass
+        return
     
     def _get_msgs(self, prompt:str, context:str = ""):
         msgs = [
@@ -69,44 +69,3 @@ class Agent:
             }
         )
         return msgs
-    
-    def _remove_think(self, text:str):
-        s = text.split("</think>")
-        return s[1].strip()
-
-
-class ReportCreator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)
-
-    def validateResponse(self, response):
-        # Add logic for response validation
-        # look at super class for information on input output 
-        
-        return 
-    
-    def run(self, prompt, context = ""):
-        # Response generation step
-        response = super().run(prompt, context)
-        
-        # Validation Step
-        # TODO: Add validation logic
-        valdiated_response = response
-
-
-        # Re-run Step if validation fails
-
-
-        return valdiated_response
-
-class KGCreator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)
-    
-class QACreator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)
-    
-class AnswerValidator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)

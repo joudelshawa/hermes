@@ -1,5 +1,5 @@
-from agents import LLMAgent
-from . import CONFIG
+from Agents import *
+# from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
     def __init__(self, config:dict=CONFIG):
@@ -9,28 +9,28 @@ class HermesAgenticSystem:
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
         
-        self.ReportCreator = LLMAgent.ReportCreator(
+        self.ReportCreator = ReportCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_R", 
-            system_prompt = self.CONFIG["Agents"]["Hermes_R"]["SystemPrompt"]
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_R"])
         )
 
-        self.KGraphCreator = LLMAgent.KGCreator(
+        self.KGraphCreator = KGCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_G", 
-            system_prompt = self.CONFIG["Agents"]["Hermes_G"]["SystemPrompt"]
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_G"])
         )
 
-        self.QACreator = LLMAgent.QACreator(
+        self.QACreator = QACreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_Q", 
-            system_prompt = self.CONFIG["Agents"]["Hermes_Q"]["SystemPrompt"]
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_Q"])
         )
 
-        self.AnswerValidator = LLMAgent.AnswerValidator(
+        self.AnswerValidator = AnswerValidator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_A", 
-            system_prompt = self.CONFIG["Agents"]["Hermes_A"]["SystemPrompt"]
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_A"])
         )
 
     def getReport(self, prompt, context = "") -> str:
@@ -51,14 +51,18 @@ class HermesAgenticSystem:
         pass
     
     def completeRun(self, rawNotes) -> tuple[str, str]:
-        report  = self.getReport(rawNotes)
-        kGraph = self.getKnowledgeGraph(report)
+        report  = self.remove_think(self.getReport(rawNotes))
+        kGraph = self.remove_think(self.getKnowledgeGraph(report))
         questions, ansQA = self.getQA(kGraph)
-        ansAV = self.getAnswers(questions, rawNotes)
+        ansAV = self.remove_think(self.getAnswers(questions, rawNotes))
         # 
         self.validateAnswers(ansQA=ansQA, ansAV=ansAV)
 
 
         return kGraph, report
+    
+    def remove_think(self, text:str):
+        s = text.split("</think>")
+        return s[1].strip()
 
     # All Agents should have their own class if they differ in output types and input types
