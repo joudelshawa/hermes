@@ -40,8 +40,8 @@ class HermesAgenticSystem:
     def getKnowledgeGraph(self, prompt, context = "") -> str:
         return self.KGraphCreator.run(prompt=prompt, context=context)
 
-    def getQA(self, kGraph, context = "") -> tuple[str, str]:
-        return self.QACreator.run(prompt=kGraph, context=context)
+    def getQA(self, prompt, context = "") -> tuple[str, str]:
+        return self.QACreator.run(prompt=prompt, context=context)
     
     def getAnswers(self, questions, context = "") -> str:
         # Have to handle context in this case...

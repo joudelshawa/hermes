@@ -45,6 +45,11 @@ def readUnstructuredReport(folder_path):
 def readKGraph(folder_path):
     with open(folder_path + "KGraph.json", "r") as file:
         return json.load(file)
+
+def saveQAPairsAsText(qa_pairs, folder_path):
+    with open(folder_path + "QAPairs.json", "w") as file:
+        qa_pairs_json = json.loads(qa_pairs) # load json so properly formatting
+        json.dump(qa_pairs_json, file, indent=4)
     
 def remove_think(text:str):
     s = text.split("</think>")

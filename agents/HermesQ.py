@@ -1,4 +1,7 @@
-from Agents.LLMAgent import Agent
+from agents.LLMAgent import Agent
+import json
+import re
+from utils.helpers import remove_think
 
 class QACreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
@@ -58,6 +61,8 @@ class QACreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
+        prompt_dict = prompt
+        prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
         prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n"
         qa_pairs = super().run(prompt, context)
         validation = self.validateResponse(remove_think(qa_pairs))

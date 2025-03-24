@@ -1,5 +1,5 @@
 {
-    "LLM": "deepseek-r1:14b",
+    "LLM": "deepseek-r1:32b",
     "Agents":{
 
         "Hermes_R": "agents/prompts/Hermes-R.txt",
