@@ -4,7 +4,7 @@
         "Answer": "Yes"
     },
     {
-        "Question": "Was the patient diagnosed with acute muscular hematoma?",
+        "Question": "Is there a factor VIII deficiency?",
         "Answer": "Yes"
     },
     {
@@ -12,31 +12,27 @@
         "Answer": "Yes"
     },
     {
-        "Question": "Was IV DDAVP used as a treatment?",
+        "Question": "Is IV DDAVP used for treatment?",
         "Answer": "Yes"
     },
     {
-        "Question": "Was acetaminophen prescribed to the patient?",
+        "Question": "Is acetaminophen prescribed?",
         "Answer": "Yes"
     },
     {
-        "Question": "Was desmopressin nasal spray administered?",
+        "Question": "Is desmopressin nasal spray used?",
         "Answer": "Yes"
     },
     {
-        "Question": "Was a CBC performed on March 15, 2023?",
+        "Question": "Was a CBC test conducted on 3/15/2023?",
         "Answer": "Yes"
     },
     {
-        "Question": "Is Mrs._ the emergency contact for the patient?",
+        "Question": "Is follow-up with Dr._ scheduled for 3/20/2023?",
         "Answer": "Yes"
     },
     {
-        "Question": "Was the patient advised to avoid high-risk activities?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Does the patient have a follow-up appointment with Dr._ on March 20, 2023?",
+        "Question": "Is the patient advised to avoid high-risk activities?",
         "Answer": "Yes"
     }
 ]

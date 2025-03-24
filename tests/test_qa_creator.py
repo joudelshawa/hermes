@@ -9,7 +9,7 @@ from utils.helpers import *
 
 PATH_DATA = "data/"
 PATH_EXAMPLE = ""
-REPORT_NUM = 1 #change to -1 for going through all the examples
+REPORT_NUM = 2 #change to -1 for going through all the examples
 
 if __name__ == "__main__":
     hermes = Hermes.HermesAgenticSystem()

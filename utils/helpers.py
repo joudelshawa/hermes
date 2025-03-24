@@ -66,6 +66,10 @@ def readQuestions(folder_path):
                 questions.append(standardized_item["question"])
         return questions
 
+def readPairs(pair_type, folder_path):
+    with open(folder_path + f"{pair_type.upper()}Pairs.json", "r") as file:
+        return json.load(file)
+
 def remove_think(text:str):
     s = text.split("</think>")
     return s[1].strip()
