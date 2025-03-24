@@ -1,7 +1,7 @@
 from Agents.LLMAgent import Agent
 import json
 import re
-from Utils.Helpers import remove_think, extract_json_from_string
+from utils.helpers import remove_think, extract_json_from_string
 
 class KGCreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
