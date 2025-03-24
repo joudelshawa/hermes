@@ -1,0 +1,54 @@
+[
+    {
+        "question": "Does the patient have a nasal fracture?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Does the patient have epistaxis?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Does the patient have NSTEMI?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient taking Clopidogrel?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient taking Metoprolol Tartrate?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient taking Pravastatin?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient taking Acetaminophen?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient taking Aspirin?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient scheduled for a Stress Echo?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient scheduled for an Echocardiogram?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient scheduled for ENT Follow-up?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient scheduled for a Chest X-ray?",
+        "answer": "Yes"
+    },
+    {
+        "question": "Is the patient scheduled for CBC Monitoring?",
+        "answer": "Yes"
+    }
+]

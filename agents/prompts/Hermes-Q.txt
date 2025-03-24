@@ -13,7 +13,7 @@ Answers should strictly be one word only (e.g., “Yes,” “No,” “Positive
 The content must comply with medical standards and privacy guidelines.
 --
 **Output Format:**
-Provide a list of question-answer pairs in a structured format (JSON array) as follows:
+Provide a list of question-answer pairs in a JSON array as follows:
 
 { "Question": <text>, 
 "Answer": <one-word answer>},

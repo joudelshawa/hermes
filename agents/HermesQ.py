@@ -44,17 +44,18 @@ class QACreator(Agent):
                 result["errors"].append(f"item at index {i} is not a dictionary.")
                 continue
 
-            keys = set(item.keys())
-            if keys != {"Question", "Answer"}:
+            standardized_item = {k.lower(): v for k, v in item.items()} # setting to lowercase so it's fine if they say Question vs question
+            keys = set(standardized_item.keys())
+            if keys != {"question", "answer"}:
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} missing required keys or has extra keys: {keys}")
             
             # checking that both values are not empty strings
-            if not isinstance(item.get("Question"), str) or not item.get("Question").strip():
+            if not isinstance(item.get("question"), str) or not item.get("question").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Question'.")
             
-            if not isinstance(item.get("Answer"), str) or not item.get("Answer").strip():
+            if not isinstance(item.get("answer"), str) or not item.get("answer").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
 
@@ -74,7 +75,7 @@ class QACreator(Agent):
             else:
                 print("\tERROR BY: HermesQ")
                 print(f"\t|---> {validation['errors']}")
-                print(f"\t|---> OUTPUT: {qa_pairs}")
+                print(f"\t|---> OUTPUT: {remove_think(qa_pairs)}")
                 print("\t|---> Trying again...")
                 context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
                 qa_pairs = super().run(prompt, context)
