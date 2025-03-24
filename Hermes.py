@@ -1,4 +1,5 @@
 from Agents import *
+from Utils.Helpers import remove_think
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
@@ -51,18 +52,16 @@ class HermesAgenticSystem:
         pass
     
     def completeRun(self, rawNotes) -> tuple[str, str]:
-        report  = self.remove_think(self.getReport(rawNotes))
-        kGraph = self.remove_think(self.getKnowledgeGraph(report))
+        report  = remove_think(self.getReport(rawNotes))
+        kGraph = remove_think(self.getKnowledgeGraph(report))
         questions, ansQA = self.getQA(kGraph)
-        ansAV = self.remove_think(self.getAnswers(questions, rawNotes))
+        ansAV = remove_think(self.getAnswers(questions, rawNotes))
         # 
         self.validateAnswers(ansQA=ansQA, ansAV=ansAV)
 
 
         return kGraph, report
     
-    def remove_think(self, text:str):
-        s = text.split("</think>")
-        return s[1].strip()
+    
 
     # All Agents should have their own class if they differ in output types and input types

@@ -1,5 +1,6 @@
 from Agents.LLMAgent import Agent
 import json
+from Utils.Helpers import remove_think, extract_json_from_string
 
 class KGCreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
@@ -59,18 +60,19 @@ class KGCreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:"
+        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n```json\n"
         graph = super().run(prompt, context)
-        validation = self.validateResponse(graph)
+        json_data = extract_json_from_string(remove_think(graph))
+        print(json_data)
+        validation = self.validateResponse(json_data)
         max_iter = 2
         while(max_iter > 0):
             if(validation["is_valid"]):
-                return graph
+                return json_data
             else:
                 print("ERROR BY: HermesG")
-                print(f"{validation["errors"]}")
+                print(validation["errors"])
                 print("Trying again...")
-                prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:"
                 context = f"**WARNING**\nYour previous response had these errors -\n{validation['errors']}\nDo not repeat these errors"
                 graph = super().run(prompt, context)
                 validation = self.validateResponse(graph)

@@ -1,0 +1,126 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Mr._",
+            "color": "#87CEEB"
+        },
+        {
+            "id": 2,
+            "label": "Acute muscular hematoma (right flank)",
+            "color": "#FF6B6B"
+        },
+        {
+            "id": 3,
+            "label": "Hemophilia (Factor VIII deficiency)",
+            "color": "#FF6B6B"
+        },
+        {
+            "id": 4,
+            "label": "Snowboarding accident",
+            "color": "#FCD1D1"
+        },
+        {
+            "id": 5,
+            "label": "IV DDAVP",
+            "color": "#98FB98"
+        },
+        {
+            "id": 6,
+            "label": "Dr._",
+            "color": "#87CEEB"
+        },
+        {
+            "id": 7,
+            "label": "CBC on 3/15/2023",
+            "color": "#F4A460"
+        },
+        {
+            "id": 8,
+            "label": "Mrs._",
+            "color": "#87CEEB"
+        },
+        {
+            "id": 9,
+            "label": "Acetaminophen",
+            "color": "#98FB98"
+        },
+        {
+            "id": 10,
+            "label": "Desmopressin nasal spray",
+            "color": "#98FB98"
+        },
+        {
+            "id": 11,
+            "label": "[Lab Site]",
+            "color": "#F4A460"
+        },
+        {
+            "id": 12,
+            "label": "Avoid high-risk activities",
+            "color": "#FFD700"
+        },
+        {
+            "id": 13,
+            "label": "Follow up with Dr._ on 3/20/2023",
+            "color": "#F4A460"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "diagnosed_with"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "diagnosed_with"
+        },
+        {
+            "from": 4,
+            "to": 1,
+            "label": "caused_by"
+        },
+        {
+            "from": 3,
+            "to": 5,
+            "label": "treated_with"
+        },
+        {
+            "from": 6,
+            "to": 1,
+            "label": "primary_care_provider"
+        },
+        {
+            "from": 7,
+            "to": 1,
+            "label": "tested"
+        },
+        {
+            "from": 8,
+            "to": 1,
+            "label": "emergency_contact"
+        },
+        {
+            "from": 9,
+            "to": 1,
+            "label": "treated_with"
+        },
+        {
+            "from": 10,
+            "to": 1,
+            "label": "treated_with"
+        },
+        {
+            "from": 12,
+            "to": 1,
+            "label": "advised_to"
+        },
+        {
+            "from": 13,
+            "to": 1,
+            "label": "scheduled_for"
+        }
+    ]
+}

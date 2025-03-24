@@ -1,0 +1,231 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#007bff"
+        },
+        {
+            "id": 2,
+            "label": "Nasal Fracture",
+            "color": "#ff6b6b"
+        },
+        {
+            "id": 3,
+            "label": "Epistaxis",
+            "color": "#ff6b6b"
+        },
+        {
+            "id": 4,
+            "label": "NSTEMI",
+            "color": "#ff6b6b"
+        },
+        {
+            "id": 5,
+            "label": "Controlled Epistaxis",
+            "color": "#6c757d"
+        },
+        {
+            "id": 6,
+            "label": "Mild Troponin Elevation",
+            "color": "#6c757d"
+        },
+        {
+            "id": 7,
+            "label": "Basilar Hypoxemia",
+            "color": "#6c757d"
+        },
+        {
+            "id": 8,
+            "label": "Consolidation on CXR",
+            "color": "#6c757d"
+        },
+        {
+            "id": 9,
+            "label": "Blood Aspiration",
+            "color": "#6c757d"
+        },
+        {
+            "id": 10,
+            "label": "Acute Kidney Injury (AKI)",
+            "color": "#6c757d"
+        },
+        {
+            "id": 11,
+            "label": "Creatinine Stabilization",
+            "color": "#6c757d"
+        },
+        {
+            "id": 12,
+            "label": "Peripheral Vascular Disease",
+            "color": "#6c757d"
+        },
+        {
+            "id": 13,
+            "label": "Clopidogrel",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 14,
+            "label": "Metoprolol Tartrate",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 15,
+            "label": "Pravastatin",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 16,
+            "label": "Acetaminophen",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 17,
+            "label": "Aspirin",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 18,
+            "label": "Increased Metoprolol Dose",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 19,
+            "label": "Atorvastatin",
+            "color": "#4dbd78"
+        },
+        {
+            "id": 20,
+            "label": "Stress Echo",
+            "color": "#f39c12"
+        },
+        {
+            "id": 21,
+            "label": "Echocardiogram",
+            "color": "#f39c12"
+        },
+        {
+            "id": 22,
+            "label": "ENT Follow-up",
+            "color": "#f39c12"
+        },
+        {
+            "id": 23,
+            "label": "Chest X-ray",
+            "color": "#f39c12"
+        },
+        {
+            "id": 24,
+            "label": "CBC Monitoring",
+            "color": "#f39c12"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has"
+        },
+        {
+            "from": 5,
+            "to": 2,
+            "label": "related to"
+        },
+        {
+            "from": 6,
+            "to": 4,
+            "label": "related to"
+        },
+        {
+            "from": 7,
+            "to": 9,
+            "label": "due to"
+        },
+        {
+            "from": 8,
+            "to": 9,
+            "label": "due to"
+        },
+        {
+            "from": 10,
+            "to": 11,
+            "label": "resulting in"
+        },
+        {
+            "from": 12,
+            "to": 4,
+            "label": "related to"
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "takes"
+        },
+        {
+            "from": 1,
+            "to": 14,
+            "label": "takes"
+        },
+        {
+            "from": 1,
+            "to": 15,
+            "label": "takes"
+        },
+        {
+            "from": 1,
+            "to": 16,
+            "label": "takes"
+        },
+        {
+            "from": 1,
+            "to": 17,
+            "label": "takes"
+        },
+        {
+            "from": 1,
+            "to": 18,
+            "label": "receives"
+        },
+        {
+            "from": 1,
+            "to": 19,
+            "label": "receives"
+        },
+        {
+            "from": 1,
+            "to": 20,
+            "label": "scheduled for"
+        },
+        {
+            "from": 1,
+            "to": 21,
+            "label": "scheduled for"
+        },
+        {
+            "from": 1,
+            "to": 22,
+            "label": "scheduled for"
+        },
+        {
+            "from": 1,
+            "to": 23,
+            "label": "scheduled for"
+        },
+        {
+            "from": 1,
+            "to": 24,
+            "label": "scheduled for"
+        }
+    ]
+}

@@ -6,7 +6,7 @@ import Hermes
 import os
 from Utils.Helpers import *
 
-REPORT_NUM = 2
+REPORT_NUM = -1
 PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 
@@ -16,6 +16,7 @@ if __name__ == "__main__":
     if (REPORT_NUM != -1):
         PATH_EXAMPLE = PATH_DATA + str(REPORT_NUM) + "/"
         structured_report = readStructuredReport(PATH_EXAMPLE)
+        print("Generating knowledge graph...")
         KGraph = hermes.getKnowledgeGraph(structured_report)
         saveGraphAsText(KGraph, PATH_EXAMPLE)
         saveGraphAsImage(KGraph, PATH_EXAMPLE)
@@ -23,9 +24,10 @@ if __name__ == "__main__":
 
     else:
         examples = os.listdir(PATH_DATA)
-        for ex in examples:
+        for ex in examples[:-1]:
             PATH_EXAMPLE = PATH_DATA + ex + "/"
             structured_report = readStructuredReport(PATH_EXAMPLE)
+            print(f"Generating knowledge graph for {ex}...")
             KGraph = hermes.getKnowledgeGraph(structured_report)
             saveGraphAsText(KGraph, PATH_EXAMPLE)
             saveGraphAsImage(KGraph, PATH_EXAMPLE)
