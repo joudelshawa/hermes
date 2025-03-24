@@ -1,7 +1,7 @@
-from agents.LLMAgent import Agent
+from Agents.LLMAgent import Agent
 import json
 import re
-from utils.helpers import remove_think
+from Utils.Helpers import remove_think
 
 class QACreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):

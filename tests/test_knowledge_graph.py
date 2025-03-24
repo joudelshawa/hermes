@@ -4,7 +4,7 @@ sys.path.append(os.path.dirname(os.path.dirname(__file__)))
 
 import Hermes
 import os
-from utils.helpers import *
+from Utils.Helpers import *
 
 REPORT_NUM = 1
 PATH_DATA = "data/"
