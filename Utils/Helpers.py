@@ -49,13 +49,3 @@ def readKGraph(folder_path):
 def remove_think(text:str):
     s = text.split("</think>")
     return s[1].strip()
-
-def extract_json_from_string(text):
-    pattern = r'```json\s*(\{.*?\}|\[.*?\])\s*```'  # Matches JSON object {} or array []
-    match = re.search(pattern, text, re.DOTALL)
-   
-    if match:
-        json_content = match.group(1)
-        return json_content
-    print(text)
-    return None

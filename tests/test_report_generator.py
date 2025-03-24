@@ -18,7 +18,7 @@ if __name__ == "__main__":
         PATH_EXAMPLE = PATH_DATA + str(REPORT_NUM) + "/"
         unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
         report = hermes.getReport(unstructured_report)
-        saveReportAsText(hermes.remove_think(report))
+        saveReportAsText(remove_think(report))
         
     else:
         examples = os.listdir(PATH_DATA)
@@ -26,7 +26,7 @@ if __name__ == "__main__":
             PATH_EXAMPLE = PATH_DATA + ex + "/"
             unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
             report = hermes.getReport(unstructured_report)
-            saveReportAsText(hermes.remove_think(report))
+            saveReportAsText(remove_think(report))
            
 
     

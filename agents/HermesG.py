@@ -1,5 +1,6 @@
 from Agents.LLMAgent import Agent
 import json
+import re
 from Utils.Helpers import remove_think, extract_json_from_string
 
 class KGCreator(Agent):
@@ -12,11 +13,21 @@ class KGCreator(Agent):
         Validate LLM agent output against required graph structure
         Returns dict with 'is_valid' boolean and 'errors' list
         """
-        result = {"is_valid": True, "errors": []}
-        
-        try:
-            data = json.loads(response)
-        except json.JSONDecodeError:
+        result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
+
+        pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
+        match = re.search(pattern, response, re.DOTALL)
+
+        if match:
+            json_content = match.group(1)
+            try:
+                data = json.loads(json_content)
+                result["extracted_response"] = json_content
+            except json.JSONDecodeError:
+                result["is_valid"] = False
+                result["errors"].append("Invalid JSON format")
+                return result
+        else:
             result["is_valid"] = False
             result["errors"].append("Invalid JSON format")
             return result
@@ -60,24 +71,26 @@ class KGCreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n```json\n"
+        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n"
         graph = super().run(prompt, context)
-        json_data = extract_json_from_string(remove_think(graph))
-        print(json_data)
-        validation = self.validateResponse(json_data)
+        validation = self.validateResponse(remove_think(graph))
         max_iter = 2
         while(max_iter > 0):
             if(validation["is_valid"]):
-                return json_data
+                print("\tSuccessfully Generated Knowledge Graph!")
+                return validation["extracted_response"]
             else:
-                print("ERROR BY: HermesG")
-                print(validation["errors"])
-                print("Trying again...")
-                context = f"**WARNING**\nYour previous response had these errors -\n{validation['errors']}\nDo not repeat these errors"
+                print("\tERROR BY: HermesG")
+                print(f"\t|---> {validation['errors']}")
+                print(f"\t|---> OUTPUT: {graph}")
+                print("\t|---> Trying again...")
+                context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
                 graph = super().run(prompt, context)
                 validation = self.validateResponse(graph)
             max_iter-=1
         
-        print("KG ERROR!")
+        print("="*50)
+        print("KG GENERATION ERROR!!\nExiting....")
+        print("="*50)
         exit()
     
