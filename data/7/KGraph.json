@@ -1,0 +1,111 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Symptoms: Dysphagia",
+            "color": "#ff7675"
+        },
+        {
+            "id": 3,
+            "label": "Symptoms: Foreign Body Sensation",
+            "color": "#ff7675"
+        },
+        {
+            "id": 4,
+            "label": "Past Medical History: GERD",
+            "color": "#80bfff"
+        },
+        {
+            "id": 5,
+            "label": "Allergy: Omeprazole",
+            "color": "#80bfff"
+        },
+        {
+            "id": 6,
+            "label": "Procedure: Chest X-ray",
+            "color": "#80bfff"
+        },
+        {
+            "id": 7,
+            "label": "Procedure: Upper Endoscopy",
+            "color": "#80bfff"
+        },
+        {
+            "id": 8,
+            "label": "Biopsy: Eosinophilic Esophagitis",
+            "color": "#80bfff"
+        },
+        {
+            "id": 9,
+            "label": "Diagnosis: Dysphagia/Foreign Body Sensation",
+            "color": "#80bfff"
+        },
+        {
+            "id": 10,
+            "label": "Medication: Omeprazole",
+            "color": "#80bfff"
+        },
+        {
+            "id": 11,
+            "label": "Discharge Instructions",
+            "color": "#80bfff"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has symptom"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has symptom"
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has past medical history"
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "has allergy"
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "underwent procedure"
+        },
+        {
+            "from": 1,
+            "to": 7,
+            "label": "underwent procedure"
+        },
+        {
+            "from": 7,
+            "to": 8,
+            "label": "resulted in biopsy for"
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "diagnosed with"
+        },
+        {
+            "from": 1,
+            "to": 10,
+            "label": "prescribed medication"
+        },
+        {
+            "from": 1,
+            "to": 11,
+            "label": "received discharge instructions"
+        }
+    ]
+}

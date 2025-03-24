@@ -2,230 +2,225 @@
     "nodes": [
         {
             "id": 1,
-            "label": "HCV Cirrhosis",
-            "color": "#ffd8b0"
+            "label": "Patient",
+            "color": "#ffffff"
         },
         {
             "id": 2,
-            "label": "HIV",
-            "color": "#93c5ff"
+            "label": "HCV Cirrhosis",
+            "color": "#ff7675"
         },
         {
             "id": 3,
-            "label": "COPD",
-            "color": "#ffbf6a"
+            "label": "Ascites",
+            "color": "#4ecdc4"
         },
         {
             "id": 4,
-            "label": "Bipolar Disorder",
-            "color": "#91d7ea"
+            "label": "Portal Hypertension",
+            "color": "#4ecdc4"
         },
         {
             "id": 5,
-            "label": "PTSD",
-            "color": "#e8c3ff"
+            "label": "Diuretics",
+            "color": "#ff7675"
         },
         {
             "id": 6,
-            "label": "Abdominal Distension",
-            "color": "#ffd4a9"
+            "label": "Paracentesis",
+            "color": "#4ecdc4"
         },
         {
             "id": 7,
-            "label": "Confusion",
-            "color": "#dce7f1"
+            "label": "Non-Compliance",
+            "color": "#ff7675"
         },
         {
             "id": 8,
-            "label": "Ascites",
-            "color": "#b3e0ff"
+            "label": "Symptom Relief",
+            "color": "#4ecdc4"
         },
         {
             "id": 9,
-            "label": "Portal Hypertension",
-            "color": "#c4d6ff"
+            "label": "Furosemide",
+            "color": "#ff7675"
         },
         {
             "id": 10,
-            "label": "Nodular Liver",
-            "color": "#ffd8b0"
+            "label": "Spironolactone",
+            "color": "#ff7675"
         },
         {
             "id": 11,
-            "label": "Splenomegaly",
-            "color": "#ff9a9e"
+            "label": "Potassium Monitoring",
+            "color": "#4ecdc4"
         },
         {
             "id": 12,
-            "label": "Cholelithiasis",
-            "color": "#ffd8b0"
+            "label": "Low Sodium Diet",
+            "color": "#4ecdc4"
         },
         {
             "id": 13,
-            "label": "Patent Portal Veins",
-            "color": "#c4d6ff"
+            "label": "Medication Adherence",
+            "color": "#4ecdc4"
         },
         {
             "id": 14,
-            "label": "Furosemide",
-            "color": "#93c5ff"
+            "label": "HIV on ART",
+            "color": "#ff7675"
         },
         {
             "id": 15,
-            "label": "Spironolactone",
-            "color": "#93c5ff"
+            "label": "COPD",
+            "color": "#ff7675"
         },
         {
             "id": 16,
-            "label": "Paracentesis",
-            "color": "#ffd8b0"
+            "label": "Bipolar Disorder",
+            "color": "#ff7675"
         },
         {
             "id": 17,
-            "label": "Low Sodium Diet",
-            "color": "#e8c3ff"
+            "label": "PTSD",
+            "color": "#ff7675"
         },
         {
             "id": 18,
-            "label": "Medication Adherence",
-            "color": "#dce7f1"
+            "label": "Abdominal Distension",
+            "color": "#4ecdc4"
         },
         {
             "id": 19,
-            "label": "EGD",
-            "color": "#ffd8b0"
+            "label": "Confusion",
+            "color": "#4ecdc4"
         },
         {
             "id": 20,
-            "label": "Colonoscopy",
-            "color": "#ffd8b0"
+            "label": "Transient Causes",
+            "color": "#ff7675"
         },
         {
             "id": 21,
-            "label": "Non-Compliance",
-            "color": "#ff9a9e"
+            "label": "Hepatic Encephalopathy",
+            "color": "#ff7675"
         },
         {
             "id": 22,
-            "label": "Potassium Levels",
-            "color": "#dce7f1"
-        },
-        {
-            "id": 23,
-            "label": "Education",
-            "color": "#e8c3ff"
-        },
-        {
-            "id": 24,
-            "label": "Monitoring",
-            "color": "#dce7f1"
+            "label": "Diuretic Effects",
+            "color": "#ff7675"
         }
     ],
     "edges": [
         {
             "from": 1,
+            "to": 2,
+            "label": "has condition"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "presented with"
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has condition"
+        },
+        {
+            "from": 2,
+            "to": 3,
+            "label": "causes"
+        },
+        {
+            "from": 4,
+            "to": 3,
+            "label": "leads to"
+        },
+        {
+            "from": 5,
             "to": 8,
-            "label": "cause_of"
+            "label": "results in"
         },
         {
             "from": 6,
-            "to": 2,
-            "label": "symptom_of"
+            "to": 8,
+            "label": "results in"
         },
         {
             "from": 7,
-            "to": 2,
-            "label": "symptom_of"
-        },
-        {
-            "from": 8,
-            "to": 1,
-            "label": "condition_related_to"
+            "to": 3,
+            "label": "contributes to"
         },
         {
             "from": 9,
-            "to": 1,
-            "label": "complication_of"
+            "to": 5,
+            "label": "is a type of"
         },
         {
             "from": 10,
-            "to": 1,
-            "label": "finding_in"
+            "to": 5,
+            "label": "is a type of"
         },
         {
             "from": 11,
-            "to": 1,
-            "label": "finding_in"
+            "to": 9,
+            "label": "monitors"
         },
         {
             "from": 12,
             "to": 1,
-            "label": "finding_in"
+            "label": "recommended for"
         },
         {
             "from": 13,
             "to": 1,
-            "label": "finding_in"
+            "label": "recommended for"
         },
         {
             "from": 14,
-            "to": 8,
-            "label": "treatment_for"
+            "to": 1,
+            "label": "has condition"
         },
         {
             "from": 15,
-            "to": 8,
-            "label": "treatment_for"
+            "to": 1,
+            "label": "has condition"
         },
         {
             "from": 16,
-            "to": 8,
-            "label": "procedure_related_to"
+            "to": 1,
+            "label": "has condition"
         },
         {
             "from": 17,
-            "to": 8,
-            "label": "management_strategy"
+            "to": 1,
+            "label": "has condition"
         },
         {
             "from": 18,
-            "to": 8,
-            "label": "management_strategy"
+            "to": 1,
+            "label": "presented with"
         },
         {
             "from": 19,
-            "to": 4,
-            "label": "procedure_related_to"
+            "to": 1,
+            "label": "presented with"
         },
         {
             "from": 20,
-            "to": 4,
-            "label": "procedure_related_to"
+            "to": 19,
+            "label": "possible cause of"
         },
         {
             "from": 21,
-            "to": 8,
-            "label": "contributing_factor"
-        },
-        {
-            "from": 21,
-            "to": 2,
-            "label": "contributing_factor"
+            "to": 19,
+            "label": "possible cause of"
         },
         {
             "from": 22,
-            "to": 15,
-            "label": "monitoring_parameter"
-        },
-        {
-            "from": 23,
-            "to": 8,
-            "label": "future_management_strategy"
-        },
-        {
-            "from": 24,
-            "to": 8,
-            "label": "future_management_strategy"
+            "to": 19,
+            "label": "possible cause of"
         }
     ]
 }

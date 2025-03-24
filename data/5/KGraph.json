@@ -1,0 +1,126 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Lewy Body Dementia",
+            "color": "#ff7675"
+        },
+        {
+            "id": 2,
+            "label": "Dyslipidemia",
+            "color": "#ff7675"
+        },
+        {
+            "id": 3,
+            "label": "Prostate Cancer (Post-Prostatectomy)",
+            "color": "#ff7675"
+        },
+        {
+            "id": 4,
+            "label": "Worsening Gait",
+            "color": "#ff7675"
+        },
+        {
+            "id": 5,
+            "label": "Falls",
+            "color": "#ff7675"
+        },
+        {
+            "id": 6,
+            "label": "Visual Hallucinations",
+            "color": "#ff7675"
+        },
+        {
+            "id": 7,
+            "label": "Quetiapine Fumarate",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 8,
+            "label": "Loratadine",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 9,
+            "label": "Pramipexole",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 10,
+            "label": "Pravastatin",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 11,
+            "label": "Rasagiline",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 12,
+            "label": "Rivastigmine",
+            "color": "#4ecdc4"
+        },
+        {
+            "id": 13,
+            "label": "Treatment Plan",
+            "color": "#4ecdc4"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 4,
+            "label": "associated_with"
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "associated_with"
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "associated_with"
+        },
+        {
+            "from": 7,
+            "to": 6,
+            "label": "used_for"
+        },
+        {
+            "from": 12,
+            "to": 1,
+            "label": "used_for"
+        },
+        {
+            "from": 7,
+            "to": 13,
+            "label": "included_in"
+        },
+        {
+            "from": 8,
+            "to": 13,
+            "label": "included_in"
+        },
+        {
+            "from": 9,
+            "to": 13,
+            "label": "included_in"
+        },
+        {
+            "from": 10,
+            "to": 13,
+            "label": "included_in"
+        },
+        {
+            "from": 11,
+            "to": 13,
+            "label": "included_in"
+        },
+        {
+            "from": 12,
+            "to": 13,
+            "label": "included_in"
+        }
+    ]
+}

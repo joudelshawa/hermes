@@ -2,125 +2,105 @@
     "nodes": [
         {
             "id": 1,
-            "label": "Mr._",
-            "color": "#87CEEB"
+            "label": "Mr.___",
+            "color": "#ffffff"
         },
         {
             "id": 2,
-            "label": "Acute muscular hematoma (right flank)",
-            "color": "#FF6B6B"
+            "label": "Hematoma (right flank)",
+            "color": "#ff7675"
         },
         {
             "id": 3,
             "label": "Hemophilia (Factor VIII deficiency)",
-            "color": "#FF6B6B"
+            "color": "#ffffff"
         },
         {
             "id": 4,
-            "label": "Snowboarding accident",
-            "color": "#FCD1D1"
+            "label": "DDAVP",
+            "color": "#ff7675"
         },
         {
             "id": 5,
-            "label": "IV DDAVP",
-            "color": "#98FB98"
+            "label": "CBC test",
+            "color": "#ffffff"
         },
         {
             "id": 6,
-            "label": "Dr._",
-            "color": "#87CEEB"
+            "label": "Acetaminophen",
+            "color": "#ff7675"
         },
         {
             "id": 7,
-            "label": "CBC on 3/15/2023",
-            "color": "#F4A460"
+            "label": "Desmopressin",
+            "color": "#ffffff"
         },
         {
             "id": 8,
-            "label": "Mrs._",
-            "color": "#87CEEB"
+            "label": "Lab Site",
+            "color": "#ff7675"
         },
         {
             "id": 9,
-            "label": "Acetaminophen",
-            "color": "#98FB98"
+            "label": "Dr.___ (PCP)",
+            "color": "#ffffff"
         },
         {
             "id": 10,
-            "label": "Desmopressin nasal spray",
-            "color": "#98FB98"
-        },
-        {
-            "id": 11,
-            "label": "[Lab Site]",
-            "color": "#F4A460"
-        },
-        {
-            "id": 12,
-            "label": "Avoid high-risk activities",
-            "color": "#FFD700"
-        },
-        {
-            "id": 13,
-            "label": "Follow up with Dr._ on 3/20/2023",
-            "color": "#F4A460"
+            "label": "Mrs.___ (Emergency Contact)",
+            "color": "#ff7675"
         }
     ],
     "edges": [
         {
             "from": 1,
             "to": 2,
-            "label": "diagnosed_with"
+            "label": "has condition"
         },
         {
             "from": 1,
             "to": 3,
-            "label": "diagnosed_with"
+            "label": "has condition"
+        },
+        {
+            "from": 3,
+            "to": 2,
+            "label": "caused by"
         },
         {
             "from": 4,
             "to": 1,
-            "label": "caused_by"
+            "label": "treated with"
         },
         {
-            "from": 3,
-            "to": 5,
-            "label": "treated_with"
+            "from": 5,
+            "to": 1,
+            "label": "test result for"
         },
         {
             "from": 6,
             "to": 1,
-            "label": "primary_care_provider"
+            "label": "prescribed to"
         },
         {
             "from": 7,
             "to": 1,
-            "label": "tested"
+            "label": "prescribed to"
         },
         {
             "from": 8,
-            "to": 1,
-            "label": "emergency_contact"
+            "to": 5,
+            "label": "location of test"
         },
         {
             "from": 9,
             "to": 1,
-            "label": "treated_with"
+            "label": "PCP for"
         },
         {
             "from": 10,
             "to": 1,
-            "label": "treated_with"
-        },
-        {
-            "from": 12,
-            "to": 1,
-            "label": "advised_to"
-        },
-        {
-            "from": 13,
-            "to": 1,
-            "label": "scheduled_for"
+            "label": "emergency contact for"
         }
     ]
 }

@@ -1,0 +1,131 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Diuretic-refractory ascites",
+            "color": "#ff7675"
+        },
+        {
+            "id": 3,
+            "label": "HCV Cirrhosis (MELD score 10, Child Class B)",
+            "color": "#ffffff"
+        },
+        {
+            "id": 4,
+            "label": "HIV (CD4 count 173, on HAART with Truvada and Isentress)",
+            "color": "#ff7675"
+        },
+        {
+            "id": 5,
+            "label": "Hyponatremia",
+            "color": "#ffffff"
+        },
+        {
+            "id": 6,
+            "label": "COPD (stable, managed with inhalers)",
+            "color": "#ff7675"
+        },
+        {
+            "id": 7,
+            "label": "Therapeutic paracentesis",
+            "color": "#ffffff"
+        },
+        {
+            "id": 8,
+            "label": "Spironolactone (discontinued)",
+            "color": "#ff7675"
+        },
+        {
+            "id": 9,
+            "label": "Furosemide (40 mg daily)",
+            "color": "#ffffff"
+        },
+        {
+            "id": 10,
+            "label": "Albumin",
+            "color": "#ff7675"
+        },
+        {
+            "id": 11,
+            "label": "Low sodium diet",
+            "color": "#ffffff"
+        },
+        {
+            "id": 12,
+            "label": "1.5 liters daily fluid restriction",
+            "color": "#ff7675"
+        },
+        {
+            "id": 13,
+            "label": "Outpatient ID provider referral",
+            "color": "#ffffff"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has primary diagnosis"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has secondary condition"
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has secondary condition"
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "has secondary condition"
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "has secondary condition"
+        },
+        {
+            "from": 1,
+            "to": 7,
+            "label": "underwent treatment"
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "discontinued medication"
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "increased dose of"
+        },
+        {
+            "from": 1,
+            "to": 10,
+            "label": "administered"
+        },
+        {
+            "from": 1,
+            "to": 11,
+            "label": "adheres to"
+        },
+        {
+            "from": 1,
+            "to": 12,
+            "label": "adheres to"
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "referred to"
+        }
+    ]
+}

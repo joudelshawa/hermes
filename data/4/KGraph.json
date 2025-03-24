@@ -1,0 +1,146 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Decompensated HCV Cirrhosis",
+            "color": "#ff7675"
+        },
+        {
+            "id": 2,
+            "label": "Hyperkalemia",
+            "color": "#ff7675"
+        },
+        {
+            "id": 3,
+            "label": "HIV",
+            "color": "#ff7675"
+        },
+        {
+            "id": 4,
+            "label": "COPD",
+            "color": "#ff7675"
+        },
+        {
+            "id": 5,
+            "label": "Hyponatremia",
+            "color": "#ff7675"
+        },
+        {
+            "id": 6,
+            "label": "Ascites",
+            "color": "#ff7675"
+        },
+        {
+            "id": 7,
+            "label": "Abdominal Pain",
+            "color": "#ff7675"
+        },
+        {
+            "id": 8,
+            "label": "Paracentesis",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 9,
+            "label": "Hospice Care",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 10,
+            "label": "Pleurex Catheter Placement",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 11,
+            "label": "Code Status - Full",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 12,
+            "label": "Hepatic Encephalopathy",
+            "color": "#ff7675"
+        },
+        {
+            "id": 13,
+            "label": "BMP Tests",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 14,
+            "label": "Kayexelate Treatment",
+            "color": "#4dabf7"
+        },
+        {
+            "id": 15,
+            "label": "Furosemide",
+            "color": "#4dabf7"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 6,
+            "label": "causes"
+        },
+        {
+            "from": 6,
+            "to": 7,
+            "label": "leads to"
+        },
+        {
+            "from": 8,
+            "to": 6,
+            "label": "treats"
+        },
+        {
+            "from": 8,
+            "to": 7,
+            "label": "reduces"
+        },
+        {
+            "from": 9,
+            "to": 1,
+            "label": "manages"
+        },
+        {
+            "from": 9,
+            "to": 2,
+            "label": "monitors"
+        },
+        {
+            "from": 10,
+            "to": 6,
+            "label": "manages"
+        },
+        {
+            "from": 11,
+            "to": 1,
+            "label": "related to"
+        },
+        {
+            "from": 12,
+            "to": 1,
+            "label": "complication of"
+        },
+        {
+            "from": 13,
+            "to": 2,
+            "label": "monitors"
+        },
+        {
+            "from": 13,
+            "to": 5,
+            "label": "monitors"
+        },
+        {
+            "from": 14,
+            "to": 2,
+            "label": "treats"
+        },
+        {
+            "from": 15,
+            "to": 6,
+            "label": "manages"
+        }
+    ]
+}

@@ -13,20 +13,20 @@ REPORT_NUM = 2 #change to -1 for going through all the examples
 
 if __name__ == "__main__":
     hermes = Hermes.HermesAgenticSystem()
+    print("TESTING: Report Creator Agent")
 
     if (REPORT_NUM != -1):
         PATH_EXAMPLE = PATH_DATA + str(REPORT_NUM) + "/"
         unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
+        print(f"Report Number {REPORT_NUM}:\n\tGenerating Structured Report...")
         report = hermes.getReport(unstructured_report)
-        saveReportAsText(remove_think(report))
+        saveReportAsText(report)
         
     else:
         examples = os.listdir(PATH_DATA)
         for ex in examples:
             PATH_EXAMPLE = PATH_DATA + ex + "/"
             unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
+            print(f"Report Number {ex}:\n\tGenerating Structured Report...")
             report = hermes.getReport(unstructured_report)
-            saveReportAsText(remove_think(report))
-           
-
-    
+            saveReportAsText(report)

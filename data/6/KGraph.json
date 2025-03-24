@@ -1,0 +1,66 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Left valgus impacted femoral neck fracture",
+            "color": "#ff7675"
+        },
+        {
+            "id": 2,
+            "label": "Tylenol",
+            "color": "#4ECDC4"
+        },
+        {
+            "id": 3,
+            "label": "Oxycodone",
+            "color": "#4ECDC4"
+        },
+        {
+            "id": 4,
+            "label": "Admission",
+            "color": "#ff7675"
+        },
+        {
+            "id": 5,
+            "label": "Lovenox",
+            "color": "#4ECDC4"
+        },
+        {
+            "id": 6,
+            "label": "Pain Management",
+            "color": "#ff7675"
+        },
+        {
+            "id": 7,
+            "label": "Anticoagulation",
+            "color": "#ff7675"
+        }
+    ],
+    "edges": [
+        {
+            "from": 4,
+            "to": 1,
+            "label": "resulted in"
+        },
+        {
+            "from": 1,
+            "to": 2,
+            "label": "requires"
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "requires"
+        },
+        {
+            "from": 3,
+            "to": 6,
+            "label": "part of"
+        },
+        {
+            "from": 5,
+            "to": 7,
+            "label": "prescribed for"
+        }
+    ]
+}
