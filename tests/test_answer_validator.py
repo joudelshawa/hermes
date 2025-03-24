@@ -29,7 +29,9 @@ if __name__ == "__main__":
         examples = os.listdir(PATH_DATA)
         for ex in examples:
             PATH_EXAMPLE = PATH_DATA + ex + "/"
-            print(f"Report Number {REPORT_NUM}:\n\tGenerating question-answers...")
-            KGraph = readKGraph(PATH_EXAMPLE)
-            qa_pairs = hermes.getQA(KGraph)
-            saveQAPairsAsText(qa_pairs, PATH_EXAMPLE)
+            print(f"Report Number {REPORT_NUM}:\n\tGenerating answer validator question-answer pairs...")
+            questions = readQuestions(PATH_EXAMPLE)
+            unstruct_rep = readUnstructuredReport(PATH_EXAMPLE)
+            av_pairs = hermes.getQA(questions, unstruct_rep)
+            # print(av_pairs)
+            saveAVPairsAsText(av_pairs, PATH_EXAMPLE)
