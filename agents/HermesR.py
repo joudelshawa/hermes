@@ -1,4 +1,4 @@
-from Agents.LLMAgent import Agent
+from agents.LLMAgent import Agent
 
 class ReportCreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
