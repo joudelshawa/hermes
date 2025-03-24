@@ -1,11 +1,16 @@
 from agents.LLMAgent import Agent
 import json
 import re
+<<<<<<< HEAD
 from utils.helpers import remove_think
+=======
+from Utils.Helpers import remove_think
+>>>>>>> e08e4f6 (hermesG prompt mods)
 
 class KGCreator(Agent):
     def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
         super().__init__(base_llm, name, system_prompt, stream)
+        self.MAX_ITERATIONS = 3
 
     def validateResponse(self, response) -> dict:
         # return super().validateResponse(response)
@@ -71,10 +76,10 @@ class KGCreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n"
+        prompt = '**Start**\ncurrent state:\n{}\n\nprompt:\n"""' + prompt + '"""\nnew state:\n'
         graph = super().run(prompt, context)
         validation = self.validateResponse(remove_think(graph))
-        max_iter = 2
+        max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
             if(validation["is_valid"]):
                 print("\tSuccessfully Generated Knowledge Graph!")
@@ -82,7 +87,7 @@ class KGCreator(Agent):
             else:
                 print("\tERROR BY: HermesG")
                 print(f"\t|---> {validation['errors']}")
-                print(f"\t|---> OUTPUT: {graph}")
+                print(f"\t|---> OUTPUT: {remove_think(graph)}")
                 print("\t|---> Trying again...")
                 context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
                 graph = super().run(prompt, context)
@@ -90,7 +95,7 @@ class KGCreator(Agent):
             max_iter-=1
         
         print("="*50)
-        print("KG GENERATION ERROR!!\nExiting....")
+        print("Knowledge Graph Generation Error: Hermes-G was not able to generate validated output.\nExiting....")
         print("="*50)
         exit()
     

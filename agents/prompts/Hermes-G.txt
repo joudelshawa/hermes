@@ -11,12 +11,46 @@ Every node has an id, label, and color (in hex). Every edge has a to and from wi
 current state:
 { "nodes": [ { "id": 1, "label": "Bob", "color": "#ffffff" } ], "edges": [] }
 
-prompt: Alice is Bob's roommate. Make her node green.
+prompt: """Alice is Bob's roommate. Make her node green."""
 
 new state:
-{ "nodes": [ { "id": 1, "label": "Bob", "color": "#ffffff" }, { "id": 2, "label": "Alice", "color": "#ff7675" } ], "edges": [ { "from": 1, "to": 2, "label": "roommate" } ] }
+```json
+{ 
+    "nodes": [ 
+        { 
+            "id": 1, 
+            "label": "Bob", 
+            "color": "#ffffff" 
+        }, 
+        { 
+            "id": 2, 
+            "label": "Alice", 
+            "color": "#ff7675" 
+        } 
+    ], 
+    "edges": [ 
+        { 
+            "from": 1, 
+            "to": 2, 
+            "label": "roommate" 
+        } 
+    ] 
+}
+```
 ---
 **WARNING:**
-It is essential that your output follows the format of specified in the example
+It is essential that your output follows the json format as specified in the example.
+The color of edges should be blue and the coloring of the nodes given below should be as specified
+- patient = white
+- confirmed diagnoses = red
+- possible diagnoses = orange
+- symptoms = yellow
+- medications prescribed or on medications = green
+- any other node = choose yourself carefully
 ---
+current state: 
+{}
 
+prompt: 
+
+new state:
