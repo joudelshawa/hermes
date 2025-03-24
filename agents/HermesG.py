@@ -59,7 +59,7 @@ class KGCreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt
+        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:"
         graph = super().run(prompt, context)
         validation = self.validateResponse(graph)
         max_iter = 2
@@ -70,9 +70,12 @@ class KGCreator(Agent):
                 print("ERROR BY: HermesG")
                 print(f"{validation["errors"]}")
                 print("Trying again...")
-                prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt
+                prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:"
                 context = f"**WARNING**\nYour previous response had these errors -\n{validation['errors']}\nDo not repeat these errors"
                 graph = super().run(prompt, context)
                 validation = self.validateResponse(graph)
             max_iter-=1
+        
+        print("KG ERROR!")
+        exit()
     
