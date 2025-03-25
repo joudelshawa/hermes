@@ -1,5 +1,5 @@
-from agents import *
-from utils.helpers import remove_think
+from Agents import *
+from Utils.Helpers import remove_think
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:

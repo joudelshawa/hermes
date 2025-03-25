@@ -29,4 +29,4 @@ if __name__ == "__main__":
             unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
             print(f"Report Number {ex}:\n\tGenerating Structured Report...")
             report = hermes.getReport(unstructured_report)
-            saveReportAsText(report)
+            saveReportAsText(report) 

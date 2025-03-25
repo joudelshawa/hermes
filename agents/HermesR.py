@@ -13,20 +13,21 @@ class ReportCreator(Agent):
             "Results",
             "Medications"
         ]
-        self.MAX_ITERATION = 3
+        self.MAX_ITERATION = 2
+
 
     def validateResponse(self, response):
         # Add logic for response validation
         # look at super class for information on input output
-        pattern = r"```output(.*)```"
-        match = re.search(pattern, response)
-        result = {"is_valid": False, "response": response, "errors": []}
-        if match:
-            result["is_valid"] = True
-            result["response"] = match.group(1).strip()
-        else:
-            result["errors"].append("Invalid Response - ```output\n...\n``` pattern not found")
-            return result
+        # pattern = r"```output(.*)```"
+        # match = re.search(pattern, response)
+        result = {"is_valid": True, "response": response, "errors": []}
+        # if match:
+        #     result["is_valid"] = True
+        #     result["response"] = match.group(1).strip()
+        # else:
+        #     result["errors"].append("Invalid Response - ```output\n...\n``` pattern not found")
+        #     return result
 
         found_headings = re.findall(r"\*\*(.*?)\*\*", result["response"])
 
@@ -39,7 +40,7 @@ class ReportCreator(Agent):
     
     def run(self, prompt, context = ""):
         # Response generation step
-        prompt = f'Prompt:\n"""\n{prompt}\n"""'
+        prompt = f'Prompt:\n"""\n{prompt}\nOutput:\n"""'
         response = remove_think(super().run(prompt, context))
         validation = self.validateResponse(response)
         max_iter = self.MAX_ITERATION
