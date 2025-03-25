@@ -125,5 +125,7 @@ def readPairs(pair_type, folder_path):
         return json.load(file)
 
 def remove_think(text:str):
+    if "</think>" not in text:
+        return text
     s = text.split("</think>")
     return s[1].strip()

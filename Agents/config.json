@@ -1,10 +1,10 @@
 {
-    "LLM": "deepseek-r1:32b",
+    "LLM": "llama3.1:70b-instruct-q4_K_M",
     "Agents":{
 
-        "Hermes_R": "Agents/Prompts/Hermes-R.txt",
-        "Hermes_G": "Agents/Prompts/Hermes-G.txt",
-        "Hermes_Q": "Agents/Prompts/Hermes-Q.txt",
-        "Hermes_A": "Agents/Prompts/Hermes-A.txt"
+        "Hermes_R": "Agents/prompts/Hermes-R.txt",
+        "Hermes_G": "Agents/prompts/Hermes-G.txt",
+        "Hermes_Q": "Agents/prompts/Hermes-Q.txt",
+        "Hermes_A": "Agents/prompts/Hermes-A.txt"
     }
 }

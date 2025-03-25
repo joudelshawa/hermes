@@ -7,7 +7,7 @@ import Hermes
 import json
 from Utils.Helpers import *
 
-PATH_DATA = "data/"
+PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 REPORT_NUM = 2 #change to -1 for going through all the examples
 
@@ -29,4 +29,4 @@ if __name__ == "__main__":
             unstructured_report = readUnstructuredReport(PATH_EXAMPLE)
             print(f"Report Number {ex}:\n\tGenerating Structured Report...")
             report = hermes.getReport(unstructured_report)
-            saveReportAsText(report) 
+            saveReportAsText(report)
