@@ -2,105 +2,250 @@
     "nodes": [
         {
             "id": 1,
-            "label": "Mr.___",
+            "label": "Mr. Smith",
             "color": "#ffffff"
         },
         {
             "id": 2,
-            "label": "Hematoma (right flank)",
-            "color": "#ff7675"
+            "label": "Hematomas",
+            "color": "#ffeb3b"
         },
         {
             "id": 3,
-            "label": "Hemophilia (Factor VIII deficiency)",
-            "color": "#ffffff"
+            "label": "Falling Hemoglobin Level",
+            "color": "#ffeb3b"
         },
         {
             "id": 4,
-            "label": "DDAVP",
-            "color": "#ff7675"
+            "label": "Snowboarding Accident",
+            "color": "#ffffff"
         },
         {
             "id": 5,
-            "label": "CBC test",
-            "color": "#ffffff"
+            "label": "Trauma to neck, shoulder, and flank areas",
+            "color": "#ffeb3b"
         },
         {
             "id": 6,
-            "label": "Acetaminophen",
-            "color": "#ff7675"
+            "label": "CT Scan",
+            "color": "#ffa500"
         },
         {
             "id": 7,
-            "label": "Desmopressin",
-            "color": "#ffffff"
+            "label": "Hemoglobin level dropped to 9.7 g/dL",
+            "color": "#ffa500"
         },
         {
             "id": 8,
-            "label": "Lab Site",
-            "color": "#ff7675"
+            "label": "New flank hematoma",
+            "color": "#ffeb3b"
         },
         {
             "id": 9,
-            "label": "Dr.___ (PCP)",
-            "color": "#ffffff"
+            "label": "Acute hemorrhage along the right posterior flank musculature",
+            "color": "#ffeb3b"
         },
         {
             "id": 10,
-            "label": "Mrs.___ (Emergency Contact)",
-            "color": "#ff7675"
+            "label": "Probable old hematoma on the left posterior flank",
+            "color": "#ffeb3b"
+        },
+        {
+            "id": 11,
+            "label": "Mild Factor VIII deficiency (Hemophilia A)",
+            "color": "#ff4444"
+        },
+        {
+            "id": 12,
+            "label": "Desmopressin nasal spray",
+            "color": "#00ff00"
+        },
+        {
+            "id": 13,
+            "label": "IV desmopressin administration",
+            "color": "#00ff00"
+        },
+        {
+            "id": 14,
+            "label": "Hemoglobin levels fluctuated but remained stable (9.3\u20139.9 g/dL)",
+            "color": "#ffa500"
+        },
+        {
+            "id": 15,
+            "label": "Factor VIII activity was normal at 103%",
+            "color": "#ffa500"
+        },
+        {
+            "id": 16,
+            "label": "Acetaminophen 1000 mg PO Q8H",
+            "color": "#00ff00"
+        },
+        {
+            "id": 17,
+            "label": "CBC to be checked on Tuesday or Wednesday",
+            "color": "#0000ff"
+        },
+        {
+            "id": 18,
+            "label": "Early follow-up with regular doctor",
+            "color": "#0000ff"
+        },
+        {
+            "id": 19,
+            "label": "Activity Restrictions",
+            "color": "#0000ff"
+        },
+        {
+            "id": 20,
+            "label": "Acute muscular hematoma, right flank",
+            "color": "#ff4444"
+        },
+        {
+            "id": 21,
+            "label": "Hemophilia A (Factor VIII deficiency)",
+            "color": "#ff4444"
+        },
+        {
+            "id": 22,
+            "label": "Mental Status: Clear and coherent",
+            "color": "#ffffff"
+        },
+        {
+            "id": 23,
+            "label": "Level of Consciousness: Alert and interactive",
+            "color": "#ffffff"
+        },
+        {
+            "id": 24,
+            "label": "Activity Status: Ambulatory and independent",
+            "color": "#ffffff"
         }
     ],
     "edges": [
         {
             "from": 1,
             "to": 2,
-            "label": "has condition"
+            "label": "presented with"
         },
         {
             "from": 1,
             "to": 3,
-            "label": "has condition"
+            "label": "has"
         },
         {
-            "from": 3,
-            "to": 2,
-            "label": "caused by"
+            "from": 1,
+            "to": 4,
+            "label": "involved in"
         },
         {
             "from": 4,
-            "to": 1,
-            "label": "treated with"
+            "to": 5,
+            "label": "resulted in"
         },
         {
-            "from": 5,
-            "to": 1,
-            "label": "test result for"
+            "from": 1,
+            "to": 6,
+            "label": "underwent"
         },
         {
             "from": 6,
-            "to": 1,
-            "label": "prescribed to"
+            "to": 2,
+            "label": "revealed"
         },
         {
-            "from": 7,
-            "to": 1,
-            "label": "prescribed to"
+            "from": 1,
+            "to": 7,
+            "label": "experienced"
         },
         {
-            "from": 8,
-            "to": 5,
-            "label": "location of test"
+            "from": 1,
+            "to": 8,
+            "label": "developed"
         },
         {
-            "from": 9,
-            "to": 1,
-            "label": "PCP for"
+            "from": 1,
+            "to": 9,
+            "label": "has"
         },
         {
-            "from": 10,
-            "to": 1,
-            "label": "emergency contact for"
+            "from": 1,
+            "to": 10,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 11,
+            "label": "diagnosed with"
+        },
+        {
+            "from": 11,
+            "to": 12,
+            "label": "treated with"
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "administered"
+        },
+        {
+            "from": 1,
+            "to": 14,
+            "label": "experienced"
+        },
+        {
+            "from": 1,
+            "to": 15,
+            "label": "has"
+        },
+        {
+            "from": 12,
+            "to": 13,
+            "label": "administered as"
+        },
+        {
+            "from": 1,
+            "to": 16,
+            "label": "taking"
+        },
+        {
+            "from": 1,
+            "to": 17,
+            "label": "needs to undergo"
+        },
+        {
+            "from": 1,
+            "to": 18,
+            "label": "requires"
+        },
+        {
+            "from": 1,
+            "to": 19,
+            "label": "has"
+        },
+        {
+            "from": 2,
+            "to": 20,
+            "label": "diagnosed as"
+        },
+        {
+            "from": 11,
+            "to": 21,
+            "label": "also known as"
+        },
+        {
+            "from": 1,
+            "to": 22,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 23,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 24,
+            "label": "has"
         }
     ]
 }

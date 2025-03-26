@@ -6,6 +6,7 @@ class HermesAgenticSystem:
     def __init__(self, config:dict=CONFIG):
 
         self.CONFIG = config
+        self.MAX_ITERATIONS = config['Hermes-Iterations']
 
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
@@ -13,25 +14,29 @@ class HermesAgenticSystem:
         self.ReportCreator = ReportCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_R", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_R"])
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_R"]["prompt_path"]),
+            max_iter=self.CONFIG["Agents"]["Hermes_R"]["max_iter"]
         )
 
         self.KGraphCreator = KGCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_G", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_G"])
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_G"]["prompt_path"]),
+            max_iter=self.CONFIG["Agents"]["Hermes_G"]["max_iter"]
         )
 
         self.QACreator = QACreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_Q", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_Q"])
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_Q"]["prompt_path"]),
+            max_iter=self.CONFIG["Agents"]["Hermes_Q"]["max_iter"]
         )
 
         self.AnswerValidator = AnswerValidator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_A", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_A"])
+            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_A"]["prompt_path"]),
+            max_iter=self.CONFIG["Agents"]["Hermes_A"]["max_iter"]
         )
 
     def getReport(self, prompt, context = "") -> str:
@@ -45,24 +50,47 @@ class HermesAgenticSystem:
     
     def getAnswers(self, questions, report, context = "") -> str:
         # Have to handle context in this case... maybe like this??:
-        updated_prompt = f"**Unstructured Report:**\n{report}\n\n**Questions:**\n{questions}\n---"
+        updated_prompt = f"### Unstructured Report:\n{report}\n\n### Questions:\n{questions}\n---"
         return self.AnswerValidator.run(prompt=updated_prompt, context=context)
     
-    def validateAnswers(self, ansQA, ansAV):
-        # To implement
+    def validateAnswers(self, ansQA, ansAV) -> dict:
+        """
+        Takes answers from HermesQ and from HermesA and validates them.
+
+        Output:
+            dict{
+                "is_validated": bool,
+                "errors": str (questions with wrong and right answers carefully formatted)
+            }
+        """
         pass
     
     def completeRun(self, rawNotes) -> tuple[str, str]:
-        report  = remove_think(self.getReport(rawNotes))
-        kGraph = remove_think(self.getKnowledgeGraph(report))
-        questions, ansQA = self.getQA(kGraph)
-        ansAV = remove_think(self.getAnswers(questions, rawNotes))
-        # 
-        self.validateAnswers(ansQA=ansQA, ansAV=ansAV)
 
+        max_iter = self.MAX_ITERATIONS
+        while(max_iter > 0):
+            
+            # Step1: Get Report from HermesR
+            report  = self.getReport(rawNotes)
+            
+            # Step2: Get Knowledge Graph from HermesG
+            KGraph = self.getKnowledgeGraph(report)
+            
+            # Step3: Get Question Answer Pairs from HermesQ
+            questions, ansQA = self.QACreator.getSeparatedQA(self.getQA(KGraph))
 
-        return kGraph, report
-    
-    
+            # Step4: Get Answers of questions from HermesA
+            ansAV = self.getAnswers(questions, rawNotes)
+            
+            # Step5: Validate Answers from  
+            result = self.validateAnswers(ansQA=ansQA, ansAV=ansAV)
 
-    # All Agents should have their own class if they differ in output types and input types
+            if(result['is_validated']): 
+                return KGraph, report
+            else:
+                max_iter -= 1
+        
+        print("="*50)
+        print("\tHermes Failed! (T_T)")
+        print("="*50)
+        

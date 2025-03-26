@@ -2,10 +2,20 @@ from Agents.LLMAgent import Agent
 import json
 import re
 from Utils.Helpers import remove_think
+from pydantic import BaseModel
 
 class QACreator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)
+    def __init__(
+            self,
+            base_llm = "deepseek-r1:14b", 
+            name = "", system_prompt = "", 
+            stream = False,
+            max_iter:int=3, 
+            temperature:int = 0.3, 
+            top_p:int = 0.4
+        ):
+       super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
+       self.FORMAT = QAPairs.model_json_schema()
     
     def validateResponse(self, response):
         """
@@ -13,24 +23,33 @@ class QACreator(Agent):
         Returns dict with 'is_valid' boolean and 'errors' list
         """
         result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
-
-        pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
-        match = re.search(pattern, response, re.DOTALL)
-
-        if match:
-            json_content = match.group(1)
-            try:
-                data = json.loads(json_content)
-                result["extracted_response"] = json_content
-            except json.JSONDecodeError:
-                result["is_valid"] = False
-                # reminding it of the structure required
-                result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
-                return result
-        else:
+        # print(response)
+        try:
+            data = json.loads(response)["pairs"]
+            result["extracted_response"] = json.dumps(data)
+        except json.JSONDecodeError:
             result["is_valid"] = False
+            # reminding it of the structure required
             result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
             return result
+        
+        # pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
+        # match = re.search(pattern, response, re.DOTALL)
+
+        # if match:
+        #     json_content = match.group(1)
+        #     try:
+        #         data = json.loads(json_content)
+        #         result["extracted_response"] = json_content
+        #     except json.JSONDecodeError:
+        #         result["is_valid"] = False
+        #         # reminding it of the structure required
+        #         result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
+        #         return result
+        # else:
+        #     result["is_valid"] = False
+        #     result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
+        #     return result
 
         # check layout
         if not isinstance(data, list): # check if its a list first
@@ -62,28 +81,45 @@ class QACreator(Agent):
 
         return result
     
+    def getSeparatedQA(self, qa_pairs:str):
+        qa_pairs = json.loads(qa_pairs)
+        questions = []
+        answers = []
+        for pair in qa_pairs:
+            questions.append(pair["Question"])
+            answers.append(pair["Answer"])
+        
+        return questions, answers
+    
     def run(self, prompt, context = ""):
         prompt_dict = prompt
         prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n"
-        qa_pairs = super().run(prompt, context)
-        validation = self.validateResponse(remove_think(qa_pairs))
-        max_iter = 2
+        prompt = "### Start\ncurrent state:\n{}\n\nprompt:\n\"\"\"" + prompt + "\"\"\"\n\nnew state:\n"
+        qa_pairs = remove_think(super().run(prompt, context))
+        validation = self.validateResponse(qa_pairs)
+        max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
             if(validation["is_valid"]):
-                print("\tSuccessfully Generated Question and Answer pairs!")
+                print("\t|---> Successfully Generated Question and Answer pairs!")
                 return validation["extracted_response"]
             else:
                 print("\tERROR BY: HermesQ")
                 print(f"\t|---> {validation['errors']}")
-                print(f"\t|---> OUTPUT: {remove_think(qa_pairs)}")
                 print("\t|---> Trying again...")
-                context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
-                qa_pairs = super().run(prompt, context)
-                validation = self.validateResponse(remove_think(qa_pairs))
+                print(f"\t|---> OUTPUT: {qa_pairs}")
+                context = f"Your Previous Response: \"\"\"{validation['extracted_response']}\"\"\" had these errors -\n{validation['errors']}\n"
+                qa_pairs = remove_think(super().run(prompt, context))
+                validation = self.validateResponse(qa_pairs)
             max_iter-=1
         
         print("="*50)
-        print("QUESTION ANSWER GENERATION ERROR!")
+        print("\tQUESTION ANSWER GENERATION ERROR!\nExiting...")
         print("="*50)
         exit()
+
+class QAPairs(BaseModel):
+    class QA(BaseModel):
+        Question: str
+        Answer: str
+    
+    pairs: list[QA]

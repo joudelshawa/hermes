@@ -7,7 +7,7 @@ import os
 import Hermes
 from Utils.Helpers import *
 
-PATH_DATA = "data/"
+PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 REPORT_NUM = 2 #change to -1 for going through all the examples
 

@@ -1,0 +1,127 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 750px;
+                 background-color: #222222;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#ffffff", "font": {"color": "white"}, "id": 1, "label": "Mr. Smith", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 2, "label": "Hematomas", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 3, "label": "Falling Hemoglobin Level", "shape": "dot"}, {"color": "#ffffff", "font": {"color": "white"}, "id": 4, "label": "Snowboarding Accident", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 5, "label": "Trauma to neck, shoulder, and flank areas", "shape": "dot"}, {"color": "#ffa500", "font": {"color": "white"}, "id": 6, "label": "CT Scan", "shape": "dot"}, {"color": "#ffa500", "font": {"color": "white"}, "id": 7, "label": "Hemoglobin level dropped to 9.7 g/dL", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 8, "label": "New flank hematoma", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 9, "label": "Acute hemorrhage along the right posterior flank musculature", "shape": "dot"}, {"color": "#ffeb3b", "font": {"color": "white"}, "id": 10, "label": "Probable old hematoma on the left posterior flank", "shape": "dot"}, {"color": "#ff4444", "font": {"color": "white"}, "id": 11, "label": "Mild Factor VIII deficiency (Hemophilia A)", "shape": "dot"}, {"color": "#00ff00", "font": {"color": "white"}, "id": 12, "label": "Desmopressin nasal spray", "shape": "dot"}, {"color": "#00ff00", "font": {"color": "white"}, "id": 13, "label": "IV desmopressin administration", "shape": "dot"}, {"color": "#ffa500", "font": {"color": "white"}, "id": 14, "label": "Hemoglobin levels fluctuated but remained stable (9.3\u20139.9 g/dL)", "shape": "dot"}, {"color": "#ffa500", "font": {"color": "white"}, "id": 15, "label": "Factor VIII activity was normal at 103%", "shape": "dot"}, {"color": "#00ff00", "font": {"color": "white"}, "id": 16, "label": "Acetaminophen 1000 mg PO Q8H", "shape": "dot"}, {"color": "#0000ff", "font": {"color": "white"}, "id": 17, "label": "CBC to be checked on Tuesday or Wednesday", "shape": "dot"}, {"color": "#0000ff", "font": {"color": "white"}, "id": 18, "label": "Early follow-up with regular doctor", "shape": "dot"}, {"color": "#0000ff", "font": {"color": "white"}, "id": 19, "label": "Activity Restrictions", "shape": "dot"}, {"color": "#ff4444", "font": {"color": "white"}, "id": 20, "label": "Acute muscular hematoma, right flank", "shape": "dot"}, {"color": "#ff4444", "font": {"color": "white"}, "id": 21, "label": "Hemophilia A (Factor VIII deficiency)", "shape": "dot"}, {"color": "#ffffff", "font": {"color": "white"}, "id": 22, "label": "Mental Status: Clear and coherent", "shape": "dot"}, {"color": "#ffffff", "font": {"color": "white"}, "id": 23, "label": "Level of Consciousness: Alert and interactive", "shape": "dot"}, {"color": "#ffffff", "font": {"color": "white"}, "id": 24, "label": "Activity Status: Ambulatory and independent", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "white", "from": 1, "label": "presented with", "title": "presented with", "to": 2}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 3}, {"arrows": "to", "color": "white", "from": 1, "label": "involved in", "title": "involved in", "to": 4}, {"arrows": "to", "color": "white", "from": 4, "label": "resulted in", "title": "resulted in", "to": 5}, {"arrows": "to", "color": "white", "from": 1, "label": "underwent", "title": "underwent", "to": 6}, {"arrows": "to", "color": "white", "from": 6, "label": "revealed", "title": "revealed", "to": 2}, {"arrows": "to", "color": "white", "from": 1, "label": "experienced", "title": "experienced", "to": 7}, {"arrows": "to", "color": "white", "from": 1, "label": "developed", "title": "developed", "to": 8}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 9}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 10}, {"arrows": "to", "color": "white", "from": 1, "label": "diagnosed with", "title": "diagnosed with", "to": 11}, {"arrows": "to", "color": "white", "from": 11, "label": "treated with", "title": "treated with", "to": 12}, {"arrows": "to", "color": "white", "from": 1, "label": "administered", "title": "administered", "to": 13}, {"arrows": "to", "color": "white", "from": 1, "label": "experienced", "title": "experienced", "to": 14}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 15}, {"arrows": "to", "color": "white", "from": 12, "label": "administered as", "title": "administered as", "to": 13}, {"arrows": "to", "color": "white", "from": 1, "label": "taking", "title": "taking", "to": 16}, {"arrows": "to", "color": "white", "from": 1, "label": "needs to undergo", "title": "needs to undergo", "to": 17}, {"arrows": "to", "color": "white", "from": 1, "label": "requires", "title": "requires", "to": 18}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 19}, {"arrows": "to", "color": "white", "from": 2, "label": "diagnosed as", "title": "diagnosed as", "to": 20}, {"arrows": "to", "color": "white", "from": 11, "label": "also known as", "title": "also known as", "to": 21}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 22}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 23}, {"arrows": "to", "color": "white", "from": 1, "label": "has", "title": "has", "to": 24}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {"physics": {"stabilization": {"enabled": true, "iterations": 1000}, "solver": "forceAtlas2Based", "forceAtlas2Based": {"gravitationalConstant": -50, "centralGravity": 0.01, "springLength": 100, "springConstant": 0.08, "damping": 0.4, "avoidOverlap": 0.1}}};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

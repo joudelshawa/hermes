@@ -1,38 +1,10 @@
 [
     {
-        "Question": "Does the patient have hemophilia?",
-        "Answer": "Yes"
+        "Question": "What is the cause of Mr. Smith's falling hemoglobin level?",
+        "Answer": "Mr. Smith's falling hemoglobin level is caused by his Hemophilia A (Factor VIII deficiency), which leads to bleeding complications such as hematomas and hemorrhages."
     },
     {
-        "Question": "Is there a factor VIII deficiency?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Was the injury caused by a snowboarding accident?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Is IV DDAVP used for treatment?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Is acetaminophen prescribed?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Is desmopressin nasal spray used?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Was a CBC test conducted on 3/15/2023?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Is follow-up with Dr._ scheduled for 3/20/2023?",
-        "Answer": "Yes"
-    },
-    {
-        "Question": "Is the patient advised to avoid high-risk activities?",
-        "Answer": "Yes"
+        "Question": "What treatment did Mr. Smith receive for his condition?",
+        "Answer": "Mr. Smith received Desmopressin nasal spray and IV desmopressin administration as part of his treatment."
     }
 ]

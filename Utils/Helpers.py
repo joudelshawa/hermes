@@ -33,6 +33,7 @@ def saveGraphAsText(graph_data, folder_path):
 
 def saveGraphAsHTML(graph_data, folder_path):
     # Initialize the network
+    graph_data = json.loads(graph_data)
     net = Network(
         height="750px",
         width="100%",
@@ -57,7 +58,8 @@ def saveGraphAsHTML(graph_data, folder_path):
             edge["to"],
             title=edge["label"],  # Shows on hover
             label=edge["label"],  # Displayed on the edge
-            color="white"  # Edge color
+            color="white",  # Edge color
+            arrows="to"
         )
 
     # Configure physics for better layout

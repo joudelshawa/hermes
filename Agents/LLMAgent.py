@@ -15,12 +15,16 @@ class LLM:
         return cls._instance
 
 class Agent:
-    def __init__(self, base_llm:str = "deepseek-r1:14b", name:str = "", systemPrompt:str = "", stream:bool = False):
+    def __init__(self, base_llm:str, name:str, systemPrompt:str, stream:bool, max_iter:int, temperature:int, top_p:int):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
         self.name = f"{name}_({base_llm})"
         self.systemPrompt = systemPrompt
         self.stream = stream
+        self.MAX_ITERATIONS = max_iter
+        self.FORMAT = None
+        self.TEMPERATURE = temperature
+        self.TOP_P = top_p
 
     def run(self, prompt:str, context:str = ""):
         """
@@ -30,7 +34,8 @@ class Agent:
         response = self.llm_client.chat(
             model=self.llm, 
             messages=self._get_msgs(prompt=prompt, context=context),
-            options={"temperature": 0.2, "top_p": 0.5}
+            options={"temperature": self.TEMPERATURE, "top_p": self.TOP_P},
+            format=self.FORMAT
         )
         return response['message']['content']
     

@@ -4,8 +4,17 @@ import json
 from Utils.Helpers import *
 
 class AnswerValidator(Agent):
-    def __init__(self, base_llm = "deepseek-r1:14b", name = "", system_prompt = "", stream = False):
-        super().__init__(base_llm, name, system_prompt, stream)
+    def __init__(
+            self, 
+            base_llm = "deepseek-r1:14b", 
+            name = "", 
+            system_prompt = "", 
+            stream = False, 
+            max_iter = 3,
+            temperature:int = 0.3, 
+            top_p:int = 0.4
+        ):
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
 
     def validateResponse(self, response): # same validation as hermesQ since we want to get back a json of q+a pairs
         """
@@ -71,13 +80,13 @@ class AnswerValidator(Agent):
         max_iter = 2
         while(max_iter > 0):
             if(validation["is_valid"]):
-                print("\tSuccessfully Generated Answer Validator pairs!")
+                print("\t|---> Successfully Generated Answer Validator pairs!")
                 return validation["extracted_response"]
             else:
-                print("\tERROR BY: HermesA")
-                print(f"\t|---> {validation['errors']}")
-                print(f"\t|---> OUTPUT: {remove_think(av_pairs)}")
-                print("\t|---> Trying again...")
+                print("\t\tERROR BY: HermesA")
+                print(f"\t\t|---> {validation['errors']}")
+                print(f"\t\t|---> OUTPUT: {remove_think(av_pairs)}")
+                print("\t\t|---> Trying again...")
                 context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
                 av_pairs = super().run(prompt, context)
                 validation = self.validateResponse(remove_think(av_pairs))

@@ -7,7 +7,7 @@ import os
 import Hermes
 from Utils.Helpers import *
 
-PATH_DATA = "data/"
+PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 REPORT_NUM = 2 #change to -1 for going through all the examples
 
@@ -20,7 +20,7 @@ if __name__ == "__main__":
         print(f"Report Number {REPORT_NUM}:\n\tGenerating answer validator question-answer pairs...")
         questions = readQuestions(PATH_EXAMPLE)
         unstruct_rep = readUnstructuredReport(PATH_EXAMPLE)
-        av_pairs = hermes.getQA(questions, unstruct_rep)
+        av_pairs = hermes.getAnswers(questions, unstruct_rep)
         # print(av_pairs)
         saveAVPairsAsText(av_pairs, PATH_EXAMPLE)
         
@@ -32,6 +32,6 @@ if __name__ == "__main__":
             print(f"Report Number {REPORT_NUM}:\n\tGenerating answer validator question-answer pairs...")
             questions = readQuestions(PATH_EXAMPLE)
             unstruct_rep = readUnstructuredReport(PATH_EXAMPLE)
-            av_pairs = hermes.getQA(questions, unstruct_rep)
+            av_pairs = hermes.getAnswers(questions, unstruct_rep)
             # print(av_pairs)
             saveAVPairsAsText(av_pairs, PATH_EXAMPLE)

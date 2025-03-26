@@ -1,4 +1,4 @@
-from agents import Hermes
+import Hermes
 
 if __name__ == "__main__":
     hermes = Hermes.HermesAgenticSystem()
