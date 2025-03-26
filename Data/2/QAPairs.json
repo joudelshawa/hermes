@@ -1,10 +1,42 @@
 [
     {
-        "Question": "What is the cause of Mr. Smith's falling hemoglobin level?",
-        "Answer": "Mr. Smith's falling hemoglobin level is caused by his Hemophilia A (Factor VIII deficiency), which leads to bleeding complications such as hematomas and hemorrhages."
+        "Question": "Does the patient have hemophilia?",
+        "Answer": "Yes"
     },
     {
-        "Question": "What treatment did Mr. Smith receive for his condition?",
-        "Answer": "Mr. Smith received Desmopressin nasal spray and IV desmopressin administration as part of his treatment."
+        "Question": "Is there a new flank hematoma?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Did the patient experience a snowboarding accident?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Was desmopressin administered intravenously?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Does the patient have Factor VIII deficiency?",
+        "Answer": "No"
+    },
+    {
+        "Question": "Is the hemoglobin level stable?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Did the CT scan reveal acute muscular hematoma?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Is the patient taking acetaminophen?",
+        "Answer": "No"
+    },
+    {
+        "Question": "Does the patient require activity restrictions?",
+        "Answer": "Yes"
+    },
+    {
+        "Question": "Is the patient alert and interactive?",
+        "Answer": "Yes"
     }
 ]
