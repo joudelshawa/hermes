@@ -21,6 +21,7 @@ if __name__ == "__main__":
         questions = readQuestions(PATH_EXAMPLE)
         unstruct_rep = readUnstructuredReport(PATH_EXAMPLE)
         av_pairs = hermes.getAnswers(questions, unstruct_rep)
+        questions, answers = hermes.AnswerValidator.getSeparatedQA(av_pairs)
         # print(av_pairs)
         saveAVPairsAsText(av_pairs, PATH_EXAMPLE)
         

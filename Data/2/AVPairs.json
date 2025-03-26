@@ -1,38 +1,42 @@
 [
     {
         "Question": "Does the patient have hemophilia?",
-        "Answer": "Yes"
+        "Answer": "Yes, the patient has hemophilia A."
     },
     {
-        "Question": "Is there a factor VIII deficiency?",
-        "Answer": "Yes"
+        "Question": "What is the patient's current Factor VIII activity level?",
+        "Answer": "103 (within normal range)."
     },
     {
-        "Question": "Was the injury caused by a snowboarding accident?",
-        "Answer": "Yes"
+        "Question": "Did the patient experience a falling hemoglobin level?",
+        "Answer": "Yes, there was concern for ongoing bleeding with falling hemoglobin."
     },
     {
-        "Question": "Is IV DDAVP used for treatment?",
-        "Answer": "Yes"
+        "Question": "Was the patient involved in a snowboarding accident?",
+        "Answer": "Yes, he had a recent snowboarding accident which caused multiple hematomas."
     },
     {
-        "Question": "Is acetaminophen prescribed?",
-        "Answer": "No"
+        "Question": "Does the patient have any new flank hematoma?",
+        "Answer": "Yes, CT imaging showed acute hemorrhage along right posterior flank musculature and probable old hematoma on left."
     },
     {
-        "Question": "Is desmopressin nasal spray used?",
-        "Answer": "Yes"
+        "Question": "What is the patient's current hemoglobin level?",
+        "Answer": "The last recorded hemoglobin was 9.9 g/dL."
     },
     {
-        "Question": "Was a CBC test conducted on 3/15/2023?",
-        "Answer": "Yes"
+        "Question": "Is the patient taking acetaminophen?",
+        "Answer": "Yes, prescribed 1000 mg PO every 8 hours for pain."
     },
     {
-        "Question": "Is follow-up with Dr._ scheduled for 3/20/2023?",
-        "Answer": "Yes"
+        "Question": "Does the patient have activity restrictions?",
+        "Answer": "Yes, advised to avoid dangerous activities due to recent bleed and hemophilia."
     },
     {
-        "Question": "Is the patient advised to avoid high-risk activities?",
-        "Answer": "Yes"
+        "Question": "Was a CT scan performed on the patient?",
+        "Answer": "Yes, a CT A/P was done which showed flank hematomas without active extravasation."
+    },
+    {
+        "Question": "Does the patient require early follow-up with their regular doctor?",
+        "Answer": "Yes, instructed to follow up with PCP early next week and get blood counts checked."
     }
 ]

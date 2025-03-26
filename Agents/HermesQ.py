@@ -32,24 +32,6 @@ class QACreator(Agent):
             # reminding it of the structure required
             result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
             return result
-        
-        # pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
-        # match = re.search(pattern, response, re.DOTALL)
-
-        # if match:
-        #     json_content = match.group(1)
-        #     try:
-        #         data = json.loads(json_content)
-        #         result["extracted_response"] = json_content
-        #     except json.JSONDecodeError:
-        #         result["is_valid"] = False
-        #         # reminding it of the structure required
-        #         result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
-        #         return result
-        # else:
-        #     result["is_valid"] = False
-        #     result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
-        #     return result
 
         # check layout
         if not isinstance(data, list): # check if its a list first
@@ -94,7 +76,7 @@ class QACreator(Agent):
     def run(self, prompt, context = ""):
         prompt_dict = prompt
         prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
-        prompt = "### Start\ncurrent state:\n{}\n\nprompt:\n\"\"\"" + prompt + "\"\"\"\n\nnew state:\n"
+        prompt = "\n\n### Start\nKnowledge Graph:\n\"\"\"" + prompt + "\"\"\"\n\nQuestion Answer Pairs:\n"
         qa_pairs = remove_think(super().run(prompt, context))
         validation = self.validateResponse(qa_pairs)
         max_iter = self.MAX_ITERATIONS
@@ -103,11 +85,11 @@ class QACreator(Agent):
                 print("\t|---> Successfully Generated Question and Answer pairs!")
                 return validation["extracted_response"]
             else:
-                print("\tERROR BY: HermesQ")
-                print(f"\t|---> {validation['errors']}")
-                print("\t|---> Trying again...")
-                print(f"\t|---> OUTPUT: {qa_pairs}")
-                context = f"Your Previous Response: \"\"\"{validation['extracted_response']}\"\"\" had these errors -\n{validation['errors']}\n"
+                print("\t\tERROR BY: HermesQ")
+                print(f"\t\t|---> {validation['errors']}")
+                print("\t\t|---> Trying again...")
+                print(f"\t\t|---> OUTPUT: {qa_pairs}")
+                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
                 qa_pairs = remove_think(super().run(prompt, context))
                 validation = self.validateResponse(qa_pairs)
             max_iter-=1

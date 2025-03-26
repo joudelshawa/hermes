@@ -1,3 +1,4 @@
+from pydantic import BaseModel
 from Agents.LLMAgent import Agent
 import re
 import json
@@ -15,29 +16,21 @@ class AnswerValidator(Agent):
             top_p:int = 0.4
         ):
         super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
+        self.FORMAT = QAPairs.model_json_schema()
 
-    def validateResponse(self, response): # same validation as hermesQ since we want to get back a json of q+a pairs
+    def validateResponse(self, response):
         """
         Validate LLM agent output against required question + answer pairs structure
         Returns dict with 'is_valid' boolean and 'errors' list
         """
         result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
-
-        pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
-        match = re.search(pattern, response, re.DOTALL)
-
-        if match:
-            json_content = match.group(1)
-            try:
-                data = json.loads(json_content)
-                result["extracted_response"] = json_content
-            except json.JSONDecodeError:
-                result["is_valid"] = False
-                # reminding it of the structure required
-                result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
-                return result
-        else:
+        # print(response)
+        try:
+            data = json.loads(response)["pairs"]
+            result["extracted_response"] = json.dumps(data)
+        except json.JSONDecodeError:
             result["is_valid"] = False
+            # reminding it of the structure required
             result["errors"].append("Invalid JSON format. Needs to be: ```json[{'Question': <text>, 'Answer': <one-word answer>}, { 'Question': <text>, 'Answer': <one-word answer>}]```")
             return result
 
@@ -71,13 +64,38 @@ class AnswerValidator(Agent):
 
         return result
     
-    def run(self, prompt, context = ""):
-        prompt_dict = prompt
-        prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
-        prompt = "**Start**\ncurrent state:\n{}\n\nprompt:\n" + prompt + "\nnew state:\n"
-        av_pairs = super().run(prompt, context)
-        validation = self.validateResponse(remove_think(av_pairs))
-        max_iter = 2
+    def _makeDictFormat(self, questions:list):
+        dictQA = []
+        for q in questions:
+            dictQA.append({
+                "Question": q,
+                "Answer": ""
+            })
+        return json.dumps(dictQA, indent=4)
+    
+    def getSeparatedQA(self, qa_pairs:str):
+        qa_pairs = json.loads(qa_pairs)
+        questions = []
+        answers = []
+        for pair in qa_pairs:
+            questions.append(pair["Question"])
+            answers.append(pair["Answer"])
+        
+        return questions, answers
+    
+    
+    def run(self, questions, unstructured_report, context = ""):
+        """
+        Input: 
+            prompt: list[questions] 
+        """
+
+        prompt = self._makeDictFormat(questions) # convert to string since its a json dict
+        # print(prompt)
+        prompt = f"### Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n### Questions To Answer:\n```json\n{prompt}```\n\n### Answered Questions:\n"
+        av_pairs = remove_think(super().run(prompt, context))
+        validation = self.validateResponse(av_pairs)
+        max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
             if(validation["is_valid"]):
                 print("\t|---> Successfully Generated Answer Validator pairs!")
@@ -85,14 +103,21 @@ class AnswerValidator(Agent):
             else:
                 print("\t\tERROR BY: HermesA")
                 print(f"\t\t|---> {validation['errors']}")
-                print(f"\t\t|---> OUTPUT: {remove_think(av_pairs)}")
+                print(f"\t\t|---> OUTPUT: {av_pairs}")
                 print("\t\t|---> Trying again...")
-                context = f"**NOTE**\nTake note that your response should not have these errors -\n{validation['errors']}\n"
-                av_pairs = super().run(prompt, context)
-                validation = self.validateResponse(remove_think(av_pairs))
+                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
+                av_pairs = remove_think(super().run(prompt, context))
+                validation = self.validateResponse(av_pairs)
             max_iter-=1
         
         print("="*50)
         print("ANSWER VALIDATOR QUESTION ANSWER GENERATION ERROR!")
         print("="*50)
         exit()
+
+class QAPairs(BaseModel):
+    class QA(BaseModel):
+        Question: str
+        Answer: str
+    
+    pairs: list[QA]
