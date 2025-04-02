@@ -1,24 +1,30 @@
 {
-    "LLM": "deepseek-r1:32b",
-    "Temperature": 0.5,
-    "Top-P": 0.3,
+    "LLM": "deepseek-r1:70b",
     "Hermes-Iterations": 3,
     "Agents":{
         "Hermes_R": {
             "prompt_path": "Agents/prompts/Hermes-R.txt",
-            "max_iter": 3
+            "max_iter": 3,
+            "temperature": 0.5,
+            "top_p": 0.3
         },
         "Hermes_G": {
             "prompt_path": "Agents/prompts/Hermes-G.txt",
-            "max_iter": 3
+            "max_iter": 3,
+            "temperature": 0.5,
+            "top_p": 0.3
         },
         "Hermes_Q": {
             "prompt_path": "Agents/prompts/Hermes-Q.txt",
-            "max_iter": 3
+            "max_iter": 3,
+            "temperature": 0.5,
+            "top_p": 0.3
         },
         "Hermes_A": {
             "prompt_path": "Agents/prompts/Hermes-A.txt",
-            "max_iter": 3
+            "max_iter": 3,
+            "temperature": 0.5,
+            "top_p": 0.3
         }
     }
 }

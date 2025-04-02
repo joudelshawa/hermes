@@ -7,7 +7,7 @@
         },
         {
             "id": 2,
-            "label": "Hematomas",
+            "label": "Multiple Hematomas",
             "color": "#ffeb3b"
         },
         {
@@ -22,7 +22,7 @@
         },
         {
             "id": 5,
-            "label": "Trauma to neck, shoulder, and flank areas",
+            "label": "Trauma to Neck, Shoulder, Flank",
             "color": "#ffeb3b"
         },
         {
@@ -32,92 +32,102 @@
         },
         {
             "id": 7,
-            "label": "Hemoglobin level dropped to 9.7 g/dL",
-            "color": "#ffa500"
-        },
-        {
-            "id": 8,
-            "label": "New flank hematoma",
+            "label": "Hematomas in Neck and Shoulder",
             "color": "#ffeb3b"
         },
         {
+            "id": 8,
+            "label": "Initial Hemoglobin: 12.3 g/dL",
+            "color": "#ffa500"
+        },
+        {
             "id": 9,
-            "label": "Acute hemorrhage along the right posterior flank musculature",
+            "label": "Hemoglobin Dropped to 9.7 g/dL",
             "color": "#ffeb3b"
         },
         {
             "id": 10,
-            "label": "Probable old hematoma on the left posterior flank",
+            "label": "New Flank Hematoma",
             "color": "#ffeb3b"
         },
         {
             "id": 11,
-            "label": "Mild Factor VIII deficiency (Hemophilia A)",
-            "color": "#ff4444"
+            "label": "Acute Hemorrhage in Right Posterior Flank Musculature",
+            "color": "#ffeb3b"
         },
         {
             "id": 12,
-            "label": "Desmopressin nasal spray",
-            "color": "#00ff00"
+            "label": "Probable Old Hematoma on Left Posterior Flank",
+            "color": "#ffeb3b"
         },
         {
             "id": 13,
-            "label": "IV desmopressin administration",
-            "color": "#00ff00"
+            "label": "Mild Factor VIII Deficiency (Hemophilia A)",
+            "color": "#ff4444"
         },
         {
             "id": 14,
-            "label": "Hemoglobin levels fluctuated but remained stable (9.3\u20139.9 g/dL)",
-            "color": "#ffa500"
+            "label": "Desmopressin Nasal Spray",
+            "color": "#00ff7f"
         },
         {
             "id": 15,
-            "label": "Factor VIII activity was normal at 103%",
-            "color": "#ffa500"
+            "label": "IV Desmopressin Administration",
+            "color": "#00ff7f"
         },
         {
             "id": 16,
-            "label": "Acetaminophen 1000 mg PO Q8H",
-            "color": "#00ff00"
+            "label": "Hemoglobin Levels (9.3\u20139.9 g/dL)",
+            "color": "#ffa500"
         },
         {
             "id": 17,
-            "label": "CBC to be checked on Tuesday or Wednesday",
-            "color": "#0000ff"
+            "label": "Factor VIII Activity: 103%",
+            "color": "#ffa500"
         },
         {
             "id": 18,
-            "label": "Early follow-up with regular doctor",
-            "color": "#0000ff"
+            "label": "Acetaminophen",
+            "color": "#00ff7f"
         },
         {
             "id": 19,
-            "label": "Activity Restrictions",
+            "label": "CBC Check",
             "color": "#0000ff"
         },
         {
             "id": 20,
-            "label": "Acute muscular hematoma, right flank",
-            "color": "#ff4444"
+            "label": "Early Follow-Up with Regular Doctor",
+            "color": "#0000ff"
         },
         {
             "id": 21,
-            "label": "Hemophilia A (Factor VIII deficiency)",
-            "color": "#ff4444"
+            "label": "Activity Restrictions",
+            "color": "#0000ff"
         },
         {
             "id": 22,
-            "label": "Mental Status: Clear and coherent",
-            "color": "#ffffff"
+            "label": "Acute Muscular Hematoma, Right Flank",
+            "color": "#ff4444"
         },
         {
             "id": 23,
-            "label": "Level of Consciousness: Alert and interactive",
-            "color": "#ffffff"
+            "label": "Hemophilia A (Factor VIII Deficiency)",
+            "color": "#ff4444"
         },
         {
             "id": 24,
-            "label": "Activity Status: Ambulatory and independent",
+            "label": "Clear and Coherent Mental Status",
+            "color": "#ffffff"
+        },
+        {
+            "id": 25,
+            "label": "Alert and Interactive Level of Consciousness",
+            "color": "#ffffff"
+        },
+        {
+            "id": 26,
+            "label": "Ambulatory and Independent Activity Status",
             "color": "#ffffff"
         }
     ],
@@ -125,12 +135,12 @@
         {
             "from": 1,
             "to": 2,
-            "label": "presented with"
+            "label": "has symptom"
         },
         {
             "from": 1,
             "to": 3,
-            "label": "has"
+            "label": "experiencing"
         },
         {
             "from": 1,
@@ -149,103 +159,108 @@
         },
         {
             "from": 6,
-            "to": 2,
+            "to": 7,
             "label": "revealed"
         },
         {
             "from": 1,
-            "to": 7,
-            "label": "experienced"
-        },
-        {
-            "from": 1,
             "to": 8,
-            "label": "developed"
+            "label": "had initial hemoglobin of"
         },
         {
             "from": 1,
             "to": 9,
-            "label": "has"
+            "label": "experienced drop in"
         },
         {
             "from": 1,
             "to": 10,
-            "label": "has"
+            "label": "developed"
         },
         {
             "from": 1,
             "to": 11,
+            "label": "has"
+        },
+        {
+            "from": 1,
+            "to": 12,
+            "label": "has probable old"
+        },
+        {
+            "from": 1,
+            "to": 13,
             "label": "diagnosed with"
         },
         {
-            "from": 11,
-            "to": 12,
+            "from": 13,
+            "to": 14,
             "label": "treated with"
         },
         {
             "from": 1,
-            "to": 13,
+            "to": 15,
             "label": "administered"
         },
         {
             "from": 1,
-            "to": 14,
-            "label": "experienced"
-        },
-        {
-            "from": 1,
-            "to": 15,
-            "label": "has"
-        },
-        {
-            "from": 12,
-            "to": 13,
-            "label": "administered as"
-        },
-        {
-            "from": 1,
             "to": 16,
-            "label": "taking"
+            "label": "has levels of"
         },
         {
             "from": 1,
             "to": 17,
-            "label": "needs to undergo"
+            "label": "has activity level of"
+        },
+        {
+            "from": 13,
+            "to": 14,
+            "label": "managed with"
         },
         {
             "from": 1,
             "to": 18,
-            "label": "requires"
+            "label": "taking"
         },
         {
             "from": 1,
             "to": 19,
-            "label": "has"
+            "label": "requires"
         },
         {
-            "from": 2,
+            "from": 1,
             "to": 20,
-            "label": "diagnosed as"
+            "label": "needs"
         },
         {
-            "from": 11,
+            "from": 1,
             "to": 21,
-            "label": "also known as"
+            "label": "has"
         },
         {
             "from": 1,
             "to": 22,
-            "label": "has"
+            "label": "diagnosed with"
         },
         {
             "from": 1,
             "to": 23,
-            "label": "has"
+            "label": "has condition of"
         },
         {
             "from": 1,
             "to": 24,
-            "label": "has"
+            "label": "exhibits"
+        },
+        {
+            "from": 1,
+            "to": 25,
+            "label": "exhibits"
+        },
+        {
+            "from": 1,
+            "to": 26,
+            "label": "has status of"
         }
     ]
 }

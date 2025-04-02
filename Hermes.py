@@ -15,28 +15,36 @@ class HermesAgenticSystem:
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_R", 
             system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_R"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_R"]["max_iter"]
+            max_iter=self.CONFIG["Agents"]["Hermes_R"]["max_iter"],
+            temperature=self.CONFIG["Agents"]["Hermes_R"]["temperature"],
+            top_p=self.CONFIG["Agents"]["Hermes_R"]["top_p"]
         )
 
         self.KGraphCreator = KGCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_G", 
             system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_G"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_G"]["max_iter"]
+            max_iter=self.CONFIG["Agents"]["Hermes_G"]["max_iter"],
+            temperature=self.CONFIG["Agents"]["Hermes_G"]["temperature"],
+            top_p=self.CONFIG["Agents"]["Hermes_G"]["top_p"]
         )
 
         self.QACreator = QACreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_Q", 
             system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_Q"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_Q"]["max_iter"]
+            max_iter=self.CONFIG["Agents"]["Hermes_Q"]["max_iter"],
+            temperature=self.CONFIG["Agents"]["Hermes_Q"]["temperature"],
+            top_p=self.CONFIG["Agents"]["Hermes_Q"]["top_p"]
         )
 
         self.AnswerValidator = AnswerValidator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_A", 
             system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_A"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_A"]["max_iter"]
+            max_iter=self.CONFIG["Agents"]["Hermes_A"]["max_iter"],
+            temperature=self.CONFIG["Agents"]["Hermes_A"]["temperature"],
+            top_p=self.CONFIG["Agents"]["Hermes_A"]["top_p"]
         )
 
     def getReport(self, prompt, context = "") -> str:
