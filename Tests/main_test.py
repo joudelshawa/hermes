@@ -6,7 +6,7 @@ import Hermes
 import os
 from Utils.Helpers import *
 
-REPORT_NUM = 2
+REPORT_NUM = 3
 PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 
@@ -35,6 +35,11 @@ if __name__ == "__main__":
         qa_pairs = hermes.getQA(KGraph)
         saveQAPairsAsText(qa_pairs, PATH_EXAMPLE)
         questions, answers = hermes.QACreator.getSeparatedQA(qa_pairs)
+
+        print(f"\tGenerating Answers from Unstructured Report Pairs...")
+        av_pairs = hermes.getAnswers(questions, unstructured_report)
+        questions, answers = hermes.AnswerValidator.getSeparatedQA(av_pairs)
+        saveAVPairsAsText(av_pairs, PATH_EXAMPLE)
 
     else:
         examples = os.listdir(PATH_DATA)

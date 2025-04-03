@@ -16,6 +16,7 @@ class QACreator(Agent):
         ):
        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
        self.FORMAT = QAPairs.model_json_schema()
+       self.MINIMUM_QA = 25
     
     def validateResponse(self, response):
         """
@@ -38,6 +39,10 @@ class QACreator(Agent):
             result["is_valid"] = False
             result["errors"].append("Top-level JSON must be a list.")
             return result
+        
+        if len(data) < self.MINIMUM_QA:
+            result["is_valid"] = False
+            result["errors"].append(f"Total generated QA pairs must be more than {self.MINIMUM_QA}. ADD {self.MINIMUM_QA - len(data)} MORE QUESTIONS TO YOUR PREVIOUS RESPONSE!!!")
 
         # validate each Q&A pair
         for i, item in enumerate(data):
@@ -60,6 +65,11 @@ class QACreator(Agent):
             if not isinstance(standardized_item.get("answer"), str) or not standardized_item.get("answer").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
+            
+            if len(standardized_item.get("answer").split()) > 1:
+                result["is_valid"] = False
+                result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
+             
 
         return result
     

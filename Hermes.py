@@ -59,7 +59,7 @@ class HermesAgenticSystem:
     def getAnswers(self, questions, unstructured_report, context = "") -> str:
         return self.AnswerValidator.run(questions=questions, unstructured_report=unstructured_report, context=context)
     
-    def validateAnswers(self, ansQA, ansAV) -> dict:
+    def validateAnswers(self, questions, ans_Q, ans_A) -> dict:
         """
         Takes answers from HermesQ and from HermesA and validates them.
 
@@ -69,32 +69,54 @@ class HermesAgenticSystem:
                 "errors": str (questions with wrong and right answers carefully formatted)
             }
         """
-        pass
+        result = {"is_validated": True, "errors": "ERROR: Make sure the answers of the following questions are correctly included in the structured report - \n"}
+        for i, (quest, ans1, ans2) in enumerate(zip(questions, ans_Q, ans_A)):
+            ans1 = ans1.strip().lower()
+            ans2 = ans2.strip().lower()
+
+            if ans1 != ans2:
+                result["is_validated"] = False
+                result["errors"] += f"\t{i}. {quest}\n"
+
+        return result
     
-    def completeRun(self, rawNotes) -> tuple[str, str]:
+    def completeRun(self, unstructuredReport) -> tuple[str, str]:
 
         max_iter = self.MAX_ITERATIONS
+        context = ""
         while(max_iter > 0):
-            
+            print("\t============================")
+            print(f"\t|    Iterations Left: {max_iter}    |")
+            print("\t============================")
+
             # Step1: Get Report from HermesR
-            report  = self.getReport(rawNotes)
+            print(f"\t| Generating Structured Report...")
+            structuredReport  = self.getReport(unstructuredReport, context=context)
             
             # Step2: Get Knowledge Graph from HermesG
-            KGraph = self.getKnowledgeGraph(report)
+            print(f"\t| Generating Knowledge Graph...")
+            KGraph = self.getKnowledgeGraph(structuredReport)
             
             # Step3: Get Question Answer Pairs from HermesQ
-            questions, ansQA = self.QACreator.getSeparatedQA(self.getQA(KGraph))
+            print(f"\t| Generating Question-Answer Pairs...")
+            questions_Q, ans_Q = self.QACreator.getSeparatedQA(self.getQA(KGraph))
 
             # Step4: Get Answers of questions from HermesA
-            ansAV = self.getAnswers(questions, rawNotes)
+            print(f"\t| Generating Answers from Unstructured Report Pairs...")
+            questions_A, ans_A = self.AnswerValidator.getSeparatedQA(self.getAnswers(questions_Q, unstructuredReport))
             
-            # Step5: Validate Answers from  
-            result = self.validateAnswers(ansQA=ansQA, ansAV=ansAV)
+            # Step5: Validate Answers from
+            print(f"\t| Validating Answeres...")  
+            result = self.validateAnswers(questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
 
             if(result['is_validated']): 
-                return KGraph, report
+                return KGraph, structuredReport
             else:
                 max_iter -= 1
+                context = result["errors"]
+                print("\t |---> Wrong Answers!")
+                temp = context.replace('\n', '\n\t\t\t')
+                print(f"\t\t |---> {temp}")
         
         print("="*50)
         print("\tHermes Failed! (T_T)")

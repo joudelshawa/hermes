@@ -1,96 +1,73 @@
-**Patient Report**
+```output
+**Patient Details**
+1. Name: ___
+2. Unit No: ___
+3. Admission Date: ___
+4. Discharge Date: ___
+5. Sex: ___
+6. Age: ___
+7. Medical Record Number: ___
+8. Admitting Physician: ___
+9. Consultant: ___
+10. Date of Birth: ___
 
----
+**Chief Complaint**
+- Renal cell carcinoma
 
-**Name:**
-**Unit No:**
+**Major Surgical or Invasive Procedure**
+- None specified
 
-**Admission Date:**
-**Discharge Date:**
+**History of Present Illness**
+- The patient was admitted for the management of renal cell carcinoma.
 
-**Date of Birth:**
-**Sex:** Female
+**Past Medical History**
+- None specified
 
-**Service:** UROLOGY
+**Social History**
+- None
 
----
+**Family History**
+- None specified
 
-**Allergies:**
-- Patient recorded as having **No Known Allergies to Drugs (NKDA)**
+**Pertinent Results**
+- Discharge Diagnosis: Renal cell carcinoma
+- Complete Blood Count (CBC) and Basic Metabolic Panel (BMP) were checked on POD1.
 
-**Attending Physician:**
+**Brief Hospital Course**
+- The patient was transferred to the floor from the PACU in stable condition.
+- On POD0, pain was well controlled on PCA, hydrated for urine output >30cc/hour, provided with pneumoboots and incentive spirometry for prophylaxis, and ambulated once.
+- On POD1, Foley catheter was removed without difficulty, basic metabolic panel and complete blood count were checked, pain control was transitioned from PCA to oral analgesics, diet was advanced to a clear/toast and crackers diet.
+- On POD2, diet was advanced as tolerated.
+- The remainder of the hospital course was relatively unremarkable.
+- The patient was discharged in stable condition, eating well, ambulating independently, voiding without difficulty, and with pain control on oral analgesics.
+- On exam, incision was clean, dry, and intact, with no evidence of hematoma collection or infection.
 
----
+**Medications on Admission**
+- None
 
-**Chief Complaint:**
-- Renal mass
+**Discharge Medications**
+1. Hydrocodone-Acetaminophen ___ mg Tablet
+   - Sig: ___ Tablets PO Q6H (every 6 hours) as needed for break through pain only (score >4).
+   - Disp: *60 Tablet(s)* Refills: *0*
+2. Docusate Sodium 100 mg Capsule
+   - Sig: One (1) Capsule PO BID (2 times a day).
+   - Disp: *60 Capsule(s)* Refills: *2*
 
----
+**Discharge Diagnosis**
+- Renal cell carcinoma
 
-**Major Surgical or Invasive Procedure:**
-- Right laparoscopic radical nephrectomy performed by Dr. ___ and Dr. ___
+**Discharge Condition**
+- Stable
 
----
+**Discharge Instructions**
+1. You may shower but do not bathe, swim or immerse your incision.
+2. Do not eat constipating foods for ___ weeks, drink plenty of fluids.
+3. Do not lift anything heavier than a phone book (10 pounds) or drive until you are seen by your Urologist in follow-up.
+4. Tylenol should be used as your first line pain medication. If your pain is not well controlled on Tylenol, you have been prescribed a narcotic pain medication. Use in place of Tylenol. Do not exceed 4 gms of Tylenol in total daily.
+5. Do not drive or drink alcohol while taking narcotics.
+6. Resume all of your home medications, except hold NSAID (aspirin, advil, motrin, ibuprofen) until you see your urologist in follow-up.
+7. If you have fevers > 101.5 F, vomiting, or increased redness, swelling, or discharge from your incision, call your doctor or go to the nearest ER.
 
-**History of Present Illness (HPI):**
-- ___ years old healthy female with an incidental finding of a right renal mass suspicious for renal cell carcinoma (RCC) following an MRI on ___.
-
----
-
-**Past Medical History (PMH):**
-- Nonspecific right axis deviation
-
-**Past Surgical History (PSH):**
-- Cesarean section
-
-**Allergies:**
-- No Known Drug Allergies
-
----
-
-**Social History:**
-- Not provided
-
-**Family History:**
-- No history of RCC
-
----
-
-**Pertinent Results:**
-- **Date:** ___ 07:15 AM
-  - Blood: WBC-7.6, RBC-3.82*, Hgb-11.9*, Hct-33.8*, MCV-89, MCH-31.2, MCHC-35.2*, RDW-12.8, Plt-___
-  - Glucose-150*, UreaN-10, Creat-0.9, Na-138, K-3.8, Cl-104, HCO3-27, AnGap-11
-
----
-
-**Brief Hospital Course:**
-- Patient admitted to the Urology service after undergoing a laparoscopic right radical nephrectomy. No concerning intraoperative events occurred; operative details are available in the dictated note.
-- Perioperative antibiotic prophylaxis was administered.
-- Patient transferred to the floor from the PACU in stable condition.
-
-**Post-Operative Days (POD):**
-- **POD0:** Pain well controlled on PCA, hydrated with urine output >30cc/hour, provided with pneumoboots and incentive spirometry for prophylaxis, ambulated once.
-- **POD1:** Foley catheter removed without difficulty, basic metabolic panel (BMP) and complete blood count (CBC) performed, follow-up appointment scheduled with Dr. ___.
-- **POD2:** Continued recovery with no complications reported.
-
----
-
-**Medications at Discharge:**
-- Not provided
-
----
-
-**Discharge Instructions:**
-1. Follow up with Dr. ___ to set up a follow-up appointment and address any urological questions.
-2. Continue with prescribed medications as directed.
-3. Monitor for signs of infection or complications, including fever, increased pain, or unusual bleeding.
-4. Contact the physician immediately if any concerning symptoms arise.
-
----
-
-**Follow-Up Instructions:**
-- Not provided
-
----
-
-This report structures the provided patient information into a clear and organized format for easy reference.
+**Followup Instructions**
+- Call Dr. ___ to set up follow-up appointment and if you have any urological questions.
+```

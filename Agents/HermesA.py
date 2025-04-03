@@ -62,6 +62,11 @@ class AnswerValidator(Agent):
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
 
+            if len(standardized_item.get("answer").split()) > 1:
+                result["is_valid"] = False
+                result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
+             
+
         return result
     
     def _makeDictFormat(self, questions:list):

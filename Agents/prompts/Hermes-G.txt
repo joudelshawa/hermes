@@ -53,4 +53,5 @@ The created nodes should follow the coloring scheme given below -
 - any other node: choose yourself carefully
 
 Make sure that all nodes are directly or indirectly connected to the patient node.
+All diagnosis nodes MUST be connected to symptom nodes which led to that diagnosis.
 ---

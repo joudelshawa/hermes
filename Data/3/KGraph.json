@@ -7,346 +7,35 @@
         },
         {
             "id": 2,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Urology Service",
-            "color": "#ff7675"
+            "label": "Renal cell carcinoma",
+            "color": "#ff0000"
         },
         {
             "id": 3,
-            "label": "Renal Mass",
+            "label": "Hydrocodone-Acetaminophen",
             "color": "#00ff00"
         },
         {
             "id": 4,
-            "label": "Dr. ___",
+            "label": "Docusate Sodium",
             "color": "#00ff00"
-        },
-        {
-            "id": 5,
-            "label": "Dr. ___",
-            "color": "#00ff00"
-        },
-        {
-            "id": 6,
-            "label": "MRI",
-            "color": "#ff7675"
-        },
-        {
-            "id": 7,
-            "label": "Renal Cell Carcinoma (RCC)",
-=======
-            "label": "UROLOGY Service",
-            "color": "#ffffff"
-        },
-        {
-            "id": 3,
-            "label": "NKDA (No Known Drug Allergies)",
-            "color": "#ffffff"
-        },
-        {
-            "id": 4,
-            "label": "Renal Mass",
-            "color": "#ffffff"
-        },
-        {
-            "id": 5,
-            "label": "Right Laparoscopic Radical Nephrectomy",
-            "color": "#ffffff"
-        },
-        {
-            "id": 6,
-            "label": "WBC-7.6",
-            "color": "#ffffff"
-        },
-        {
-            "id": 7,
-            "label": "RBC-3.82*",
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-            "color": "#ffffff"
-        },
-        {
-            "id": 8,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Nonspecific Right Axis Deviation",
-            "color": "#ff7675"
-        },
-        {
-            "id": 9,
-            "label": "Cesarean Section",
-            "color": "#00ff00"
-        },
-        {
-            "id": 10,
-            "label": "Lab Results",
-=======
-            "label": "Hgb-11.9*",
-            "color": "#ffffff"
-        },
-        {
-            "id": 9,
-            "label": "Hct-33.8*",
-            "color": "#ffffff"
-        },
-        {
-            "id": 10,
-            "label": "MCV-89",
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-            "color": "#ffffff"
-        },
-        {
-            "id": 11,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Admission",
-            "color": "#ff7675"
-        },
-        {
-            "id": 12,
-            "label": "PACU Transfer",
-            "color": "#00ff00"
-        },
-        {
-            "id": 13,
-            "label": "POD0",
-=======
-            "label": "MCH-31.2",
-            "color": "#ffffff"
-        },
-        {
-            "id": 12,
-            "label": "MCHC-35.2*",
-            "color": "#ffffff"
-        },
-        {
-            "id": 13,
-            "label": "RDW-12.8",
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-            "color": "#ffffff"
-        },
-        {
-            "id": 14,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "POD1",
-            "color": "#ff7675"
-        },
-        {
-            "id": 15,
-            "label": "POD2",
-            "color": "#00ff00"
-        },
-        {
-            "id": 16,
-            "label": "Follow-Up Appointment",
-=======
-            "label": "Plt-___",
-            "color": "#ffffff"
-        },
-        {
-            "id": 15,
-            "label": "Glucose-150*",
-            "color": "#ffffff"
-        },
-        {
-            "id": 16,
-            "label": "UreaN-10",
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-            "color": "#ffffff"
-        },
-        {
-            "id": 17,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Medications",
-            "color": "#ff7675"
-        },
-        {
-            "id": 18,
-            "label": "Monitor Symptoms",
-            "color": "#00ff00"
-        },
-        {
-            "id": 19,
-            "label": "Immediate Contact",
-=======
-            "label": "Creat-0.9",
-            "color": "#ffffff"
-        },
-        {
-            "id": 18,
-            "label": "Na-138",
-            "color": "#ffffff"
-        },
-        {
-            "id": 19,
-            "label": "K-3.8",
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-            "color": "#ffffff"
         }
     ],
     "edges": [
         {
             "from": 1,
             "to": 2,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Admitted to"
-=======
-            "label": "admitted to"
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
+            "label": "diagnosis"
         },
         {
             "from": 1,
             "to": 3,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Chief Complaint"
-        },
-        {
-            "from": 4,
-            "to": 3,
-            "label": "Performed by"
-        },
-        {
-            "from": 5,
-            "to": 3,
-            "label": "Performed by"
-        },
-        {
-            "from": 6,
-            "to": 7,
-            "label": "Diagnosed via"
-        },
-        {
-            "from": 7,
-            "to": 3,
-            "label": "Cause of"
-=======
-            "label": "has allergy"
+            "label": "medication"
         },
         {
             "from": 1,
             "to": 4,
-            "label": "chief complaint"
-        },
-        {
-            "from": 4,
-            "to": 5,
-            "label": "led to procedure"
-        },
-        {
-            "from": 1,
-            "to": 6,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 7,
-            "label": "has lab result"
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-        },
-        {
-            "from": 1,
-            "to": 8,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Has Condition"
-=======
-            "label": "has lab result"
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
-        },
-        {
-            "from": 1,
-            "to": 9,
-<<<<<<< HEAD:data/3/KGraph.json
-            "label": "Previous Surgery"
-        },
-        {
-            "from": 10,
-            "to": 11,
-            "label": "Part of"
-        },
-        {
-            "from": 3,
-            "to": 12,
-            "label": "Resulted in"
-        },
-        {
-            "from": 3,
-            "to": 14,
-            "label": "Followed by"
-        },
-        {
-            "from": 13,
-            "to": 14,
-            "label": "Followed by"
-        },
-        {
-            "from": 14,
-            "to": 15,
-            "label": "Followed by"
-        },
-        {
-            "from": 16,
-            "to": 17,
-            "label": "Includes"
-        },
-        {
-            "from": 16,
-            "to": 18,
-            "label": "Includes"
-        },
-        {
-            "from": 16,
-            "to": 19,
-            "label": "Includes"
-=======
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 10,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 11,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 12,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 13,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 14,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 15,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 16,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 17,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 18,
-            "label": "has lab result"
-        },
-        {
-            "from": 1,
-            "to": 19,
-            "label": "has lab result"
->>>>>>> 38685d7 (Changed HermesR prompts and working):Data/3/KGraph.json
+            "label": "medication"
         }
     ]
 }
