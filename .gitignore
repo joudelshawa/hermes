@@ -28,5 +28,6 @@ Thumbs.db  # Windows
 .env
 
 # Ignore Temp folder
+Temp/
 Temp/*
 .DS_Store

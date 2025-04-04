@@ -1,59 +1,35 @@
 from Agents.LLMAgent import Agent
 import json
 import re
-from Utils.Helpers import remove_think
+from Utils.Helpers import *
 from pydantic import BaseModel
 
 class KGCreator(Agent):
     def __init__(
-            self, 
-            base_llm = "deepseek-r1:14b", 
-            name = "", 
-            system_prompt = "", 
-            stream = False,
-            max_iter:int = 3, 
-            temperature:int = 0.3, 
-            top_p:int = 0.4
-        ):
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
+        self, 
+        base_llm = "deepseek-r1:14b", 
+        name = "", 
+        system_prompt = "", 
+        stream = False,
+        max_iter:int = 3, 
+        temperature:int = 0.3, 
+        top_p:int = 0.4,
+        osl_userPrompt:str = "",
+        osl_assistantResponse:str = ""
+    ):
+        oneShotLearningExample = [
+            {
+                "role": "user",
+                "content": osl_userPrompt
+            },
+            {
+                "role": "assistant",
+                "content": osl_assistantResponse
+            }
+        ]
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
         self.FORMAT = KGraph.model_json_schema()
-        # self.FORMAT = {
-        #     "type": "dictionary",
-        #     "properties": {
-        #     "nodes": {
-        #         "type": "list",
-        #         "items": {
-        #             "type": "dictionary",
-        #             "required": [
-        #                 "id",
-        #                 "label",
-        #                 "color"
-        #             ],
-        #             "properties": {
-        #                 "id": "integer",
-        #                 "label": "string",
-        #                 "color": "string"
-        #             }
-        #         }
-        #     },
-        #     "edges": {
-        #         "type": "list",
-        #         "items": {
-        #             "type": "dictionary",
-        #             "required": [
-        #                 "from",
-        #                 "to",
-        #                 "label"
-        #             ],
-        #             "properties":{
-        #                 "from": "integer",
-        #                 "to": "integer",
-        #                 "label": "string"
-        #             }
-        #         }
-        #     },
-        #     }
-        # }
+        
 
     def validateResponse(self, response:str) -> dict:
         # return super().validateResponse(response)
@@ -71,23 +47,6 @@ class KGCreator(Agent):
             result["is_valid"] = False
             result["errors"].append("Invalid JSON format")
             return result
-
-        # pattern = r'```json\s*(.*?)\s*```' # or --> ```json\s*(\{.*?\}|\[.*?\])\s*```
-        # match = re.search(pattern, response, re.DOTALL)
-
-        # if match:
-        #     json_content = match.group(1)
-        #     try:
-        #         data = json.loads(json_content)
-        #         result["extracted_response"] = json_content
-        #     except json.JSONDecodeError:
-        #         result["is_valid"] = False
-        #         result["errors"].append("Invalid JSON format")
-        #         return result
-        # else:
-        #     result["is_valid"] = False
-        #     result["errors"].append("Invalid JSON format: Pattern \"```json\s*(.*?)\s*```\" not found in response")
-        #     return result
 
         # Check top-level keys
         required_keys = {"nodes", "edges"}
@@ -131,25 +90,27 @@ class KGCreator(Agent):
     
     def run(self, prompt, context = ""):
         prompt = '### Start\ncurrent state:\n{}\n\nprompt:\n"""' + prompt + '"""\n\nnew state:\n'
-        graph = super().run(prompt, context)
-        validation = self.validateResponse(remove_think(graph))
         max_iter = self.MAX_ITERATIONS
+        
         while(max_iter > 0):
+            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            graph = remove_think(super().run(prompt, context))
+            validation = self.validateResponse(graph)
+            # Temporary Save
+            saveGraphAsHTML(validation["extracted_response"], "Temp/")
+
             if(validation["is_valid"]):
-                print("\t|---> Successfully Generated Knowledge Graph!")
+                print("\t|\t|---> Successfully Generated Knowledge Graph!")
                 return validation["extracted_response"]
             else:
-                print("\tERROR BY: HermesG")
-                print(f"\t|---> OUTPUT: {remove_think(graph)}")
-                print(f"\t|---> {validation['errors']}")
-                print("\t|---> Trying again...")
+                print("\t|\tERROR BY: HermesG")
+                print(f"\t|\t|---> {validation['errors']}")
+                print("\t\|\t|---> Trying again...")
                 context = f"Your Previous Response: \"\"\"{remove_think(graph)}\"\"\"\n\n**NOTE**\nYour previous response had these errors -\n{validation['errors']}\n"
-                graph = super().run(prompt, context)
-                validation = self.validateResponse(graph)
             max_iter-=1
         
         print("="*50)
-        print("Knowledge Graph Generation Error: Hermes-G was not able to generate validated output.\nExiting....")
+        print("Knowledge Graph Generation Error\nExiting....")
         print("="*50)
         exit()
 

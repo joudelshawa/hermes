@@ -1,5 +1,5 @@
 from Agents import *
-from Utils.Helpers import remove_think
+from Utils.Helpers import *
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
@@ -11,40 +11,54 @@ class HermesAgenticSystem:
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
         
+        agent = self.CONFIG["Agents"]["Hermes_R"]
         self.ReportCreator = ReportCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_R", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_R"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_R"]["max_iter"],
-            temperature=self.CONFIG["Agents"]["Hermes_R"]["temperature"],
-            top_p=self.CONFIG["Agents"]["Hermes_R"]["top_p"]
+            system_prompt = getAgentPrompt(agent["prompt_path"] + "SystemPrompt.txt"),
+            max_iter = agent["max_iter"],
+            temperature = agent["temperature"],
+            top_p = agent["top_p"],
+            osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
         )
 
+        agent = self.CONFIG["Agents"]["Hermes_G"]
         self.KGraphCreator = KGCreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_G", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_G"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_G"]["max_iter"],
-            temperature=self.CONFIG["Agents"]["Hermes_G"]["temperature"],
-            top_p=self.CONFIG["Agents"]["Hermes_G"]["top_p"]
+            system_prompt = getAgentPrompt(agent["prompt_path"] + "SystemPrompt.txt"),
+            max_iter = agent["max_iter"],
+            temperature = agent["temperature"],
+            top_p = agent["top_p"],
+            osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
+
         )
 
+        agent = self.CONFIG["Agents"]["Hermes_Q"]
         self.QACreator = QACreator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_Q", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_Q"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_Q"]["max_iter"],
-            temperature=self.CONFIG["Agents"]["Hermes_Q"]["temperature"],
-            top_p=self.CONFIG["Agents"]["Hermes_Q"]["top_p"]
+            system_prompt = getAgentPrompt(agent["prompt_path"] + "SystemPrompt.txt"),
+            max_iter = agent["max_iter"],
+            temperature = agent["temperature"],
+            top_p = agent["top_p"],
+            osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
+
         )
 
+        agent = self.CONFIG["Agents"]["Hermes_A"]
         self.AnswerValidator = AnswerValidator(
             base_llm = self.CONFIG["LLM"],
             name = "Hermes_A", 
-            system_prompt = getAgentPrompt(self.CONFIG["Agents"]["Hermes_A"]["prompt_path"]),
-            max_iter=self.CONFIG["Agents"]["Hermes_A"]["max_iter"],
-            temperature=self.CONFIG["Agents"]["Hermes_A"]["temperature"],
-            top_p=self.CONFIG["Agents"]["Hermes_A"]["top_p"]
+            system_prompt = getAgentPrompt(agent["prompt_path"] + "SystemPrompt.txt"),
+            max_iter = agent["max_iter"],
+            temperature = agent["temperature"],
+            top_p = agent["top_p"],
+            osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
         )
 
     def getReport(self, prompt, context = "") -> str:
@@ -85,25 +99,31 @@ class HermesAgenticSystem:
         max_iter = self.MAX_ITERATIONS
         context = ""
         while(max_iter > 0):
-            print("\t============================")
-            print(f"\t|    Iterations Left: {max_iter}    |")
-            print("\t============================")
+            print("\t==========================")
+            print(f"\t|    Iteration: [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]    |")
+            print("\t==========================")
 
             # Step1: Get Report from HermesR
             print(f"\t| Generating Structured Report...")
             structuredReport  = self.getReport(unstructuredReport, context=context)
+            saveReportAsText(structuredReport, "Temp/")
             
             # Step2: Get Knowledge Graph from HermesG
             print(f"\t| Generating Knowledge Graph...")
             KGraph = self.getKnowledgeGraph(structuredReport)
+            saveGraphAsHTML(KGraph, "Temp/")
             
             # Step3: Get Question Answer Pairs from HermesQ
             print(f"\t| Generating Question-Answer Pairs...")
-            questions_Q, ans_Q = self.QACreator.getSeparatedQA(self.getQA(KGraph))
+            qa_pairs = self.getQA(KGraph)
+            questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
+            saveQAPairsAsText(qa_pairs, "Temp/")
 
             # Step4: Get Answers of questions from HermesA
             print(f"\t| Generating Answers from Unstructured Report Pairs...")
-            questions_A, ans_A = self.AnswerValidator.getSeparatedQA(self.getAnswers(questions_Q, unstructuredReport))
+            av_pairs = self.getAnswers(questions_Q, unstructuredReport)
+            questions_A, ans_A = self.AnswerValidator.getSeparatedQA(av_pairs)
+            saveAVPairsAsText(av_pairs, "Temp/")
             
             # Step5: Validate Answers from
             print(f"\t| Validating Answeres...")  

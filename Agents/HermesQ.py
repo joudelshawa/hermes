@@ -6,17 +6,29 @@ from pydantic import BaseModel
 
 class QACreator(Agent):
     def __init__(
-            self,
-            base_llm = "deepseek-r1:14b", 
-            name = "", system_prompt = "", 
-            stream = False,
-            max_iter:int=3, 
-            temperature:int = 0.3, 
-            top_p:int = 0.4
+        self,
+        base_llm = "deepseek-r1:14b", 
+        name = "", system_prompt = "", 
+        stream = False,
+        max_iter:int=3, 
+        temperature:int = 0.3, 
+        top_p:int = 0.4,
+        osl_userPrompt:str = "",
+        osl_assistantResponse:str = ""
         ):
-       super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
-       self.FORMAT = QAPairs.model_json_schema()
-       self.MINIMUM_QA = 25
+        oneShotLearningExample = [
+            {
+                "role": "user",
+                "content": osl_userPrompt
+            },
+            {
+                "role": "assistant",
+                "content": osl_assistantResponse
+            }
+        ]
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
+        self.FORMAT = QAPairs.model_json_schema()
+        self.MINIMUM_QA = 25
     
     def validateResponse(self, response):
         """
@@ -87,21 +99,21 @@ class QACreator(Agent):
         prompt_dict = prompt
         prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
         prompt = "\n\n### Start\nKnowledge Graph:\n\"\"\"" + prompt + "\"\"\"\n\nQuestion Answer Pairs:\n"
-        qa_pairs = remove_think(super().run(prompt, context))
-        validation = self.validateResponse(qa_pairs)
         max_iter = self.MAX_ITERATIONS
+
         while(max_iter > 0):
+            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            qa_pairs = remove_think(super().run(prompt, context))
+            validation = self.validateResponse(qa_pairs)
+            
             if(validation["is_valid"]):
-                print("\t|---> Successfully Generated Question and Answer pairs!")
+                print("\t|\t|---> Successfully Generated Question and Answer pairs!")
                 return validation["extracted_response"]
             else:
-                print("\t\tERROR BY: HermesQ")
-                print(f"\t\t|---> {validation['errors']}")
-                print("\t\t|---> Trying again...")
-                print(f"\t\t|---> OUTPUT: {qa_pairs}")
+                print("\t|\tERROR BY: HermesQ")
+                print(f"\t|\t|---> {validation['errors']}")
+                print("\t|\t|---> Trying again...")
                 context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
-                qa_pairs = remove_think(super().run(prompt, context))
-                validation = self.validateResponse(qa_pairs)
             max_iter-=1
         
         print("="*50)

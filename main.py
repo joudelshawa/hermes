@@ -1,10 +1,13 @@
 import Hermes
+import os
 from Utils.Helpers import *
 
 REPORT_NUM = 2
 PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 
+if not os.path.exists("Temp/"):
+    os.mkdir("Temp/")
 
 if __name__ == "__main__":
     print("\n")

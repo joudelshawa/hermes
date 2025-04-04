@@ -1,0 +1,34 @@
+**Patient Details**
+1. Name: ___
+2. Unit No: ___
+3. Admission Date: ___
+4. Discharge Date: ___
+5. Date of Birth: ___
+6. Sex: ___
+7. Service: MEDICINE
+8. Allergies: No known allergies
+9. Attending: ___
+
+**Chief Complaint**
+1. Right flank bruising and pain s/p fall
+
+**Major Surgical or Invasive Procedure**
+None
+
+**History of Present Illness**
+- Mr. ___ is a ___ with a history of factor VIII deficiency presenting with right neck swelling after a snowboarding accident.
+- Fell while snowboarding with loss of consciousness on ___.
+- Initially evaluated at ___, where CT imaging of the head/neck showed no intracranial hemorrhage.
+- CTA of the neck demonstrated:
+    - Thickened right platysma muscle with surrounding hematoma
+    - A focus of active contrast extravasation within the right platysma muscle
+- Developed a right shoulder hematoma, although shoulder plain films did not show any acute abnormality.
+
+**Past Medical History**
+- Mild factor VIII deficiency
+
+**Social History**
+- None
+
+**Family History**
+- Patients mother had tendency to bleed.

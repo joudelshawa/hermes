@@ -11,9 +11,21 @@ class ReportCreator(Agent):
             stream = False,
             max_iter = 3,
             temperature:int = 0.3, 
-            top_p:int = 0.4
+            top_p:int = 0.4,
+            osl_userPrompt:str = "",
+            osl_assistantResponse:str = ""
         ):
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
+        oneShotLearningExample = [
+            {
+                "role": "user",
+                "content": osl_userPrompt
+            },
+            {
+                "role": "assistant",
+                "content": osl_assistantResponse
+            }
+        ]
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
         self.main_headings = [
             "Patient",
             "Complaint",
@@ -47,7 +59,7 @@ class ReportCreator(Agent):
         # Check if any major heading word is missing
         for heading in self.main_headings:
             if not any(word in found_headings for word in heading.lower().split()):
-                print(f"\t\tDID NOT FIND HEADING: {heading}")
+                # print(f"\t\tDID NOT FIND HEADING: {heading}")
                 missing_headings.append(heading)
                 result["is_valid"] = False
             else:
@@ -55,30 +67,29 @@ class ReportCreator(Agent):
                 # print(f"\t\tFOUND HEADING: {heading}")
 
         if not result["is_valid"]:
-            result["errors"] += f"You did not include these words in your headings: {', '.join(missing_headings)}"
+            result["errors"] += f"You must include these words in your headings: {', '.join(missing_headings)}"
         return result
     
     def run(self, prompt, context = ""):
         # Response generation step
         prompt = f'Prompt:\n"""\n{prompt}"""\nOutput:\n'
-        response = remove_think(super().run(prompt, context))
-        validation = self.validateResponse(response)
         max_iter = self.MAX_ITERATIONS
 
         while(max_iter > 0):
-
+            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            response = remove_think(super().run(prompt, context))
+            validation = self.validateResponse(response)
+            # Temporary Save
+            saveReportAsText(validation["response"], "Temp/")
+            
             if validation["is_valid"]:
-                print("\t|---> Successfully Generated Structured Report!")
+                print("\t|\t|---> Successfully Generated Structured Report!")
                 return validation["response"]
             else:
-                print("\tERROR BY: HermesR")
-                print(f"\t|---> {validation['errors']}")
-                # print(f"\t|---> OUTPUT: {response}")
-                print("\t|---> Trying again...")
-                
+                print("\t|\tERROR BY: HermesR")
+                print(f"\t|\t|---> {validation['errors']}")
+                print("\t|\t|---> Trying again...")        
                 context = f"Your Previous Response: \"\"\"{validation['response']}\"\"\"\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
-                response = remove_think(super().run(prompt, context))
-                validation = self.validateResponse(response)
             max_iter -= 1
         
         print("="*50)

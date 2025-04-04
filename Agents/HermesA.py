@@ -6,16 +6,28 @@ from Utils.Helpers import *
 
 class AnswerValidator(Agent):
     def __init__(
-            self, 
-            base_llm = "deepseek-r1:14b", 
-            name = "", 
-            system_prompt = "", 
-            stream = False, 
-            max_iter = 3,
-            temperature:int = 0.3, 
-            top_p:int = 0.4
-        ):
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p)
+        self, 
+        base_llm = "deepseek-r1:14b", 
+        name = "", 
+        system_prompt = "", 
+        stream = False, 
+        max_iter = 3,
+        temperature:int = 0.3, 
+        top_p:int = 0.4,
+        osl_userPrompt:str = "",
+        osl_assistantResponse:str = ""
+    ):
+        oneShotLearningExample = [
+            {
+                "role": "user",
+                "content": osl_userPrompt
+            },
+            {
+                "role": "assistant",
+                "content": osl_assistantResponse
+            }
+        ]
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
         self.FORMAT = QAPairs.model_json_schema()
 
     def validateResponse(self, response):
@@ -98,21 +110,20 @@ class AnswerValidator(Agent):
         prompt = self._makeDictFormat(questions) # convert to string since its a json dict
         # print(prompt)
         prompt = f"### Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n### Questions To Answer:\n```json\n{prompt}```\n\n### Answered Questions:\n"
-        av_pairs = remove_think(super().run(prompt, context))
-        validation = self.validateResponse(av_pairs)
         max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
+            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            av_pairs = remove_think(super().run(prompt, context))
+            validation = self.validateResponse(av_pairs)
+
             if(validation["is_valid"]):
-                print("\t|---> Successfully Generated Answer Validator pairs!")
+                print("\t|\t|---> Successfully Generated Answer Validator pairs!")
                 return validation["extracted_response"]
             else:
-                print("\t\tERROR BY: HermesA")
-                print(f"\t\t|---> {validation['errors']}")
-                print(f"\t\t|---> OUTPUT: {av_pairs}")
-                print("\t\t|---> Trying again...")
+                print("\t|\tERROR BY: HermesA")
+                print(f"\t|\t|---> {validation['errors']}")
+                print("\t|\t|---> Trying again...")
                 context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
-                av_pairs = remove_think(super().run(prompt, context))
-                validation = self.validateResponse(av_pairs)
             max_iter-=1
         
         print("="*50)

@@ -15,11 +15,22 @@ class LLM:
         return cls._instance
 
 class Agent:
-    def __init__(self, base_llm:str, name:str, systemPrompt:str, stream:bool, max_iter:int, temperature:int, top_p:int):
+    def __init__(
+            self,
+            base_llm:str,
+            name:str, 
+            systemPrompt:str, 
+            stream:bool, 
+            max_iter:int, 
+            temperature:int, 
+            top_p:int,
+            oneShotLearningExample: list
+        ):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
         self.name = f"{name}_({base_llm})"
         self.systemPrompt = systemPrompt
+        self.oneShotLearningExample = oneShotLearningExample
         self.stream = stream
         self.MAX_ITERATIONS = max_iter
         self.FORMAT = None
@@ -52,17 +63,18 @@ class Agent:
         return
     
     def _get_msgs(self, prompt:str, context:str = ""):
-        msgs = [
+        msgs:list = [
             {
               "role": "system", # "system" is a prompt to define how the model should act.
               "content": self.systemPrompt # system prompt should be written here
-            }
+            },
         ]
+        msgs.extend(self.oneShotLearningExample)
 
         if context != "":
             msgs.append(
                 {
-                    "role": "system",
+                    "role": "user",
                     "content": context
                 }
             )

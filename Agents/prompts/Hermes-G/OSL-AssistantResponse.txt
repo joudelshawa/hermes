@@ -1,0 +1,21 @@
+{ 
+    "nodes": [ 
+        { 
+            "id": 1, 
+            "label": "Bob", 
+            "color": "#ffffff" 
+        }, 
+        { 
+            "id": 2, 
+            "label": "Alice", 
+            "color": "#ff7675" 
+        } 
+    ], 
+    "edges": [ 
+        { 
+            "from": 1, 
+            "to": 2, 
+            "label": "roommate" 
+        } 
+    ] 
+}
