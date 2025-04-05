@@ -45,7 +45,7 @@ class Agent:
         response = self.llm_client.chat(
             model=self.llm, 
             messages=self._get_msgs(prompt=prompt, context=context),
-            options={"temperature": self.TEMPERATURE, "top_p": self.TOP_P},
+            options={"temperature": self.TEMPERATURE, "top_p": self.TOP_P, "num_ctx": 2048*4},
             format=self.FORMAT
         )
         return response['message']['content']

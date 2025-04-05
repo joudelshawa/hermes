@@ -112,7 +112,8 @@ class AnswerValidator(Agent):
         prompt = f"### Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n### Questions To Answer:\n```json\n{prompt}```\n\n### Answered Questions:\n"
         max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
-            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            print("\t|")
+            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
             av_pairs = remove_think(super().run(prompt, context))
             validation = self.validateResponse(av_pairs)
 

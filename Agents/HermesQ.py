@@ -98,11 +98,12 @@ class QACreator(Agent):
     def run(self, prompt, context = ""):
         prompt_dict = prompt
         prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
-        prompt = "\n\n### Start\nKnowledge Graph:\n\"\"\"" + prompt + "\"\"\"\n\nQuestion Answer Pairs:\n"
+        prompt = "\n\nKnowledge Graph:\n\"\"\"" + prompt + "\"\"\""
         max_iter = self.MAX_ITERATIONS
 
         while(max_iter > 0):
-            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            print("\t|")
+            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
             qa_pairs = remove_think(super().run(prompt, context))
             validation = self.validateResponse(qa_pairs)
             

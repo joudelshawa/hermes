@@ -27,11 +27,11 @@ class ReportCreator(Agent):
         ]
         super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
         self.main_headings = [
-            "Patient",
-            "Complaint",
-            "History",
-            "Discharge",
-            "Medications"
+            "patient",
+            "complaint",
+            "history",
+            "discharge",
+            "medications"
         ]
 
 
@@ -72,11 +72,11 @@ class ReportCreator(Agent):
     
     def run(self, prompt, context = ""):
         # Response generation step
-        prompt = f'Prompt:\n"""\n{prompt}"""\nOutput:\n'
         max_iter = self.MAX_ITERATIONS
 
         while(max_iter > 0):
-            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            print("\t|")
+            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
             response = remove_think(super().run(prompt, context))
             validation = self.validateResponse(response)
             # Temporary Save

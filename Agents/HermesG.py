@@ -89,11 +89,12 @@ class KGCreator(Agent):
         return result
     
     def run(self, prompt, context = ""):
-        prompt = '### Start\ncurrent state:\n{}\n\nprompt:\n"""' + prompt + '"""\n\nnew state:\n'
+        # prompt = '### Start\ncurrent state:\n{}\n\nprompt:\n"""' + prompt + '"""\n\nnew state:\n'
         max_iter = self.MAX_ITERATIONS
         
         while(max_iter > 0):
-            print(f"\n\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            print("\t|")
+            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
             graph = remove_think(super().run(prompt, context))
             validation = self.validateResponse(graph)
             # Temporary Save

@@ -1,7 +1,6 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
-import re
 from pyvis.network import Network
 
 def saveGraphAsImage(graph_data, folder_path):
@@ -87,7 +86,7 @@ def saveGraphAsHTML(graph_data, folder_path):
     net.write_html(folder_path + "KGraph.html")
 
 def saveReportAsText(text_data, folder_path):
-    with open(folder_path + "structured_report.txt", "w") as file:
+    with open(folder_path + "structured_report.md", "w") as file:
         file.write(text_data)
 
 def readStructuredReport(folder_path):

@@ -107,27 +107,39 @@ class HermesAgenticSystem:
             print(f"\t| Generating Structured Report...")
             structuredReport  = self.getReport(unstructuredReport, context=context)
             saveReportAsText(structuredReport, "Temp/")
+            print("\t|--------------------------------------------")
+            print("\t|--------------------------------------------")
             
             # Step2: Get Knowledge Graph from HermesG
             print(f"\t| Generating Knowledge Graph...")
             KGraph = self.getKnowledgeGraph(structuredReport)
             saveGraphAsHTML(KGraph, "Temp/")
+            print("\t|--------------------------------------------")
+            print("\t|--------------------------------------------")
             
             # Step3: Get Question Answer Pairs from HermesQ
             print(f"\t| Generating Question-Answer Pairs...")
             qa_pairs = self.getQA(KGraph)
             questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
             saveQAPairsAsText(qa_pairs, "Temp/")
+            print("\t|--------------------------------------------")
+            print("\t|--------------------------------------------")
+            
 
             # Step4: Get Answers of questions from HermesA
             print(f"\t| Generating Answers from Unstructured Report Pairs...")
             av_pairs = self.getAnswers(questions_Q, unstructuredReport)
             questions_A, ans_A = self.AnswerValidator.getSeparatedQA(av_pairs)
             saveAVPairsAsText(av_pairs, "Temp/")
+            print("\t|--------------------------------------------")
+            print("\t|--------------------------------------------")
             
             # Step5: Validate Answers from
             print(f"\t| Validating Answeres...")  
             result = self.validateAnswers(questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
+            print("\t|--------------------------------------------")
+            print("\t|--------------------------------------------")
+            
 
             if(result['is_validated']): 
                 return KGraph, structuredReport
