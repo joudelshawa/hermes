@@ -79,7 +79,7 @@ class HermesAgenticSystem:
     def createDocumentEmbedding(self):
         pass
 
-    def validateAnswers(self, questions, ans_Q, ans_A) -> dict:
+    def validateAnswers(self, itr, questions, ans_Q, ans_A) -> dict:
         """
         Takes answers from HermesQ and from HermesA and validates them.
 
@@ -90,6 +90,9 @@ class HermesAgenticSystem:
             }
         """
         result = {"is_validated": True, "errors": "ERROR: Make sure the answers of the following questions are correctly included in the structured report - \n"}
+        temp  = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+        temp += f"Invalid Answers for Iteration {itr}\n"
+        temp  += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"
         for i, (quest, ans1, ans2) in enumerate(zip(questions, ans_Q, ans_A)):
             # ans1 = ans1.strip().lower()
             # ans2 = ans2.strip().lower()
@@ -98,16 +101,23 @@ class HermesAgenticSystem:
             if sim < self.SIMILARITY_THRESHOLD:
                 result["is_validated"] = False
                 result["errors"] += f"\t{i}. {quest}\n"
-
+                temp += f"Q{i} [{sim}]. {quest}\n"
+                temp += f"Answer 1: {ans1}\n"
+                temp += f"Answer 2: {ans2}\n"
+                temp += "---------------------------------------------\n"
+        
+        temp += "\n////////////////////END//////////////////////\n\n"
+        
+        saveInvalidAnswersAsText(temp, "Temp/")
         return result
     
     def completeRun(self, unstructuredReport) -> tuple[str, str]:
 
-        max_iter = self.MAX_ITERATIONS
+        itr = 0
         context = ""
-        while(max_iter > 0):
+        while(itr < self.MAX_ITERATIONS):
             print("\t==========================")
-            print(f"\t|    Iteration: [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]    |")
+            print(f"\t|    Iteration: [{itr+1}/{self.MAX_ITERATIONS}]    |")
             print("\t==========================")
 
             # Step1: Get Report from HermesR
@@ -144,21 +154,24 @@ class HermesAgenticSystem:
             # Step5: Validate Answers from
             print(f"\t| Validating Answeres...")
             self.semanticEmbedder.load() 
-            result = self.validateAnswers(questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
+            result = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
             self.semanticEmbedder.unload()
+            
+
+            if(result['is_validated']):
+                print("\t| SUCCESS!! Converted to Structured Report and Knowledge Graph.")
+                print("\t==============================================\n")
+                return KGraph, structuredReport
+            else:
+                itr += 1
+                context = result["errors"]
+                print("\t|\t|---> Wrong Answers!")
+                temp = context.replace('\n', '\n\t|\t\t')
+                print(f"\t|\t|---> {temp}")
+            
             print("\t|--------------------------------------------")
             print("\t|--------------------------------------------")
             
-
-            if(result['is_validated']): 
-                return KGraph, structuredReport
-            else:
-                max_iter -= 1
-                context = result["errors"]
-                print("\t|---> Wrong Answers!")
-                temp = context.replace('\n', '\n\t\t')
-                print(f"\t\t |---> {temp}")
-        
         print("="*50)
         print("\tHermes Failed! (T_T)")
         print("="*50)

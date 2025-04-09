@@ -111,6 +111,10 @@ def saveAVPairsAsText(av_pairs, folder_path):
         av_pairs_json = json.loads(av_pairs) # load json so properly formatting
         json.dump(av_pairs_json, file, indent=4)
 
+def saveInvalidAnswersAsText(invAnswers, folder_path):
+    with open(folder_path + "InvalidAnswers.txt", "a") as file:
+        file.write(invAnswers)
+
 def readQuestions(folder_path):
     with open(folder_path + "QAPairs.json", "r") as file:
         qa_pairs = json.load(file)

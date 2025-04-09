@@ -88,6 +88,6 @@ class Agent:
               "content": prompt # user prompt should be written here
             }
         )
-        if "Q" in self.name: 
-            print("FINAL PROMPT: \n" + json.dumps(msgs, indent=4))
+        # if "Q" in self.name: 
+        #     print("FINAL PROMPT: \n" + json.dumps(msgs, indent=4))
         return msgs

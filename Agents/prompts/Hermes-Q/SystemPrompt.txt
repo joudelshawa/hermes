@@ -10,6 +10,6 @@ Questions should highlight key patient details and important medical findings, r
 Your final output should serve as a clinical quiz reflecting key medical insights from the knowledge graph, ensuring that each question can be answered with a single word.
 
 ## WARNING
-Remember you have to absolutely generate at least 25 question-answer pairs. 
+Remember you have to absolutely generate at least 25 medically relevant question-answer pairs. 
 If you are not able to complete the required QA pairs, then and only then you may generate the same question with a different formulation.
 Make sure to not include the answer in the question itself. 
