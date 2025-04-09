@@ -1,34 +1,43 @@
 from pydantic import BaseModel
 from Agents.LLMAgent import Agent
-import re
 import json
 from Utils.Helpers import *
 
 class AnswerValidator(Agent):
     def __init__(
-        self, 
-        base_llm = "deepseek-r1:14b", 
-        name = "", 
-        system_prompt = "", 
-        stream = False, 
-        max_iter = 3,
-        temperature:int = 0.3, 
-        top_p:int = 0.4,
-        osl_userPrompt:str = "",
-        osl_assistantResponse:str = ""
+            self, 
+            base_llm = "deepseek-r1:14b", 
+            name = "", 
+            system_prompt = "", 
+            stream = False, 
+            max_iter = 3,
+            temperature:int = 0.3, 
+            top_p:int = 0.4,
+            osl_userPrompt:str = "",
+            osl_assistantResponse:str = "",
+            contextLengthMultiplier:int = 8
     ):
-        oneShotLearningExample = [
-            {
-                "role": "user",
-                "content": osl_userPrompt
-            },
-            {
-                "role": "assistant",
-                "content": osl_assistantResponse
-            }
-        ]
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
+        oneShotLearningExample = []
+        if osl_userPrompt != "" and osl_assistantResponse != "":
+            oneShotLearningExample = [
+                {
+                    "role": "user",
+                    "content": osl_userPrompt
+                },
+                {
+                    "role": "assistant",
+                    "content": osl_assistantResponse
+                }
+            ]
+        else: 
+            print(f"{name}: Not Using One-Shot-Learning")
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
         self.FORMAT = QAPairs.model_json_schema()
+        
+        
+        
+        
+
 
     def validateResponse(self, response):
         """
@@ -74,13 +83,13 @@ class AnswerValidator(Agent):
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
 
-            if len(standardized_item.get("answer").split()) > 1:
-                result["is_valid"] = False
-                result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
+            # if len(standardized_item.get("answer").split()) > 1:
+            #     result["is_valid"] = False
+            #     result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
              
 
         return result
-    
+
     def _makeDictFormat(self, questions:list):
         dictQA = []
         for q in questions:
@@ -109,7 +118,7 @@ class AnswerValidator(Agent):
 
         prompt = self._makeDictFormat(questions) # convert to string since its a json dict
         # print(prompt)
-        prompt = f"### Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n### Questions To Answer:\n```json\n{prompt}```\n\n### Answered Questions:\n"
+        prompt = f"## Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n## Questions To Answer:\n```json\n{prompt}```"
         max_iter = self.MAX_ITERATIONS
         while(max_iter > 0):
             print("\t|")
@@ -124,7 +133,7 @@ class AnswerValidator(Agent):
                 print("\t|\tERROR BY: HermesA")
                 print(f"\t|\t|---> {validation['errors']}")
                 print("\t|\t|---> Trying again...")
-                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
+                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n---\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
         print("="*50)

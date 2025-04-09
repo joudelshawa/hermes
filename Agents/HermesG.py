@@ -6,28 +6,33 @@ from pydantic import BaseModel
 
 class KGCreator(Agent):
     def __init__(
-        self, 
-        base_llm = "deepseek-r1:14b", 
-        name = "", 
-        system_prompt = "", 
-        stream = False,
-        max_iter:int = 3, 
-        temperature:int = 0.3, 
-        top_p:int = 0.4,
-        osl_userPrompt:str = "",
-        osl_assistantResponse:str = ""
+            self, 
+            base_llm = "deepseek-r1:14b", 
+            name = "", 
+            system_prompt = "", 
+            stream = False,
+            max_iter:int = 3, 
+            temperature:int = 0.3, 
+            top_p:int = 0.4,
+            osl_userPrompt:str = "",
+            osl_assistantResponse:str = "",
+            contextLengthMultiplier:int = 8
     ):
-        oneShotLearningExample = [
-            {
-                "role": "user",
-                "content": osl_userPrompt
-            },
-            {
-                "role": "assistant",
-                "content": osl_assistantResponse
-            }
-        ]
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
+        oneShotLearningExample = []
+        if osl_userPrompt != "" and osl_assistantResponse != "":
+            oneShotLearningExample = [
+                {
+                    "role": "user",
+                    "content": osl_userPrompt
+                },
+                {
+                    "role": "assistant",
+                    "content": osl_assistantResponse
+                }
+            ]
+        else: 
+            print(f"{name}: Not Using One-Shot-Learning")
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
         self.FORMAT = KGraph.model_json_schema()
         
 

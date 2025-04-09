@@ -13,19 +13,24 @@ class ReportCreator(Agent):
             temperature:int = 0.3, 
             top_p:int = 0.4,
             osl_userPrompt:str = "",
-            osl_assistantResponse:str = ""
-        ):
-        oneShotLearningExample = [
-            {
-                "role": "user",
-                "content": osl_userPrompt
-            },
-            {
-                "role": "assistant",
-                "content": osl_assistantResponse
-            }
-        ]
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
+            osl_assistantResponse:str = "",
+            contextLengthMultiplier:int = 8
+    ):
+        oneShotLearningExample = []
+        if osl_userPrompt != "" and osl_assistantResponse != "":
+            oneShotLearningExample = [
+                {
+                    "role": "user",
+                    "content": osl_userPrompt
+                },
+                {
+                    "role": "assistant",
+                    "content": osl_assistantResponse
+                }
+            ]
+        else: 
+            print(f"{name}: Not Using One-Shot-Learning")
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
         self.main_headings = [
             "patient",
             "complaint",

@@ -4,6 +4,7 @@ All agents will use this class as the parent class.
 """
 
 import ollama
+import json
 
 class LLM:
     _instance = None
@@ -24,7 +25,8 @@ class Agent:
             max_iter:int, 
             temperature:int, 
             top_p:int,
-            oneShotLearningExample: list
+            oneShotLearningExample: list,
+            contextLengthMultiplier:int
         ):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
@@ -36,6 +38,7 @@ class Agent:
         self.FORMAT = None
         self.TEMPERATURE = temperature
         self.TOP_P = top_p
+        self.CONTEXT_LENGTH = 2048*contextLengthMultiplier
 
     def run(self, prompt:str, context:str = ""):
         """
@@ -45,7 +48,7 @@ class Agent:
         response = self.llm_client.chat(
             model=self.llm, 
             messages=self._get_msgs(prompt=prompt, context=context),
-            options={"temperature": self.TEMPERATURE, "top_p": self.TOP_P, "num_ctx": 2048*4},
+            options={"temperature": self.TEMPERATURE, "top_p": self.TOP_P, "num_ctx": self.CONTEXT_LENGTH},
             format=self.FORMAT
         )
         return response['message']['content']
@@ -69,7 +72,7 @@ class Agent:
               "content": self.systemPrompt # system prompt should be written here
             },
         ]
-        msgs.extend(self.oneShotLearningExample)
+        if len(self.oneShotLearningExample) > 0: msgs.extend(self.oneShotLearningExample)
 
         if context != "":
             msgs.append(
@@ -85,4 +88,6 @@ class Agent:
               "content": prompt # user prompt should be written here
             }
         )
+        if "Q" in self.name: 
+            print("FINAL PROMPT: \n" + json.dumps(msgs, indent=4))
         return msgs

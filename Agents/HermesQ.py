@@ -1,32 +1,36 @@
 from Agents.LLMAgent import Agent
 import json
-import re
 from Utils.Helpers import remove_think
 from pydantic import BaseModel
 
 class QACreator(Agent):
     def __init__(
-        self,
-        base_llm = "deepseek-r1:14b", 
-        name = "", system_prompt = "", 
-        stream = False,
-        max_iter:int=3, 
-        temperature:int = 0.3, 
-        top_p:int = 0.4,
-        osl_userPrompt:str = "",
-        osl_assistantResponse:str = ""
-        ):
-        oneShotLearningExample = [
-            {
-                "role": "user",
-                "content": osl_userPrompt
-            },
-            {
-                "role": "assistant",
-                "content": osl_assistantResponse
-            }
-        ]
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample)
+            self,
+            base_llm = "deepseek-r1:14b", 
+            name = "", system_prompt = "", 
+            stream = False,
+            max_iter:int=3, 
+            temperature:int = 0.3, 
+            top_p:int = 0.4,
+            osl_userPrompt:str = "",
+            osl_assistantResponse:str = "",
+            contextLengthMultiplier:int = 8
+    ):
+        oneShotLearningExample = []
+        if osl_userPrompt != "" and osl_assistantResponse != "":
+            oneShotLearningExample = [
+                {
+                    "role": "user",
+                    "content": osl_userPrompt
+                },
+                {
+                    "role": "assistant",
+                    "content": osl_assistantResponse
+                }
+            ]
+        else: 
+            print(f"{name}: Not Using One-Shot-Learning")
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
         self.FORMAT = QAPairs.model_json_schema()
         self.MINIMUM_QA = 25
     
@@ -78,9 +82,9 @@ class QACreator(Agent):
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
             
-            if len(standardized_item.get("answer").split()) > 1:
-                result["is_valid"] = False
-                result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
+            # if len(standardized_item.get("answer").split()) > 1:
+            #     result["is_valid"] = False
+            #     result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
              
 
         return result
@@ -96,9 +100,9 @@ class QACreator(Agent):
         return questions, answers
     
     def run(self, prompt, context = ""):
-        prompt_dict = prompt
-        prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
-        prompt = "\n\nKnowledge Graph:\n\"\"\"" + prompt + "\"\"\""
+        # prompt_dict = prompt
+        # prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
+        prompt = "\n\n## Given Knowledge Graph:\n```json\n" + prompt + "\n```"
         max_iter = self.MAX_ITERATIONS
 
         while(max_iter > 0):
@@ -114,7 +118,7 @@ class QACreator(Agent):
                 print("\t|\tERROR BY: HermesQ")
                 print(f"\t|\t|---> {validation['errors']}")
                 print("\t|\t|---> Trying again...")
-                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\nhad these errors -\n{validation['errors']}\n"
+                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
         print("="*50)

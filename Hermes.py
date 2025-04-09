@@ -1,5 +1,6 @@
 from Agents import *
 from Utils.Helpers import *
+from SemanticMatcher import SemanticEmbedder
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
@@ -7,6 +8,8 @@ class HermesAgenticSystem:
 
         self.CONFIG = config
         self.MAX_ITERATIONS = config['Hermes-Iterations']
+        self.SIMILARITY_THRESHOLD = config["Similarity-Threshold"]
+        self.semanticEmbedder = SemanticEmbedder() # can change which model to use, configure using config file 
 
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
@@ -20,7 +23,7 @@ class HermesAgenticSystem:
             temperature = agent["temperature"],
             top_p = agent["top_p"],
             osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
-            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt"),
         )
 
         agent = self.CONFIG["Agents"]["Hermes_G"]
@@ -73,6 +76,9 @@ class HermesAgenticSystem:
     def getAnswers(self, questions, unstructured_report, context = "") -> str:
         return self.AnswerValidator.run(questions=questions, unstructured_report=unstructured_report, context=context)
     
+    def createDocumentEmbedding(self):
+        pass
+
     def validateAnswers(self, questions, ans_Q, ans_A) -> dict:
         """
         Takes answers from HermesQ and from HermesA and validates them.
@@ -85,10 +91,11 @@ class HermesAgenticSystem:
         """
         result = {"is_validated": True, "errors": "ERROR: Make sure the answers of the following questions are correctly included in the structured report - \n"}
         for i, (quest, ans1, ans2) in enumerate(zip(questions, ans_Q, ans_A)):
-            ans1 = ans1.strip().lower()
-            ans2 = ans2.strip().lower()
+            # ans1 = ans1.strip().lower()
+            # ans2 = ans2.strip().lower()
 
-            if ans1 != ans2:
+            sim = self.semanticEmbedder.getSemanticSimilarity(sent1=ans1, sent2=ans2)
+            if sim < self.SIMILARITY_THRESHOLD:
                 result["is_validated"] = False
                 result["errors"] += f"\t{i}. {quest}\n"
 
@@ -135,8 +142,10 @@ class HermesAgenticSystem:
             print("\t|--------------------------------------------")
             
             # Step5: Validate Answers from
-            print(f"\t| Validating Answeres...")  
+            print(f"\t| Validating Answeres...")
+            self.semanticEmbedder.load() 
             result = self.validateAnswers(questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
+            self.semanticEmbedder.unload()
             print("\t|--------------------------------------------")
             print("\t|--------------------------------------------")
             
@@ -146,8 +155,8 @@ class HermesAgenticSystem:
             else:
                 max_iter -= 1
                 context = result["errors"]
-                print("\t |---> Wrong Answers!")
-                temp = context.replace('\n', '\n\t\t\t')
+                print("\t|---> Wrong Answers!")
+                temp = context.replace('\n', '\n\t\t')
                 print(f"\t\t |---> {temp}")
         
         print("="*50)

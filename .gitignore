@@ -31,3 +31,5 @@ Thumbs.db  # Windows
 Temp/
 Temp/*
 .DS_Store
+Assets/Semantic-Checkers/*
+Assets/Sentence-Tokenizers/*
