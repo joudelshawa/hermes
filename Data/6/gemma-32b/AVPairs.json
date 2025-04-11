@@ -1,0 +1,106 @@
+[
+    {
+        "Question": "What is the primary symptom of the patient?",
+        "Answer": "Left hip pain"
+    },
+    {
+        "Question": "What diagnosis did the patient receive?",
+        "Answer": "Left valgus impacted femoral neck fracture"
+    },
+    {
+        "Question": "Which procedure did the patient undergo?",
+        "Answer": "Left closed reduction and percutaneous pinning of hip"
+    },
+    {
+        "Question": "Does the patient have Osteoporosis?",
+        "Answer": "Yes, the patient has osteoporosis."
+    },
+    {
+        "Question": "Is the patient diagnosed with GERD?",
+        "Answer": "Yes, the patient is diagnosed with GERD."
+    },
+    {
+        "Question": "Does the patient have Hypercholesterolemia?",
+        "Answer": "Yes, the patient has hypercholesterolemia."
+    },
+    {
+        "Question": "Has the patient been diagnosed with Kidney stones?",
+        "Answer": "Yes, the patient has kidney stones."
+    },
+    {
+        "Question": "Is there a diagnosis of Mitral valve prolapse in the patient?",
+        "Answer": "Yes, the patient has mitral valve prolapse."
+    },
+    {
+        "Question": "Does the patient have Uterine fibroids?",
+        "Answer": "Yes, the patient has uterine fibroids."
+    },
+    {
+        "Question": "Has the patient experienced Migraine headaches?",
+        "Answer": "Yes, the patient experiences migraine headaches."
+    },
+    {
+        "Question": "What caused the left hip pain?",
+        "Answer": "The left hip pain was caused by a femur fracture following a mechanical fall."
+    },
+    {
+        "Question": "How did the mechanical fall occur?",
+        "Answer": "The mechanical fall occurred when the patient fell on her left hip after her dog pulled on its leash while she was walking."
+    },
+    {
+        "Question": "Which imaging test did the patient undergo?",
+        "Answer": "The unstructured report does not specify which imaging tests the patient underwent."
+    },
+    {
+        "Question": "What did the CT imaging show regarding intracranial hemorrhage?",
+        "Answer": "There is no information in the provided report about CT imaging findings related to intracranial hemorrhage."
+    },
+    {
+        "Question": "What was demonstrated in the right platysma muscle on CT imaging?",
+        "Answer": "The unstructured report does not provide any details regarding CT imaging of the right platysma muscle."
+    },
+    {
+        "Question": "Did the CT imaging reveal any contrast extravasation?",
+        "Answer": "There is no information in the provided report about contrast extravasation on CT imaging."
+    },
+    {
+        "Question": "Is the patient taking Acetaminophen?",
+        "Answer": "Yes, the patient is prescribed acetaminophen for pain management."
+    },
+    {
+        "Question": "What is the name of the procedure the patient underwent for femur fracture?",
+        "Answer": "The patient underwent left closed reduction and percutaneous pinning of the hip."
+    },
+    {
+        "Question": "Does the patient have a family history of Hypertension?",
+        "Answer": "Yes, the patient's father has hypertension."
+    },
+    {
+        "Question": "Is there a family history of Dementia in the patient's family?",
+        "Answer": "Yes, the patient's father has dementia."
+    },
+    {
+        "Question": "What medications is the patient currently taking for pain management?",
+        "Answer": "The patient is taking acetaminophen and oxycodone for pain management."
+    },
+    {
+        "Question": "Which stool softeners is the patient on?",
+        "Answer": "The patient is taking docusate sodium, senna, and bisacodyl as stool softeners."
+    },
+    {
+        "Question": "Is the patient prescribed any anticoagulant medications?",
+        "Answer": "Yes, the patient is prescribed enoxaparin sodium for DVT prophylaxis."
+    },
+    {
+        "Question": "What supplements does the patient take for bone health?",
+        "Answer": "The patient takes calcium citrate with vitamin D and vitamin D supplements for bone health."
+    },
+    {
+        "Question": "Does the patient use Lactaid as part of their medication regimen?",
+        "Answer": "Yes, the patient uses lactaid as part of their medication regimen."
+    },
+    {
+        "Question": "Is the patient taking Multivitamins daily?",
+        "Answer": "Yes, the patient is taking multivitamins daily."
+    }
+]

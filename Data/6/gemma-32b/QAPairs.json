@@ -1,0 +1,106 @@
+[
+    {
+        "Question": "What is the primary symptom of the patient?",
+        "Answer": "Left hip pain."
+    },
+    {
+        "Question": "What diagnosis did the patient receive?",
+        "Answer": "Femur fracture."
+    },
+    {
+        "Question": "Which procedure did the patient undergo?",
+        "Answer": "Closed Reduction Percutaneous Pinning (CRPP)."
+    },
+    {
+        "Question": "Does the patient have Osteoporosis?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Is the patient diagnosed with GERD?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Does the patient have Hypercholesterolemia?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Has the patient been diagnosed with Kidney stones?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Is there a diagnosis of Mitral valve prolapse in the patient?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Does the patient have Uterine fibroids?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Has the patient experienced Migraine headaches?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "What caused the left hip pain?",
+        "Answer": "Mechanical fall."
+    },
+    {
+        "Question": "How did the mechanical fall occur?",
+        "Answer": "Dog pulling leash."
+    },
+    {
+        "Question": "Which imaging test did the patient undergo?",
+        "Answer": "CT imaging of head/neck."
+    },
+    {
+        "Question": "What did the CT imaging show regarding intracranial hemorrhage?",
+        "Answer": "No intracranial hemorrhage."
+    },
+    {
+        "Question": "What was demonstrated in the right platysma muscle on CT imaging?",
+        "Answer": "Thickened right platysma muscle with surrounding hematoma."
+    },
+    {
+        "Question": "Did the CT imaging reveal any contrast extravasation?",
+        "Answer": "Yes, active contrast extravasation within the right platysma muscle."
+    },
+    {
+        "Question": "Is the patient taking Acetaminophen?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "What is the name of the procedure the patient underwent for femur fracture?",
+        "Answer": "Closed Reduction Percutaneous Pinning (CRPP)."
+    },
+    {
+        "Question": "Does the patient have a family history of Hypertension?",
+        "Answer": "Yes, from their father."
+    },
+    {
+        "Question": "Is there a family history of Dementia in the patient's family?",
+        "Answer": "Yes, from their father."
+    },
+    {
+        "Question": "What medications is the patient currently taking for pain management?",
+        "Answer": "Oxycodone and Acetaminophen."
+    },
+    {
+        "Question": "Which stool softeners is the patient on?",
+        "Answer": "Bisacodyl, Docusate Sodium, and Senna."
+    },
+    {
+        "Question": "Is the patient prescribed any anticoagulant medications?",
+        "Answer": "Yes, Enoxaparin Sodium."
+    },
+    {
+        "Question": "What supplements does the patient take for bone health?",
+        "Answer": "Calcium Citrate + D and Vitamin D."
+    },
+    {
+        "Question": "Does the patient use Lactaid as part of their medication regimen?",
+        "Answer": "Yes."
+    },
+    {
+        "Question": "Is the patient taking Multivitamins daily?",
+        "Answer": "Yes."
+    }
+]

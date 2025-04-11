@@ -1,0 +1,47 @@
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Invalid Answers for Iteration 0
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Q3 [0.7779]. Does the patient have Osteoporosis?
+Answer 1: Yes.
+Answer 2: Yes, the patient has osteoporosis.
+---------------------------------------------
+Q4 [0.7802]. Is the patient diagnosed with GERD?
+Answer 1: Yes.
+Answer 2: Yes, the patient is diagnosed with GERD.
+---------------------------------------------
+Q5 [0.7233]. Does the patient have Hypercholesterolemia?
+Answer 1: Yes.
+Answer 2: Yes, the patient has hypercholesterolemia.
+---------------------------------------------
+Q7 [0.7399]. Is there a diagnosis of Mitral valve prolapse in the patient?
+Answer 1: Yes.
+Answer 2: Yes, the patient has mitral valve prolapse.
+---------------------------------------------
+Q8 [0.7456]. Does the patient have Uterine fibroids?
+Answer 1: Yes.
+Answer 2: Yes, the patient has uterine fibroids.
+---------------------------------------------
+Q9 [0.7579]. Has the patient experienced Migraine headaches?
+Answer 1: Yes.
+Answer 2: Yes, the patient experiences migraine headaches.
+---------------------------------------------
+Q10 [0.7209]. What caused the left hip pain?
+Answer 1: Mechanical fall.
+Answer 2: The left hip pain was caused by a femur fracture following a mechanical fall.
+---------------------------------------------
+Q16 [0.7194]. Is the patient taking Acetaminophen?
+Answer 1: Yes.
+Answer 2: Yes, the patient is prescribed acetaminophen for pain management.
+---------------------------------------------
+Q24 [0.6908]. Does the patient use Lactaid as part of their medication regimen?
+Answer 1: Yes.
+Answer 2: Yes, the patient uses lactaid as part of their medication regimen.
+---------------------------------------------
+Q25 [0.7337]. Is the patient taking Multivitamins daily?
+Answer 1: Yes.
+Answer 2: Yes, the patient is taking multivitamins daily.
+---------------------------------------------
+
+////////////////////END//////////////////////
+
