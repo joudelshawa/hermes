@@ -101,7 +101,7 @@ class HermesAgenticSystem:
             if sim < self.SIMILARITY_THRESHOLD:
                 result["is_validated"] = False
                 result["errors"] += f"\t{i}. {quest}\n"
-                temp += f"Q{i} [{sim}]. {quest}\n"
+                temp += f"Q{i} [{sim:.4f}]. {quest}\n"
                 temp += f"Answer 1: {ans1}\n"
                 temp += f"Answer 2: {ans2}\n"
                 temp += "---------------------------------------------\n"
@@ -140,8 +140,7 @@ class HermesAgenticSystem:
             questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
             saveQAPairsAsText(qa_pairs, "Temp/")
             print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------")
-            
+            print("\t|--------------------------------------------") 
 
             # Step4: Get Answers of questions from HermesA
             print(f"\t| Generating Answers from Unstructured Report Pairs...")
@@ -152,11 +151,10 @@ class HermesAgenticSystem:
             print("\t|--------------------------------------------")
             
             # Step5: Validate Answers from
-            print(f"\t| Validating Answeres...")
+            print(f"\t| Validating Answers...")
             self.semanticEmbedder.load() 
             result = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
-            self.semanticEmbedder.unload()
-            
+            self.semanticEmbedder.unload() 
 
             if(result['is_validated']):
                 print("\t| SUCCESS!! Converted to Structured Report and Knowledge Graph.")

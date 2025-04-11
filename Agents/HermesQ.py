@@ -116,9 +116,10 @@ class QACreator(Agent):
                 return validation["extracted_response"]
             else:
                 print("\t|\tERROR BY: HermesQ")
-                print(f"\t|\t|---> {validation['errors']}")
-                print("\t|\t|---> Trying again...")
-                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
+                if max_iter-1 != 0:
+                    print(f"\t|\t|---> {validation['errors']}")
+                    print("\t|\t|---> Trying again...")
+                    context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
         print("="*50)

@@ -7,7 +7,6 @@ import os
 import torch
 import gc
 
-
 class SemanticEmbedder:
 
     def __init__(
@@ -30,8 +29,7 @@ class SemanticEmbedder:
             'path': f"Assets/{sentenceTokenizer['folder']}/",
             'name': sentenceTokenizer['name']
         } 
-        self.DEVICE = "cuda:1" if torch.cuda.is_available() else "cpu"
-        
+        self.DEVICE = "cuda" if torch.cuda.is_available() else "cpu"        
         self.TOKENIZER:AutoTokenizer = None 
         self.MODEL:AutoModel = None
         self.LOADED = False
@@ -94,7 +92,7 @@ class SemanticEmbedder:
         sum_mask = torch.clamp(input_mask_expanded.sum(1), min=1e-9)
         
         if not wasLoaded: self.unload()
-        return (sum_embeddings / sum_mask)[0].numpy()
+        return (sum_embeddings / sum_mask)[0].cpu().numpy()
     
     def getSemanticSimilarity(self, sent1:str, sent2:str, show:bool = False):
         embedding1 = torch.tensor(self.getSentenceEmbedding(sent1)).unsqueeze(0)
@@ -109,8 +107,8 @@ class SemanticEmbedder:
 # FOR TESTING PURPOSE
 if __name__ == "__main__":
     embedder = SemanticEmbedder()
-    sent1 = "Me and my friends ate 8 bananas and 5 apples towards the end of the party"
-    sent2 = "8 bananas and 5 apples were eaten by some of my friends along with me after the party had ended"
+    sent1 = "Me and my friends ate eight bananas and five apples towards the end of the party"
+    sent2 = "eight bananas and five apples were eaten by some of my friends along with me after the party had ended"
 
     embedder.load()
     embedder.getSemanticSimilarity(sent1, sent2, show=True)
