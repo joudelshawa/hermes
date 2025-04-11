@@ -36,6 +36,7 @@ if __name__ == "__main__":
         
         kGraph, structuredReport = hermes.completeRun(unstructuredReport=unstructuredReport)
         saveGraphAsHTML(graph_data=kGraph, folder_path=PATH_EXAMPLE)
+        saveGraphAsText(graph_data=kGraph, folder_path=PATH_EXAMPLE)
         saveReportAsText(text_data=structuredReport, folder_path=PATH_EXAMPLE)
 
     print("#"*60)

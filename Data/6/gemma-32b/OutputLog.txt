@@ -1,0 +1,41 @@
+############################################################
+                    TESTING: MAIN
+############################################################
+Hermes_Q: Not Using One-Shot-Learning
+Hermes_A: Not Using One-Shot-Learning
+Report Number 6:
+        ==========================
+        |    Iteration: [1/5]    |
+        ==========================
+        | Generating Structured Report...
+        |
+        |       Iteration [1/5]
+        |       |---> Successfully Generated Structured Report!
+        |--------------------------------------------
+        |--------------------------------------------
+        | Generating Knowledge Graph...
+        |
+        |       Iteration [1/5]
+        |       |---> Successfully Generated Knowledge Graph!
+        |--------------------------------------------
+        |--------------------------------------------
+        | Generating Question-Answer Pairs...
+        |
+        |       Iteration [1/5]
+        |       |---> Successfully Generated Question and Answer pairs!
+        |--------------------------------------------
+        |--------------------------------------------
+        | Generating Answers from Unstructured Report Pairs...
+        |
+        |       Iteration [1/5]
+        |       |---> Successfully Generated Answer Validator pairs!
+        |--------------------------------------------
+        |--------------------------------------------
+        | Validating Answers...
+        | SUCCESS!! Converted to Structured Report and Knowledge Graph.
+        ==============================================
+
+############################################################
+                            END
+############################################################
+total time taken to run Hermes: 685.73 seconds
