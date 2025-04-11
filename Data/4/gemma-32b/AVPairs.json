@@ -1,0 +1,110 @@
+[
+    {
+        "Question": "Does the patient have a history of decompensated HCV cirrhosis?",
+        "Answer": "Yes, the patient has a history of decompensated HCV cirrhosis."
+    },
+    {
+        "Question": "Is the patient currently diagnosed with hyperkalemia?",
+        "Answer": "Yes, the patient is currently diagnosed with hyperkalemia."
+    },
+    {
+        "Question": "Has the patient been diagnosed with HIV?",
+        "Answer": "Yes, the patient has been diagnosed with HIV."
+    },
+    {
+        "Question": "Does the patient have a history of COPD?",
+        "Answer": "Yes, the patient has a history of COPD."
+    },
+    {
+        "Question": "Is the patient experiencing hyponatremia?",
+        "Answer": "Yes, the patient is experiencing hyponatremia."
+    },
+    {
+        "Question": "Can decompensated HCV cirrhosis cause abdominal pain?",
+        "Answer": "Yes, decompensated HCV cirrhosis can cause abdominal pain."
+    },
+    {
+        "Question": "Does decompensated HCV cirrhosis lead to ascites?",
+        "Answer": "Yes, decompensated HCV cirrhosis leads to ascites."
+    },
+    {
+        "Question": "Is hepatic encephalopathy a potential complication of decompensated HCV cirrhosis?",
+        "Answer": "Yes, hepatic encephalopathy is a potential complication of decompensated HCV cirrhosis."
+    },
+    {
+        "Question": "Can ascites contribute to abdominal pain?",
+        "Answer": "Yes, ascites can contribute to abdominal pain."
+    },
+    {
+        "Question": "Does a worsening abdominal girth indicate abdominal pain?",
+        "Answer": "Yes, a worsening abdominal girth indicates abdominal pain."
+    },
+    {
+        "Question": "Is the patient on Emtricitabine-Tenofovir?",
+        "Answer": "Yes, the patient is on Emtricitabine-Tenofovir."
+    },
+    {
+        "Question": "Is the patient prescribed Raltegravir?",
+        "Answer": "Yes, the patient is prescribed Raltegravir."
+    },
+    {
+        "Question": "Is the patient taking Fluticasone?",
+        "Answer": "Yes, the patient is taking Fluticasone."
+    },
+    {
+        "Question": "Is Tiotropium part of the patient's medication regimen?",
+        "Answer": "Yes, Tiotropium is part of the patient's medication regimen."
+    },
+    {
+        "Question": "Is Albuterol prescribed to the patient?",
+        "Answer": "Yes, Albuterol is prescribed to the patient."
+    },
+    {
+        "Question": "Is Lactulose used in the patient's treatment?",
+        "Answer": "Yes, Lactulose is used in the patient's treatment."
+    },
+    {
+        "Question": "Is Rifaximin included in the patient's medication list?",
+        "Answer": "Yes, Rifaximin is included in the patient's medication list."
+    },
+    {
+        "Question": "Is Tramadol prescribed for pain management?",
+        "Answer": "Yes, Tramadol is prescribed for pain management."
+    },
+    {
+        "Question": "Is Furosemide used to manage fluid balance?",
+        "Answer": "Yes, Furosemide is used to manage fluid balance."
+    },
+    {
+        "Question": "Is Calcium Carbonate part of the patient's treatment plan?",
+        "Answer": "Yes, Calcium Carbonate is part of the patient's treatment plan."
+    },
+    {
+        "Question": "Is Kayexelate used to treat hyperkolem?",
+        "Answer": "Yes, Kayexelate is used to treat hyperkalemia."
+    },
+    {
+        "Question": "Is Insulin/D50 administered to manage blood sugar levels?",
+        "Answer": "Yes, Insulin/D50 was administered to manage blood sugar levels."
+    },
+    {
+        "Question": "Is Calcium Gluconate used to counteract the effects of hyperkolem?",
+        "Answer": "Yes, Calcium Gluconate was used to counteract the effects of hyperkalemia."
+    },
+    {
+        "Question": "Does the patient require biweekly BMPs?",
+        "Answer": "Yes, the patient requires biweekly BMPs."
+    },
+    {
+        "Question": "Does the patient require a peritoneal fluid culture?",
+        "Answer": "Yes, the patient requires a peritoneal fluid culture."
+    },
+    {
+        "Question": "Did the patient undergo a RUQ ultrasound?",
+        "Answer": "Yes, the patient underwent a RUQ ultrasound."
+    },
+    {
+        "Question": "Did the patient undergo a CXR?",
+        "Answer": "Yes, the patient underwent a CXR."
+    }
+]

@@ -1,0 +1,106 @@
+[
+    {
+        "Question": "What neurological symptom is the patient experiencing?",
+        "Answer": "The patient is experiencing visual hallucinations."
+    },
+    {
+        "Question": "What is the patient's primary diagnosis?",
+        "Answer": "The patient's primary diagnosis is dementia."
+    },
+    {
+        "Question": "What cognitive symptom is also present in the patient?",
+        "Answer": "The patient is also experiencing confusion."
+    },
+    {
+        "Question": "What medication is the patient taking for potential neurological symptoms?",
+        "Answer": "The patient is taking Quetiapine Fumarate for potential neurological symptoms."
+    },
+    {
+        "Question": "What cholinesterase inhibitor is the patient prescribed?",
+        "Answer": "The patient is prescribed Rivastigmine, a cholinesterase inhibitor."
+    },
+    {
+        "Question": "What MAO-B inhibitor is included in the patient's medication list?",
+        "Answer": "Rasagiline is included in the patient's medication list as a MAO-B inhibitor."
+    },
+    {
+        "Question": "What lipid-lowering medication is the patient currently prescribed?",
+        "Answer": "The patient is currently prescribed Pravastatin, a lipid-lowering medication."
+    },
+    {
+        "Question": "What hematological finding indicates low oxygen-carrying capacity?",
+        "Answer": "Low hemoglobin indicates low oxygen-carrying capacity."
+    },
+    {
+        "Question": "What is the patient's hematocrit level indicating?",
+        "Answer": "The patient's hematocrit level is slightly low."
+    },
+    {
+        "Question": "What electrolyte imbalance is present in the patient's lab results?",
+        "Answer": "The patient has a high potassium level."
+    },
+    {
+        "Question": "What acid-base imbalance is indicated by the lab results?",
+        "Answer": "The lab results indicate metabolic acidosis."
+    },
+    {
+        "Question": "What liver enzyme is elevated in the patient's lab results?",
+        "Answer": "Alkaline Phosphatase is elevated in the patient's lab results."
+    },
+    {
+        "Question": "What physical finding was noted during the patient's examination?",
+        "Answer": "Cogwheeling of upper extremities was noted during the patient's examination."
+    },
+    {
+        "Question": "What antipsychotic medication is the patient taking?",
+        "Answer": "The patient is taking Quetiapine Fumarate, an antipsychotic medication."
+    },
+    {
+        "Question": "What antihistamine is included in the patient's medication regimen?",
+        "Answer": "Loratadine is included in the patient's medication regimen as an antihistamine."
+    },
+    {
+        "Question": "Besides dementia, what other symptom is the patient experiencing?",
+        "Answer": "The patient is also experiencing visual hallucinations."
+    },
+    {
+        "Question": "What type of medication is Rivastigmine?",
+        "Answer": "Rivastigmine is a cholinesterase inhibitor."
+    },
+    {
+        "Question": "What is the primary purpose of prescribing Pravastatin?",
+        "Answer": "The primary purpose of prescribing Pravastatin is to lower cholesterol."
+    },
+    {
+        "Question": "What could be a potential cause of the patient's low bicarbonate?",
+        "Answer": "Low bicarbonate could be caused by metabolic acidosis."
+    },
+    {
+        "Question": "What is the significance of a compression deformity?",
+        "Answer": "A compression deformity suggests vertebral compression."
+    },
+    {
+        "Question": "What is the role of Rasagiline in the patient's treatment?",
+        "Answer": "Rasagiline is a MAO-B inhibitor used in the patient's treatment."
+    },
+    {
+        "Question": "What symptom might prompt the use of Quetiapine Fumarate?",
+        "Answer": "Visual hallucinations might prompt the use of Quetiapine Fumarate."
+    },
+    {
+        "Question": "What is the likely reason for prescribing Loratadine?",
+        "Answer": "Loratadine is likely prescribed for allergy relief."
+    },
+    {
+        "Question": "What is the impact of low hemoglobin on the patient?",
+        "Answer": "Low hemoglobin reduces oxygen-carrying capacity."
+    },
+    {
+        "Question": "What is the significance of elevated alkaline phosphatase?",
+        "Answer": "Elevated alkaline phosphatase may indicate liver or bone issues."
+    },
+    {
+        "Question": "What is the purpose of Pramipexole?",
+        "Answer": "Pramipexole is used to treat motor symptoms."
+    }
+]

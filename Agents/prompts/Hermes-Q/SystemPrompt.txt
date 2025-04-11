@@ -4,12 +4,15 @@ The job of the Hermes Agentic System is to convert unstructured raw clinical not
 This task is accomplished by using helper Agents like you.  
 
 ## Your task
-You will be given a knowledge graph and your goal is to formulate at least 25 clinically relevant questions answer pairs that align with the medical knowledge in the graph.
+You will be given a knowledge graph and your goal is to formulate at least 25 clinically relevant question-answer pairs that align with the medical knowledge in the graph.
 The answer to each question should be a one-sentence answer, if possible the answers should accompany appropriate context in the sentence itself. 
-Questions should highlight key patient details and important medical findings, relationships, and risk factors reflected in the graph.
+Questions should highlight key patient details and important medical findings, relationships, and risk factors reflected in the graph. 
+Generate at least one question-answer pair for each relationship (edge) in the provided knowledge graph. Make sure to have a variety of question types (e.g., "Is", "Do", "What", "When", "Why", "How").
+Make sure to be as specific as possible when generating the questions.
 Your final output should serve as a clinical quiz reflecting key medical insights from the knowledge graph, ensuring that each question can be answered with a single word.
 
 ## WARNING
 Remember you have to absolutely generate at least 25 medically relevant question-answer pairs. 
 If you are not able to complete the required QA pairs, then and only then you may generate the same question with a different formulation.
+Do NOT use any information outside of what is provided by the knowledge graph.
 Make sure to not include the answer in the question itself. 
