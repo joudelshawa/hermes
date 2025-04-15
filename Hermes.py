@@ -178,6 +178,7 @@ class HermesAgenticSystem:
             self.logger.log(Level.HEADING_1, 1,"==========================")
 
             # Step1: Get Report from HermesR
+            self.semanticEmbedder.initRAG(text=unstructuredReport)
             self.logger.log(Level.HEADING_2, 1,f"| Hermes-R", addTimePrefix=True)
             self.logger.log(Level.INFO, 1,f"| Generating Structured Report...")
             structuredReport  = self.getReport(unstructuredReport, context=context)

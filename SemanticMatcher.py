@@ -55,7 +55,6 @@ class SemanticEmbedder:
             print("Download Complete\n")
         nltk.data.path.append(os.path.join(os.path.curdir, self.sentenceTokenizer['path']))
 
-    
     def load(self):
         self.TOKENIZER = AutoTokenizer.from_pretrained(
         pretrained_model_name_or_path=self.semanticChecker['path'],
