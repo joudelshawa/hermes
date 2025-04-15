@@ -1,5 +1,5 @@
 {
-    "LLM": "deepseek-r1:70b",
+    "LLM": "llama3.3:70b-instruct-q3_K_M",
     "Hermes-Iterations": 5,
     "Similarity-Threshold": 0.8,
     "Agents":{

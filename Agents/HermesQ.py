@@ -1,7 +1,9 @@
 from Agents.LLMAgent import Agent
 import json
-from Utils.Helpers import remove_think
+from Utils.Helpers import *
 from pydantic import BaseModel
+from Utils.Logger import TheLogger, Level
+import os
 
 class QACreator(Agent):
     def __init__(
@@ -14,7 +16,8 @@ class QACreator(Agent):
             top_p:int = 0.4,
             osl_userPrompt:str = "",
             osl_assistantResponse:str = "",
-            contextLengthMultiplier:int = 8
+            contextLengthMultiplier:int = 8,
+            logger:TheLogger = None
     ):
         oneShotLearningExample = []
         if osl_userPrompt != "" and osl_assistantResponse != "":
@@ -29,8 +32,8 @@ class QACreator(Agent):
                 }
             ]
         else: 
-            print(f"{name}: Not Using One-Shot-Learning")
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
+            logger.log(Level.INFO, 0, f"{name}: Not Using One-Shot-Learning", addTimeTab=False)
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier, logger)
         self.FORMAT = QAPairs.model_json_schema()
         self.MINIMUM_QA = 25
     
@@ -40,7 +43,6 @@ class QACreator(Agent):
         Returns dict with 'is_valid' boolean and 'errors' list
         """
         result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
-        # print(response)
         try:
             data = json.loads(response)["pairs"]
             result["extracted_response"] = json.dumps(data)
@@ -104,27 +106,30 @@ class QACreator(Agent):
         # prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
         prompt = "\n\n## Given Knowledge Graph:\n```json\n" + prompt + "\n```"
         max_iter = self.MAX_ITERATIONS
+        tempFolder = os.path.join(self.logger.mainSaveFolder, "Temp/") 
+        os.makedirs(tempFolder, exist_ok=True)
 
         while(max_iter > 0):
-            print("\t|")
-            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            self.logger.log(Level.INFO, 1, "|")
+            self.logger.log(Level.INFO, 1, f"|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]", addTimePrefix=True)
             qa_pairs = remove_think(super().run(prompt, context))
             validation = self.validateResponse(qa_pairs)
+            saveQAPairsAsText(validation["extracted_response"], tempFolder)
             
             if(validation["is_valid"]):
-                print("\t|\t|---> Successfully Generated Question and Answer pairs!")
+                self.logger.log(Level.SUCCESS, 1,"|\t|---> Success!!")
                 return validation["extracted_response"]
             else:
-                print("\t|\tERROR BY: HermesQ")
+                self.logger.log(Level.ERROR, 1,"|\t|---> ERROR!!")
+                self.logger.log(Level.ERROR, 1,f"|\t|---> {validation['errors']}", onlyLocalWrite=True)
                 if max_iter-1 != 0:
-                    print(f"\t|\t|---> {validation['errors']}")
-                    print("\t|\t|---> Trying again...")
+                    self.logger.log(Level.ERROR, 1,"|\t|---> Trying again...")
                     context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
-        print("="*50)
-        print("\tQUESTION ANSWER GENERATION ERROR!\nExiting...")
-        print("="*50)
+        self.logger.log(Level.CRITIAL, 0,"="*50)
+        self.logger.log(Level.CRITIAL, 1,"HERMES-Q FAILED (T_T)!")
+        self.logger.log(Level.CRITIAL, 0,"="*50)
         exit()
 
 class QAPairs(BaseModel):

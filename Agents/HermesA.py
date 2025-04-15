@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from Agents.LLMAgent import Agent
 import json
 from Utils.Helpers import *
+from Utils.Logger import TheLogger, Level
 
 class AnswerValidator(Agent):
     def __init__(
@@ -15,7 +16,8 @@ class AnswerValidator(Agent):
             top_p:int = 0.4,
             osl_userPrompt:str = "",
             osl_assistantResponse:str = "",
-            contextLengthMultiplier:int = 8
+            contextLengthMultiplier:int = 8,
+            logger: TheLogger = None
     ):
         oneShotLearningExample = []
         if osl_userPrompt != "" and osl_assistantResponse != "":
@@ -30,8 +32,8 @@ class AnswerValidator(Agent):
                 }
             ]
         else: 
-            print(f"{name}: Not Using One-Shot-Learning")
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
+            logger.log(Level.INFO, 0, f"{name}: Not Using One-Shot-Learning", addTimeTab=False)
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier, logger)
         self.FORMAT = QAPairs.model_json_schema()
         
         
@@ -45,7 +47,7 @@ class AnswerValidator(Agent):
         Returns dict with 'is_valid' boolean and 'errors' list
         """
         result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
-        # print(response)
+        # self.logger.log(Level.INFO,response)
         try:
             data = json.loads(response)["pairs"]
             result["extracted_response"] = json.dumps(data)
@@ -117,28 +119,33 @@ class AnswerValidator(Agent):
         """
 
         prompt = self._makeDictFormat(questions) # convert to string since its a json dict
-        # print(prompt)
+        # self.logger.log(Level.INFO,prompt)
         prompt = f"## Unstructured Report:\n\"\"\"\n{unstructured_report}\n\"\"\"\n\n## Questions To Answer:\n```json\n{prompt}```"
         max_iter = self.MAX_ITERATIONS
+        tempFolder = os.path.join(self.logger.mainSaveFolder, "Temp/")
+        os.makedirs(tempFolder, exist_ok=True)
+
         while(max_iter > 0):
-            print("\t|")
-            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            self.logger.log(Level.INFO, 1, "|")
+            self.logger.log(Level.INFO, 1, f"|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]", addTimePrefix=True)
             av_pairs = remove_think(super().run(prompt, context))
             validation = self.validateResponse(av_pairs)
+            saveAVPairsAsText(validation["extracted_response"], tempFolder)
 
             if(validation["is_valid"]):
-                print("\t|\t|---> Successfully Generated Answer Validator pairs!")
+                self.logger.log(Level.SUCCESS, 1,"|\t|---> Success!!")
                 return validation["extracted_response"]
             else:
-                print("\t|\tERROR BY: HermesA")
-                print(f"\t|\t|---> {validation['errors']}")
-                print("\t|\t|---> Trying again...")
-                context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n---\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
+                self.logger.log(Level.ERROR, 1,"|\t|---> ERROR!!")
+                self.logger.log(Level.ERROR, 1,f"|\t|---> {validation['errors']}", onlyLocalWrite=True)
+                if max_iter-1 != 0:
+                    self.logger.log(Level.ERROR, 1,"|\t|---> Trying again...")
+                    context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n---\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
-        print("="*50)
-        print("ANSWER VALIDATOR QUESTION ANSWER GENERATION ERROR!")
-        print("="*50)
+        self.logger.log(Level.CRITIAL, 0,"="*50)
+        self.logger.log(Level.CRITIAL, 1,"HERMES-A FAILED (T_T)!")
+        self.logger.log(Level.CRITIAL, 0,"="*50)
         exit()
 
 class QAPairs(BaseModel):

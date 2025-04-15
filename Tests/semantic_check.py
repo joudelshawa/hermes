@@ -2,7 +2,7 @@
 import sys
 import os
 sys.path.append(os.path.dirname(os.path.dirname(__file__)))
-os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3" 
+# os.environ["TF_CPP_MIN_LOG_LEVEL"] = "3" 
 import Hermes
 from Utils.Helpers import *
 

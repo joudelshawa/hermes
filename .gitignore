@@ -28,8 +28,8 @@ Thumbs.db  # Windows
 .env
 
 # Ignore Temp folder
-Temp/
-Temp/*
+/Temp/
+/Temp/*
 .DS_Store
 Assets/Semantic-Checkers/*
 Assets/Sentence-Tokenizers/*

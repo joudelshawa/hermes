@@ -5,6 +5,7 @@ All agents will use this class as the parent class.
 
 import ollama
 import json
+from Utils.Logger import TheLogger
 
 class LLM:
     _instance = None
@@ -26,11 +27,12 @@ class Agent:
             temperature:int, 
             top_p:int,
             oneShotLearningExample: list,
-            contextLengthMultiplier:int
+            contextLengthMultiplier:int,
+            logger: TheLogger
         ):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
-        self.name = f"{name}_({base_llm})"
+        self.name = f"{name}"
         self.systemPrompt = systemPrompt
         self.oneShotLearningExample = oneShotLearningExample
         self.stream = stream
@@ -39,6 +41,7 @@ class Agent:
         self.TEMPERATURE = temperature
         self.TOP_P = top_p
         self.CONTEXT_LENGTH = 2048*contextLengthMultiplier
+        self.logger = logger
 
     def run(self, prompt:str, context:str = ""):
         """

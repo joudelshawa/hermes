@@ -1,6 +1,7 @@
 from Agents.LLMAgent import Agent
 import re
 from Utils.Helpers import *
+from Utils.Logger import TheLogger, Level
 
 class ReportCreator(Agent):
     def __init__(
@@ -14,7 +15,8 @@ class ReportCreator(Agent):
             top_p:int = 0.4,
             osl_userPrompt:str = "",
             osl_assistantResponse:str = "",
-            contextLengthMultiplier:int = 8
+            contextLengthMultiplier:int = 8,
+            logger:TheLogger = None
     ):
         oneShotLearningExample = []
         if osl_userPrompt != "" and osl_assistantResponse != "":
@@ -29,8 +31,8 @@ class ReportCreator(Agent):
                 }
             ]
         else: 
-            print(f"{name}: Not Using One-Shot-Learning")
-        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier)
+            logger.log(Level.INFO, 0, f"{name}: Not Using One-Shot-Learning", addTimeTab=False)
+        super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier, logger)
         self.main_headings = [
             "patient",
             "complaint",
@@ -64,12 +66,8 @@ class ReportCreator(Agent):
         # Check if any major heading word is missing
         for heading in self.main_headings:
             if not any(word in found_headings for word in heading.lower().split()):
-                # print(f"\t\tDID NOT FIND HEADING: {heading}")
                 missing_headings.append(heading)
                 result["is_valid"] = False
-            else:
-                pass
-                # print(f"\t\tFOUND HEADING: {heading}")
 
         if not result["is_valid"]:
             result["errors"] += f"You must include these words in your headings: {', '.join(missing_headings)}"
@@ -78,26 +76,29 @@ class ReportCreator(Agent):
     def run(self, prompt, context = ""):
         # Response generation step
         max_iter = self.MAX_ITERATIONS
+        tempFolder = os.path.join(self.logger.mainSaveFolder, "Temp/")
+        os.makedirs(tempFolder, exist_ok=True)
 
         while(max_iter > 0):
-            print("\t|")
-            print(f"\t|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]")
+            self.logger.log(Level.INFO, 1, "|")
+            self.logger.log(Level.INFO, 1, f"|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]", addTimePrefix=True)
             response = remove_think(super().run(prompt, context))
             validation = self.validateResponse(response)
             # Temporary Save
-            saveReportAsText(validation["response"], "Temp/")
+            saveReportAsText(validation["response"], tempFolder)
             
             if validation["is_valid"]:
-                print("\t|\t|---> Successfully Generated Structured Report!")
+                self.logger.log(Level.SUCCESS, 1,"|\t|---> Success!!")
                 return validation["response"]
             else:
-                print("\t|\tERROR BY: HermesR")
-                print(f"\t|\t|---> {validation['errors']}")
-                print("\t|\t|---> Trying again...")        
-                context = f"Your Previous Response: \"\"\"{validation['response']}\"\"\"\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
+                self.logger.log(Level.ERROR, 1,"|\t|---> ERROR!!")
+                self.logger.log(Level.ERROR, 1,f"|\t|---> {validation['errors']}", onlyLocalWrite=True)
+                if max_iter-1 != 0:
+                    self.logger.log(Level.ERROR, 1,"|\t|---> Trying again...")
+                    context = f"Your Previous Response: \"\"\"{validation['response']}\"\"\"\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter -= 1
         
-        print("="*50)
-        print("STRUCTURED REPORT CREATION ERROR!!\nExiting....")
-        print("="*50)
+        self.logger.log(Level.CRITIAL, 0,"="*50)
+        self.logger.log(Level.CRITIAL, 1,"HERMES-R FAILED (T_T)!")
+        self.logger.log(Level.CRITIAL, 0,"="*50)
         exit()

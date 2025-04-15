@@ -1,15 +1,23 @@
 from Agents import *
 from Utils.Helpers import *
 from SemanticMatcher import SemanticEmbedder
+from Utils.Logger import TheLogger, Level
+import json
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
-    def __init__(self, config:dict=CONFIG):
+    def __init__(self, config:dict=CONFIG, mainSaveFolder:str = None):
 
         self.CONFIG = config
+        self.llm = self.CONFIG["LLM"]
         self.MAX_ITERATIONS = config['Hermes-Iterations']
         self.SIMILARITY_THRESHOLD = config["Similarity-Threshold"]
         self.semanticEmbedder = SemanticEmbedder() # can change which model to use, configure using config file 
+        self.startFlag = True
+        self.logger = TheLogger(self.llm, mainSaveFolder)
+        self.logger.log(Level.HEADING_2, 0, "\nInitializing Hermes", addTimePrefix=False, addTimeTab=False)
+        self.logger.log(Level.SUCCESS, 0, "---"*60 + "\n", addTimePrefix=False, addTimeTab=False)
+        # if startMsg != None: self.logger.log(Level.HEADING_0, 0, startMsg, addTimePrefix=False, addTimeTab=False)
 
         # Dictionary mapping LLM model names to model_name required by ollama
         self.LLM_NAME_DICT = {}
@@ -24,8 +32,10 @@ class HermesAgenticSystem:
             top_p = agent["top_p"],
             osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
             osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt"),
+            logger=self.logger
         )
-
+        self.logPromptWithOSL(self.ReportCreator)
+        
         agent = self.CONFIG["Agents"]["Hermes_G"]
         self.KGraphCreator = KGCreator(
             base_llm = self.CONFIG["LLM"],
@@ -35,9 +45,12 @@ class HermesAgenticSystem:
             temperature = agent["temperature"],
             top_p = agent["top_p"],
             osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
-            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt"),
+            logger=self.logger
 
         )
+        self.logPromptWithOSL(self.KGraphCreator)
+        
 
         agent = self.CONFIG["Agents"]["Hermes_Q"]
         self.QACreator = QACreator(
@@ -48,9 +61,10 @@ class HermesAgenticSystem:
             temperature = agent["temperature"],
             top_p = agent["top_p"],
             osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
-            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
-
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt"),
+            logger=self.logger
         )
+        self.logPromptWithOSL(self.QACreator)
 
         agent = self.CONFIG["Agents"]["Hermes_A"]
         self.AnswerValidator = AnswerValidator(
@@ -61,8 +75,36 @@ class HermesAgenticSystem:
             temperature = agent["temperature"],
             top_p = agent["top_p"],
             osl_userPrompt = getAgentPrompt(agent["prompt_path"] + "OSL-UserPrompt.txt"),
-            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt")
+            osl_assistantResponse = getAgentPrompt(agent["prompt_path"] + "OSL-AssistantResponse.txt"),
+            logger=self.logger
         )
+        self.logPromptWithOSL(self.AnswerValidator)
+
+        self.logger.log(Level.HEADING_0, 0, "---"*60 + "\n", addTimeTab=False)
+    
+    def _getFormattedStringForOSL(self, osl:list) -> str:
+        final_string = "One Shot Learning:"
+        if len(osl) == 0:
+            final_string += "Not Implemented"
+        else:
+            userContent = osl[0].get('content', 'error!!').replace('\n','\n\t\t')
+            asstContent = osl[1].get('content', 'error!!').replace('\n','\n\t\t')
+            final_string += "\n```"
+            final_string += f"\n\tUser: \n\t\"\"\"{userContent}\n\t\"\"\""
+            final_string += f"\n\tAsst: \n\t\"\"\"{asstContent}\n\t\"\"\""
+
+        return final_string.replace("\n", "\n\t")
+    
+    def _getFormattedPrompt(self, prompt:str) ->str:
+        prompt = prompt.replace("\n", "\n\t")
+        return f"Prompt:\n```\n\t{prompt}\n```".replace("\n", "\n\t")
+    
+    def logPromptWithOSL(self, agent):
+        temp_prompt = self._getFormattedPrompt(agent.systemPrompt)
+        temp_osl = self._getFormattedStringForOSL(agent.oneShotLearningExample)
+        self.logger.log(Level.INFO, 0, agent.name, addTimePrefix=False, addTimeTab=False, onlyLocalWrite=True)
+        self.logger.log(Level.INFO, 1, temp_prompt, addTimePrefix=False, addTimeTab=False, onlyLocalWrite=True)
+        self.logger.log(Level.INFO, 1, temp_osl, addTimePrefix=False, addTimeTab=False, onlyLocalWrite=True)
 
     def getReport(self, prompt, context = "") -> str:
         return self.ReportCreator.run(prompt=prompt, context=context)
@@ -79,6 +121,9 @@ class HermesAgenticSystem:
     def createDocumentEmbedding(self):
         pass
 
+    def log(self, level, initialTabs, msg, onlyLocalWrite=False, addTimePrefix=True):
+        self.logger.log(level, initialTabs, msg, onlyLocalWrite, addTimePrefix)
+
     def validateAnswers(self, itr, questions, ans_Q, ans_A) -> dict:
         """
         Takes answers from HermesQ and from HermesA and validates them.
@@ -90,87 +135,108 @@ class HermesAgenticSystem:
             }
         """
         result = {"is_validated": True, "errors": "ERROR: Make sure the answers of the following questions are correctly included in the structured report - \n"}
-        temp  = "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
-        temp += f"Invalid Answers for Iteration {itr}\n"
-        temp  += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"
+        
+        invalid = ""
+        if self.startFlag:
+            invalid = all = "\n////////////////// START ////////////////////\n"
+            # invalid += f"Title: {title}\n\n"
+            self.startFlag = False
+        invalid += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n"
+        invalid += f"| Invalid Answers for Iteration {itr} |\n"
+        invalid  += "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n\n"
+        all = invalid
         for i, (quest, ans1, ans2) in enumerate(zip(questions, ans_Q, ans_A)):
             # ans1 = ans1.strip().lower()
             # ans2 = ans2.strip().lower()
 
             sim = self.semanticEmbedder.getSemanticSimilarity(sent1=ans1, sent2=ans2)
+            all += f"Q{i} [{sim: 0.4}]. {quest}\n"
+            all += f"Hermes-Q: {ans1}\n"
+            all += f"Hermes-A: {ans2}\n"
+            all += "---------------------------------------------\n"
             if sim < self.SIMILARITY_THRESHOLD:
                 result["is_validated"] = False
                 result["errors"] += f"\t{i}. {quest}\n"
-                temp += f"Q{i} [{sim:.4f}]. {quest}\n"
-                temp += f"Answer 1: {ans1}\n"
-                temp += f"Answer 2: {ans2}\n"
-                temp += "---------------------------------------------\n"
+                invalid += f"Q{i} [{sim: 0.4}]. {quest}\n"
+                invalid += f"Hermes-Q: {ans1}\n"
+                invalid += f"Hermes-A: {ans2}\n"
+                invalid += "---------------------------------------------\n"
         
-        temp += "\n////////////////////END//////////////////////\n\n"
+        invalid += "\n/////////////////// END /////////////////////\n\n"
         
-        saveInvalidAnswersAsText(temp, "Temp/")
-        return result
+        # saveInvalidAnswersAsText(invalid, "invalid/")
+        return result, all, invalid
     
     def completeRun(self, unstructuredReport) -> tuple[str, str]:
 
         itr = 0
         context = ""
         while(itr < self.MAX_ITERATIONS):
-            print("\t==========================")
-            print(f"\t|    Iteration: [{itr+1}/{self.MAX_ITERATIONS}]    |")
-            print("\t==========================")
+            self.logger.log(Level.HEADING_1, 1,"==========================")
+            self.logger.log(Level.HEADING_1, 1,f"|    Iteration: [{itr+1}/{self.MAX_ITERATIONS}]    |", addTimePrefix=True)
+            self.logger.log(Level.HEADING_1, 1,"==========================")
 
             # Step1: Get Report from HermesR
-            print(f"\t| Generating Structured Report...")
+            self.logger.log(Level.HEADING_2, 1,f"| Hermes-R", addTimePrefix=True)
+            self.logger.log(Level.INFO, 1,f"| Generating Structured Report...")
             structuredReport  = self.getReport(unstructuredReport, context=context)
-            saveReportAsText(structuredReport, "Temp/")
-            print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
             
             # Step2: Get Knowledge Graph from HermesG
-            print(f"\t| Generating Knowledge Graph...")
+            self.logger.log(Level.HEADING_2, 1,f"| Hermes-G", addTimePrefix=True)
+            self.logger.log(Level.INFO, 1, f"| Generating Knowledge Graph...")
             KGraph = self.getKnowledgeGraph(structuredReport)
-            saveGraphAsHTML(KGraph, "Temp/")
-            print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
             
             # Step3: Get Question Answer Pairs from HermesQ
-            print(f"\t| Generating Question-Answer Pairs...")
+            self.logger.log(Level.HEADING_2, 1,f"| Hermes-Q", addTimePrefix=True)
+            self.logger.log(Level.INFO, 1, f"| Generating Question-Answer Pairs...")
             qa_pairs = self.getQA(KGraph)
             questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
-            saveQAPairsAsText(qa_pairs, "Temp/")
-            print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------") 
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------") 
 
             # Step4: Get Answers of questions from HermesA
-            print(f"\t| Generating Answers from Unstructured Report Pairs...")
+            self.logger.log(Level.HEADING_2, 1,f"| Hermes-A", addTimePrefix=True)
+            self.logger.log(Level.INFO, 1, f"| Generating Answers from Unstructured Report...")
             av_pairs = self.getAnswers(questions_Q, unstructuredReport)
             questions_A, ans_A = self.AnswerValidator.getSeparatedQA(av_pairs)
-            saveAVPairsAsText(av_pairs, "Temp/")
-            print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
             
             # Step5: Validate Answers from
-            print(f"\t| Validating Answers...")
+            self.logger.log(Level.WARNING, 1 ,f"| Validating Answers...", addTimePrefix=True)
             self.semanticEmbedder.load() 
-            result = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
-            self.semanticEmbedder.unload() 
+            result, allAnswers, invalidAnswers = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
+            self.semanticEmbedder.unload()
+            
 
             if(result['is_validated']):
-                print("\t| SUCCESS!! Converted to Structured Report and Knowledge Graph.")
-                print("\t==============================================\n")
+                self.logger.log(Level.INFO, 0, "\n\nFinal Structured Report", onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, structuredReport, onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, "\n\nFinal Graph", onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, KGraph, onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, "\n\nQA vs AV: Invalid Answers", onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, invalidAnswers, onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, "\n\nQA vs AV: All Answers", onlyLocalWrite=True, addTimeTab=False)
+                self.logger.log(Level.INFO, 0, allAnswers, onlyLocalWrite=True, addTimeTab=False)
+
+                self.logger.log(Level.SUCCESS, 1 ,"| |---> SUCCESS!!", addTimePrefix=True)
+                self.logger.log(Level.HEADING_1, 1 ,"==============================================\n")
                 return KGraph, structuredReport
             else:
                 itr += 1
                 context = result["errors"]
-                print("\t|\t|---> Wrong Answers!")
+                self.logger.log(Level.ERROR, 1,"|\t|---> Wrong Answers!")
                 temp = context.replace('\n', '\n\t|\t\t')
-                print(f"\t|\t|---> {temp}")
+                self.logger.log(Level.ERROR, 1,f"|\t|---> {temp}")
             
-            print("\t|--------------------------------------------")
-            print("\t|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"|--------------------------------------------")
+            self.logger.log(Level.INFO, 1,"\t|--------------------------------------------")
             
-        print("="*50)
-        print("\tHermes Failed! (T_T)")
-        print("="*50)
+        self.logger.log(Level.CRITICAL, 0,"="*50)
+        self.logger.log(Level.CRITICAL, 0,"\tHermes Failed! (T_T)")
+        self.logger.log(Level.CRITICAL, 0,"="*50)
         

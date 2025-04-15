@@ -1,8 +1,12 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
+import os
 from pyvis.network import Network
 
+# ===========================================
+# ============== SAVE STUFF =================
+# ===========================================
 def saveGraphAsImage(graph_data, folder_path):
     # Create a graph
     G = nx.DiGraph()
@@ -23,11 +27,11 @@ def saveGraphAsImage(graph_data, folder_path):
     plt.figure(figsize=(10, 10))
     nx.draw(G, pos, labels=labels, with_labels=True, node_color="white", edge_color="gray")
     nx.draw_networkx_edge_labels(G, pos, edge_labels=edge_labels, font_color="red")
-    plt.savefig(folder_path + "KGraph.png", bbox_inches="tight")
+    plt.savefig(folder_path + "/KGraph.png", bbox_inches="tight")
 
 def saveGraphAsText(graph_data, folder_path):
     graph_data = json.loads(graph_data)
-    with open(folder_path + "KGraph.json", "w") as file:
+    with open(folder_path + "/KGraph.json", "w") as file:
         json.dump(graph_data, file, indent=4)
 
 def saveGraphAsHTML(graph_data, folder_path):
@@ -83,40 +87,43 @@ def saveGraphAsHTML(graph_data, folder_path):
     """)
 
     # Save and show the graph
-    net.write_html(folder_path + "KGraph.html")
+    net.write_html(folder_path + "/KGraph.html")
 
 def saveReportAsText(text_data, folder_path):
-    with open(folder_path + "structured_report.md", "w") as file:
+    with open(folder_path + "/structured_report.md", "w") as file:
         file.write(text_data)
 
-def readStructuredReport(folder_path):
-    with open(folder_path + "structured_report.txt", "r") as file:
-        return file.read()
-    
-def readUnstructuredReport(folder_path):
-    with open(folder_path + "report.txt", "r") as file:
-        return file.read()
-    
-def readKGraph(folder_path):
-    with open(folder_path + "KGraph.json", "r") as file:
-        return json.load(file)
-
 def saveQAPairsAsText(qa_pairs, folder_path):
-    with open(folder_path + "QAPairs.json", "w") as file:
+    with open(folder_path + "/QAPairs.json", "w") as file:
         qa_pairs_json = json.loads(qa_pairs) # load json so properly formatting
         json.dump(qa_pairs_json, file, indent=4)
 
 def saveAVPairsAsText(av_pairs, folder_path):
-    with open(folder_path + "AVPairs.json", "w") as file:
+    with open(folder_path + "/AVPairs.json", "w") as file:
         av_pairs_json = json.loads(av_pairs) # load json so properly formatting
         json.dump(av_pairs_json, file, indent=4)
 
 def saveInvalidAnswersAsText(invAnswers, folder_path):
-    with open(folder_path + "InvalidAnswers.txt", "a") as file:
+    with open(folder_path + "/InvalidAnswers.txt", "a") as file:
         file.write(invAnswers)
 
+# ===========================================
+# ============== READ STUFF =================
+# ===========================================
+def readStructuredReport(folder_path):
+    with open(folder_path + "/structured_report.txt", "r") as file:
+        return file.read()
+    
+def readUnstructuredReport(folder_path):
+    with open(folder_path + "/report.txt", "r") as file:
+        return file.read()
+    
+def readKGraph(folder_path):
+    with open(folder_path + "/KGraph.json", "r") as file:
+        return json.load(file)
+
 def readQuestions(folder_path):
-    with open(folder_path + "QAPairs.json", "r") as file:
+    with open(folder_path + "/QAPairs.json", "r") as file:
         qa_pairs = json.load(file)
         questions = []
         for item in qa_pairs:
@@ -129,8 +136,19 @@ def readPairs(pair_type, folder_path):
     with open(folder_path + f"{pair_type.upper()}Pairs.json", "r") as file:
         return json.load(file)
 
+# ===========================================
+# ============= EXTRA STUFF =================
+# ===========================================
 def remove_think(text:str):
     if "</think>" not in text:
         return text
     s = text.split("</think>")
     return s[1].strip()
+
+def getFormattedElapsedTime(start, end) -> str:
+    elapsed = end-start
+    minutes = int(elapsed // 60)
+    seconds = int(elapsed % 60)
+
+    # Format the result as MM:SS
+    return f"{minutes}:{seconds:02d}"
