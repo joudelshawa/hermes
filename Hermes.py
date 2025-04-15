@@ -16,7 +16,7 @@ class HermesAgenticSystem:
         self.startFlag = True
         self.logger = TheLogger(self.llm, mainSaveFolder)
         self.logger.log(Level.HEADING_2, 0, "\nInitializing Hermes", addTimePrefix=False, addTimeTab=False)
-        self.logger.log(Level.SUCCESS, 0, "---"*60 + "\n", addTimePrefix=False, addTimeTab=False)
+        self.logger.log(Level.SUCCESS, 0, "-"*60 + "\n", addTimePrefix=False, addTimeTab=False)
         # if startMsg != None: self.logger.log(Level.HEADING_0, 0, startMsg, addTimePrefix=False, addTimeTab=False)
 
         # Dictionary mapping LLM model names to model_name required by ollama
@@ -80,7 +80,7 @@ class HermesAgenticSystem:
         )
         self.logPromptWithOSL(self.AnswerValidator)
 
-        self.logger.log(Level.HEADING_0, 0, "---"*60 + "\n", addTimeTab=False)
+        self.logger.log(Level.HEADING_0, 0, "-"*60 + "\n", addTimeTab=False)
     
     def _getFormattedStringForOSL(self, osl:list) -> str:
         final_string = "One Shot Learning:"
@@ -107,6 +107,7 @@ class HermesAgenticSystem:
         self.logger.log(Level.INFO, 1, temp_osl, addTimePrefix=False, addTimeTab=False, onlyLocalWrite=True)
 
     def getReport(self, prompt, context = "") -> str:
+        # Add RAG here
         return self.ReportCreator.run(prompt=prompt, context=context)
 
     def getKnowledgeGraph(self, prompt, context = "") -> str:
