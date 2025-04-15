@@ -6,7 +6,7 @@ from Utils.Logger import TheLogger, Level
 from datetime import datetime
 import time
 
-REPORT_NUM = 6
+REPORT_NUM = 2
 PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 
@@ -38,9 +38,9 @@ if __name__ == "__main__":
         saveGraphAsText(graph_data=kGraph, folder_path=hermes.logger.mainSaveFolder)
         saveReportAsText(text_data=structuredReport, folder_path=hermes.logger.mainSaveFolder)
 
-    hermes.log(Level.HEADING_0, 0, "#"*60)
-    hermes.log(Level.HEADING_0, 0, " "*28 + "END")
-    hermes.log(Level.HEADING_0, 0, "#"*60)
+    hermes.logger.log(Level.HEADING_0, 0, "#"*60)
+    hermes.logger.log(Level.HEADING_0, 0, " "*28 + "END")
+    hermes.logger.log(Level.HEADING_0, 0, "#"*60)
     end_time = time.time()
-    hermes.log(Level.HEADING_0, 0, f"total time taken to run Hermes: {getFormattedElapsedTime(start_time, end_time)} seconds")
+    hermes.logger.log(Level.HEADING_0, 0, f"\nTotal Time Taken: {getFormattedElapsedTime(start_time, end_time)}")
         

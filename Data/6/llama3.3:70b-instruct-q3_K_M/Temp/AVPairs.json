@@ -1,0 +1,102 @@
+[
+    {
+        "Question": "What is the chief complaint of the patient?",
+        "Answer": "The chief complaint of the patient is left hip pain."
+    },
+    {
+        "Question": "What is the diagnosis of the patient?",
+        "Answer": "The diagnosis of the patient is left valgus impacted femoral neck fracture."
+    },
+    {
+        "Question": "Is the patient allergic to Omeprazole?",
+        "Answer": "Yes, the patient is allergic to omeprazole."
+    },
+    {
+        "Question": "What other allergies does the patient have?",
+        "Answer": "The patient is also allergic to iodine and iodide containing products, and hallucinogens."
+    },
+    {
+        "Question": "Does the patient have a past medical history of GERD?",
+        "Answer": "Yes, the patient has a past medical history of GERD."
+    },
+    {
+        "Question": "What other past medical histories does the patient have?",
+        "Answer": "The patient also has a past medical history of hypercholesterolemia, kidney stones, mitral valve prolapse, uterine fibroids, osteoporosis, and migraine headaches."
+    },
+    {
+        "Question": "Is left hip pain a symptom of the femur fracture?",
+        "Answer": "Yes, left hip pain is a symptom of the femur fracture."
+    },
+    {
+        "Question": "What is the related diagnosis to the femur fracture?",
+        "Answer": "The related diagnosis to the femur fracture is status post left CRPP."
+    },
+    {
+        "Question": "Is Acetaminophen a medication taken by the patient?",
+        "Answer": "Yes, acetaminophen is one of the medications taken by the patient."
+    },
+    {
+        "Question": "What other medications does the patient take?",
+        "Answer": "The patient also takes bisacodyl, docusate sodium, enoxaparin sodium, oxycodone, senna, calcium citrate + D, lactaid, multivitamins, and vitamin D."
+    },
+    {
+        "Question": "Why is the patient taking these medications?",
+        "Answer": "The patient is taking these medications for pain management, constipation, anticoagulation, and to supplement their diet."
+    },
+    {
+        "Question": "How many allergies does the patient have?",
+        "Answer": "The patient has three allergies: omeprazole, iodine and iodide containing products, and hallucinogens."
+    },
+    {
+        "Question": "What is the most recent diagnosis of the patient?",
+        "Answer": "The most recent diagnosis of the patient is left valgus impacted femoral neck fracture."
+    },
+    {
+        "Question": "Do the patient's allergies affect their medication regimen?",
+        "Answer": "Yes, the patient's allergies may affect their medication regimen, as they are allergic to certain medications and substances."
+    },
+    {
+        "Question": "What is the relationship between the patient's femur fracture and left hip pain?",
+        "Answer": "The patient's femur fracture is the cause of their left hip pain."
+    },
+    {
+        "Question": "Can the patient's past medical history affect their current treatment plan?",
+        "Answer": "Yes, the patient's past medical history can affect their current treatment plan, as it may influence the choice of medications and treatments."
+    },
+    {
+        "Question": "How does the patient's Osteoporosis affect their overall health?",
+        "Answer": "The patient's osteoporosis increases their risk of fractures and may affect their mobility and quality of life."
+    },
+    {
+        "Question": "Is the patient's Migraine headaches related to their other medical conditions?",
+        "Answer": "There is no clear relationship between the patient's migraine headaches and their other medical conditions."
+    },
+    {
+        "Question": "What is the significance of the patient's Mitral valve prolapse?",
+        "Answer": "The patient's mitral valve prolapse is a heart condition that may require monitoring and treatment."
+    },
+    {
+        "Question": "How does the patient's Uterine fibroids affect their quality of life?",
+        "Answer": "The patient's uterine fibroids may cause symptoms such as pelvic pain and heavy bleeding, which can affect their quality of life."
+    },
+    {
+        "Question": "Is the patient's Hypercholesterolemia well-managed?",
+        "Answer": "There is no information in the report about how well the patient's hypercholesterolemia is managed."
+    },
+    {
+        "Question": "What are the potential complications of the patient's Kidney stones?",
+        "Answer": "The patient's kidney stones may cause symptoms such as pain and nausea, and may increase their risk of urinary tract infections and kidney damage."
+    },
+    {
+        "Question": "Does the patient have any other medical conditions that may be related to their femur fracture?",
+        "Answer": "Yes, the patient has osteoporosis, which increases their risk of fractures."
+    },
+    {
+        "Question": "How does the patient's medication regimen impact their overall health?",
+        "Answer": "The patient's medication regimen is intended to manage their pain, prevent complications, and improve their overall health."
+    },
+    {
+        "Question": "What is the importance of monitoring the patient's Osteoporosis?",
+        "Answer": "Monitoring the patient's osteoporosis is important to prevent further bone loss and reduce their risk of fractures."
+    }
+]

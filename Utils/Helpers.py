@@ -151,4 +151,4 @@ def getFormattedElapsedTime(start, end) -> str:
     seconds = int(elapsed % 60)
 
     # Format the result as MM:SS
-    return f"{minutes}:{seconds:02d}"
+    return f"{minutes}min {seconds:02d}sec"

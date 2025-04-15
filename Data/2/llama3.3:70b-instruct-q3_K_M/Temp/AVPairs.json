@@ -1,0 +1,102 @@
+[
+    {
+        "Question": "What is the patient experiencing?",
+        "Answer": "The patient is experiencing right flank bruising and pain."
+    },
+    {
+        "Question": "What does the patient have?",
+        "Answer": "The patient has Factor VIII deficiency, also known as Hemophilia A."
+    },
+    {
+        "Question": "What was the patient diagnosed with?",
+        "Answer": "The patient was diagnosed with Acute muscular hematoma and Hemophilia A."
+    },
+    {
+        "Question": "Is right flank bruising and pain related to right neck swelling?",
+        "Answer": "Yes, both conditions are related as they are caused by bleeding due to Factor VIII deficiency."
+    },
+    {
+        "Question": "What caused the right neck swelling?",
+        "Answer": "The right neck swelling was caused by a snowboarding accident."
+    },
+    {
+        "Question": "How was the snowboarding accident evaluated?",
+        "Answer": "The snowboarding accident was evaluated using CT imaging of the head/neck and CTA of the neck."
+    },
+    {
+        "Question": "What followed the CT imaging of the head/neck?",
+        "Answer": "A CTA neck was performed after the CT imaging of the head/neck."
+    },
+    {
+        "Question": "What did the CTA of the neck show?",
+        "Answer": "The CTA of the neck showed a thickened right platysma muscle with surrounding hematoma and active contrast extravasation within the right platysma muscle."
+    },
+    {
+        "Question": "Is the patient experiencing a right shoulder hematoma?",
+        "Answer": "Yes, the patient developed a right shoulder hematoma after the snowboarding accident."
+    },
+    {
+        "Question": "What was the patient treated with?",
+        "Answer": "The patient was treated with DDAVP IV and desmopressin 0.3mg/kg IV."
+    },
+    {
+        "Question": "What did the patient have in terms of Factor VIII assay?",
+        "Answer": "The patient had a Factor VIII assay of 139 and later 103."
+    },
+    {
+        "Question": "What level of vW does the patient have?",
+        "Answer": "The patient has a vW level of >200."
+    },
+    {
+        "Question": "Is the patient experiencing a hemoglobin decrease?",
+        "Answer": "Yes, the patient's hemoglobin decreased from 13.2 to 11.6 and later to 9.9."
+    },
+    {
+        "Question": "Is the patient at risk for a retroperitoneal bleed?",
+        "Answer": "Yes, the patient is at risk for a retroperitoneal bleed due to Factor VIII deficiency."
+    },
+    {
+        "Question": "Why did the patient experience right flank bruising and pain?",
+        "Answer": "The patient experienced right flank bruising and pain due to bleeding caused by Factor VIII deficiency after a snowboarding accident."
+    },
+    {
+        "Question": "How does Factor VIII deficiency relate to Hemophilia A?",
+        "Answer": "Factor VIII deficiency is also known as Hemophilia A, which is a genetic disorder that impairs the body's ability to make blood clots."
+    },
+    {
+        "Question": "What is the relationship between the snowboarding accident and the right neck swelling?",
+        "Answer": "The snowboarding accident caused the right neck swelling due to bleeding resulting from Factor VIII deficiency."
+    },
+    {
+        "Question": "Do CT imaging of the head/neck and CTA of the neck show similar results?",
+        "Answer": "No, they do not show similar results as CT imaging showed no intracranial hemorrhage while CTA of the neck showed a thickened right platysma muscle with surrounding hematoma."
+    },
+    {
+        "Question": "When did the patient experience a hemoglobin decrease?",
+        "Answer": "The patient's hemoglobin decreased from 13.2 on admission to 11.6 and later to 9.9 over time."
+    },
+    {
+        "Question": "What is the effect of DDAVP IV on the patient's condition?",
+        "Answer": "DDAVP IV was given to the patient to manage their bleeding, but its effect on the patient's condition is not explicitly stated in terms of improvement or decline."
+    },
+    {
+        "Question": "Is there a relationship between the patient's Factor VIII deficiency and retroperitoneal bleed risk?",
+        "Answer": "Yes, the patient's Factor VIII deficiency increases their risk for a retroperitoneal bleed due to impaired blood clotting ability."
+    },
+    {
+        "Question": "What type of imaging was used to evaluate the snowboarding accident?",
+        "Answer": "CT imaging of the head/neck and CTA of the neck were used to evaluate the snowboarding accident."
+    },
+    {
+        "Question": "Is right neck swelling related to Hemophilia A?",
+        "Answer": "Yes, right neck swelling is related to Hemophilia A as it is caused by bleeding resulting from Factor VIII deficiency."
+    },
+    {
+        "Question": "What is the patient's current condition regarding Factor VIII deficiency?",
+        "Answer": "The patient currently has a Factor VIII activity of 103, which indicates some level of impairment in blood clotting ability."
+    },
+    {
+        "Question": "How does the patient's Factor VIII deficiency affect their hemoglobin levels?",
+        "Answer": "The patient's Factor VIII deficiency leads to bleeding, which causes a decrease in their hemoglobin levels over time due to impaired blood clotting ability."
+    }
+]

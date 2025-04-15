@@ -1,0 +1,102 @@
+[
+    {
+        "Question": "What is the chief complaint of the patient?",
+        "Answer": "The patient's chief complaint is left hip pain."
+    },
+    {
+        "Question": "What is the diagnosis of the patient?",
+        "Answer": "The patient has been diagnosed with a femur fracture."
+    },
+    {
+        "Question": "Is the patient allergic to Omeprazole?",
+        "Answer": "Yes, the patient is allergic to Omeprazole."
+    },
+    {
+        "Question": "What other allergies does the patient have?",
+        "Answer": "The patient is also allergic to Iodine and Iodide Containing Products and Hallucinogens."
+    },
+    {
+        "Question": "Does the patient have a past medical history of GERD?",
+        "Answer": "Yes, the patient has a past medical history of GERD."
+    },
+    {
+        "Question": "What other past medical histories does the patient have?",
+        "Answer": "The patient also has a past medical history of Hypercholesterolemia, Kidney stones, Mitral valve prolapse, Uterine fibroids, Osteoporosis, and Migraine headaches."
+    },
+    {
+        "Question": "Is left hip pain a symptom of the femur fracture?",
+        "Answer": "Yes, left hip pain is a symptom of the femur fracture."
+    },
+    {
+        "Question": "What is the related diagnosis to the femur fracture?",
+        "Answer": "The related diagnosis to the femur fracture is Left valgus impacted femoral neck fracture."
+    },
+    {
+        "Question": "Is Acetaminophen a medication taken by the patient?",
+        "Answer": "Yes, Acetaminophen is one of the medications taken by the patient."
+    },
+    {
+        "Question": "What other medications does the patient take?",
+        "Answer": "The patient also takes Bisacodyl, Docusate Sodium, Enoxaparin Sodium, OxyCODONE, Senna, Calcium Citrate + D, Lactaid, Multivitamins, and Vitamin D."
+    },
+    {
+        "Question": "Why is the patient taking these medications?",
+        "Answer": "The patient is taking these medications due to their various medical conditions, including femur fracture, GERD, Hypercholesterolemia, Kidney stones, Mitral valve prolapse, Uterine fibroids, Osteoporosis, and Migraine headaches."
+    },
+    {
+        "Question": "How many allergies does the patient have?",
+        "Answer": "The patient has three known allergies: Omeprazole, Iodine and Iodide Containing Products, and Hallucinogens."
+    },
+    {
+        "Question": "What is the most recent diagnosis of the patient?",
+        "Answer": "The most recent diagnosis of the patient is Left valgus impacted femoral neck fracture."
+    },
+    {
+        "Question": "Do the patient's allergies affect their medication regimen?",
+        "Answer": "Yes, the patient's allergies may affect their medication regimen, as they need to avoid certain medications that they are allergic to."
+    },
+    {
+        "Question": "What is the relationship between the patient's femur fracture and left hip pain?",
+        "Answer": "The patient's femur fracture is related to their left hip pain, as the fracture is causing the pain."
+    },
+    {
+        "Question": "Can the patient's past medical history affect their current treatment plan?",
+        "Answer": "Yes, the patient's past medical history can affect their current treatment plan, as their various medical conditions need to be taken into account when determining the best course of treatment."
+    },
+    {
+        "Question": "How does the patient's Osteoporosis affect their overall health?",
+        "Answer": "The patient's Osteoporosis affects their overall health by increasing their risk of fractures and osteoporotic-related complications."
+    },
+    {
+        "Question": "Is the patient's Migraine headaches related to their other medical conditions?",
+        "Answer": "The patient's Migraine headaches may be related to their other medical conditions, such as their Hormonal changes or stress, but the exact relationship is not specified in the knowledge graph."
+    },
+    {
+        "Question": "What is the significance of the patient's Mitral valve prolapse?",
+        "Answer": "The patient's Mitral valve prolapse is a significant condition that can increase their risk of heart-related complications and may require ongoing monitoring and treatment."
+    },
+    {
+        "Question": "How does the patient's Uterine fibroids affect their quality of life?",
+        "Answer": "The patient's Uterine fibroids can affect their quality of life by causing symptoms such as heavy bleeding, pelvic pain, and pressure, which can impact their daily activities and overall well-being."
+    },
+    {
+        "Question": "Is the patient's Hypercholesterolemia well-managed?",
+        "Answer": "The knowledge graph does not provide information on whether the patient's Hypercholesterolemia is well-managed or not."
+    },
+    {
+        "Question": "What are the potential complications of the patient's Kidney stones?",
+        "Answer": "The patient's Kidney stones can potentially cause complications such as severe pain, nausea, vomiting, and urinary tract infections if left untreated or not properly managed."
+    },
+    {
+        "Question": "Does the patient have any other medical conditions that may be related to their femur fracture?",
+        "Answer": "Yes, the patient has several other medical conditions, including GERD, Hypercholesterolemia, Kidney stones, Mitral valve prolapse, Uterine fibroids, Osteoporosis, and Migraine headaches, which may be related to their femur fracture."
+    },
+    {
+        "Question": "How does the patient's medication regimen impact their overall health?",
+        "Answer": "The patient's medication regimen can impact their overall health by managing their various medical conditions and reducing the risk of complications, but it is also important to monitor for potential side effects and interactions between medications."
+    },
+    {
+        "Question": "What is the importance of monitoring the patient's Osteoporosis?",
+        "Answer": "Monitoring the patient's Osteoporosis is important because it can help identify any changes in their condition and allow for adjustments to be made to their treatment plan to reduce the risk of fractures and other complications."
+    }
+]
