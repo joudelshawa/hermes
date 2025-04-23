@@ -32,7 +32,7 @@ class Agent:
         ):
         self.llm_client = LLM.getInstance(base_llm)
         self.llm = base_llm
-        self.name = f"{name}".replace(":", "__")
+        self.name = f"{name}"
         self.systemPrompt = systemPrompt
         self.oneShotLearningExample = oneShotLearningExample
         self.stream = stream

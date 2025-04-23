@@ -4,6 +4,7 @@ from Utils.Helpers import *
 from pydantic import BaseModel
 from Utils.Logger import TheLogger, Level
 import os
+import re
 
 class QACreator(Agent):
     def __init__(
@@ -36,13 +37,17 @@ class QACreator(Agent):
         super().__init__(base_llm, name, system_prompt, stream, max_iter, temperature, top_p, oneShotLearningExample, contextLengthMultiplier, logger)
         self.FORMAT = QAPairs.model_json_schema()
         self.MINIMUM_QA = 25
+
+    def _isNumericalAnswer(self, text:str):
+        pattern = r"(?<![a-zA-Z])\d+\.\d+|(?<![a-zA-Z])\d+"
+        return len(list(re.findall(pattern, text))) > 0
     
     def validateResponse(self, response):
         """
         Validate LLM agent output against required question + answer pairs structure
         Returns dict with 'is_valid' boolean and 'errors' list
         """
-        result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}"}
+        result = {"is_valid": True, "errors": [], "extracted_response": f"**UNEXTRACTED**\n {response}", "is_numerical_answer": []}
         try:
             data = json.loads(response)["pairs"]
             result["extracted_response"] = json.dumps(data)
@@ -83,7 +88,8 @@ class QACreator(Agent):
             if not isinstance(standardized_item.get("answer"), str) or not standardized_item.get("answer").strip():
                 result["is_valid"] = False
                 result["errors"].append(f"Item {i} has invalid or empty 'Answer'.")
-            
+            else:
+                result["is_numerical_answer"].append(self._isNumericalAnswer(standardized_item.get("answer")))
             # if len(standardized_item.get("answer").split()) > 1:
             #     result["is_valid"] = False
             #     result["errors"].append(f"Invalid format (should be one word answers) for question {i}\nQuestion: \"{standardized_item.get('question')}\"\nAnswer: \"{standardized_item.get('answer')}\"")
@@ -118,7 +124,7 @@ class QACreator(Agent):
             
             if(validation["is_valid"]):
                 self.logger.log(Level.SUCCESS, 1,"|\t|---> Success!!")
-                return validation["extracted_response"]
+                return validation["extracted_response"], validation["is_numerical_answer"]
             else:
                 self.logger.log(Level.ERROR, 1,"|\t|---> ERROR!!")
                 self.logger.log(Level.ERROR, 1,f"|\t|---> {validation['errors']}", onlyLocalWrite=True)

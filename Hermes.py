@@ -2,19 +2,19 @@ from Agents import *
 from Utils.Helpers import *
 from SemanticMatcher import SemanticEmbedder
 from Utils.Logger import TheLogger, Level
-import json
+import re
 # from . import CONFIG, getAgentPrompt
 
 class HermesAgenticSystem:
     def __init__(self, config:dict=CONFIG, mainSaveFolder:str = None):
 
         self.CONFIG = config
-        self.llm = self.CONFIG["LLM"]
+        self.llm:str = self.CONFIG["LLM"]
         self.MAX_ITERATIONS = config['Hermes-Iterations']
         self.SIMILARITY_THRESHOLD = config["Similarity-Threshold"]
         self.semanticEmbedder = SemanticEmbedder() # can change which model to use, configure using config file 
         self.startFlag = True
-        self.logger = TheLogger(self.llm, mainSaveFolder)
+        self.logger = TheLogger((self.llm).replace(":", "__"), mainSaveFolder)
         self.logger.log(Level.HEADING_2, 0, "\nInitializing Hermes", addTimePrefix=False, addTimeTab=False)
         self.logger.log(Level.SUCCESS, 0, "-"*60 + "\n", addTimePrefix=False, addTimeTab=False)
         # if startMsg != None: self.logger.log(Level.HEADING_0, 0, startMsg, addTimePrefix=False, addTimeTab=False)
@@ -108,7 +108,21 @@ class HermesAgenticSystem:
 
     def getReport(self, prompt, context = "") -> str:
         # Add RAG here
-        return self.ReportCreator.run(prompt=prompt, context=context)
+        # finalOutput = ""
+        # self.semanticEmbedder.initRAG(text=prompt)
+        # For each heading
+        # - get search string
+        # - retrieve from semanticEmbedder
+        # - For 3 runs, 
+        # -     run report creator for arranging the info || self.ReportCreator.run(prompt=prompt, context=context)
+        # -     save report'
+        # - Compare similarity of 3 reports, similarity above a certain threshold is only allowed.
+        # - add result to finalOutput
+
+        # Generate 3 reports to get similarity of all 3 docs to compare.
+
+        finalOutput = self.ReportCreator.run(prompt=prompt, context=context)
+        return finalOutput
 
     def getKnowledgeGraph(self, prompt, context = "") -> str:
         return self.KGraphCreator.run(prompt=prompt, context=context)
@@ -118,14 +132,11 @@ class HermesAgenticSystem:
     
     def getAnswers(self, questions, unstructured_report, context = "") -> str:
         return self.AnswerValidator.run(questions=questions, unstructured_report=unstructured_report, context=context)
-    
-    def createDocumentEmbedding(self):
-        pass
 
     def log(self, level, initialTabs, msg, onlyLocalWrite=False, addTimePrefix=True):
         self.logger.log(level, initialTabs, msg, onlyLocalWrite, addTimePrefix)
 
-    def validateAnswers(self, itr, questions, ans_Q, ans_A) -> dict:
+    def validateAnswers(self, itr, questions, ans_Q, ans_A, numerical_validation:list) -> dict:
         """
         Takes answers from HermesQ and from HermesA and validates them.
 
@@ -162,6 +173,18 @@ class HermesAgenticSystem:
                 invalid += f"Hermes-Q: {ans1}\n"
                 invalid += f"Hermes-A: {ans2}\n"
                 invalid += "---------------------------------------------\n"
+            
+            if numerical_validation[i]:
+                if not areNumbericallyEquivalent(ans1, ans2):
+                    result["is_validated"] = False
+                    result["errors"] += f"\t{i}. {quest} [HINT: Remember the numerical values need to be exactly and precisely the same]\n"
+                    invalid += f"//// Not Numerically Equivalent ////\n"
+                    invalid += f"Q{i} [{sim: 0.4}]. {quest}\n"
+                    invalid += f"Hermes-Q: {ans1}\n"
+                    invalid += f"\tExtracted Numbers: {extractAllNumbers(ans1)}\n"
+                    invalid += f"Hermes-A: {ans2}\n"
+                    invalid += f"\tExtracted Numbers: {extractAllNumbers(ans2)}\n"
+                    invalid += "---------------------------------------------\n"
         
         invalid += "\n/////////////////// END /////////////////////\n\n"
         
@@ -178,7 +201,6 @@ class HermesAgenticSystem:
             self.logger.log(Level.HEADING_1, 1,"==========================")
 
             # Step1: Get Report from HermesR
-            self.semanticEmbedder.initRAG(text=unstructuredReport)
             self.logger.log(Level.HEADING_2, 1,f"| Hermes-R", addTimePrefix=True)
             self.logger.log(Level.INFO, 1,f"| Generating Structured Report...")
             structuredReport  = self.getReport(unstructuredReport, context=context)
@@ -195,7 +217,7 @@ class HermesAgenticSystem:
             # Step3: Get Question Answer Pairs from HermesQ
             self.logger.log(Level.HEADING_2, 1,f"| Hermes-Q", addTimePrefix=True)
             self.logger.log(Level.INFO, 1, f"| Generating Question-Answer Pairs...")
-            qa_pairs = self.getQA(KGraph)
+            qa_pairs, is_numericalAnswer = self.getQA(KGraph)
             questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
             self.logger.log(Level.INFO, 1,"|--------------------------------------------")
             self.logger.log(Level.INFO, 1,"|--------------------------------------------") 
@@ -211,7 +233,7 @@ class HermesAgenticSystem:
             # Step5: Validate Answers from
             self.logger.log(Level.WARNING, 1 ,f"| Validating Answers...", addTimePrefix=True)
             self.semanticEmbedder.load() 
-            result, allAnswers, invalidAnswers = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A)
+            result, allAnswers, invalidAnswers = self.validateAnswers(itr=itr, questions=questions_Q, ans_Q=ans_Q, ans_A=ans_A, numerical_validation=is_numericalAnswer)
             self.semanticEmbedder.unload()
             
 
@@ -232,7 +254,7 @@ class HermesAgenticSystem:
                 itr += 1
                 context = result["errors"]
                 self.logger.log(Level.ERROR, 1,"|\t|---> Wrong Answers!")
-                temp = context.replace('\n', '\n\t|\t\t')
+                temp = context.replace('\n', '\n\t\t|\t\t')
                 self.logger.log(Level.ERROR, 1,f"|\t|---> {temp}")
             
             self.logger.log(Level.INFO, 1,"|--------------------------------------------")

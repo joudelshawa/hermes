@@ -1,0 +1,119 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Factor VIII Deficiency",
+            "color": "#ff0000"
+        },
+        {
+            "id": 3,
+            "label": "Right Flank Bruising and Pain",
+            "color": "#ffff00"
+        },
+        {
+            "id": 4,
+            "label": "Snowboarding Accident",
+            "color": "#808080"
+        },
+        {
+            "id": 5,
+            "label": "Hematoma on Right Aspect of Neck",
+            "color": "#ff0000"
+        },
+        {
+            "id": 6,
+            "label": "Hematoma on Right Flank",
+            "color": "#ff0000"
+        },
+        {
+            "id": 7,
+            "label": "Low Hemoglobin Levels",
+            "color": "#ffa500"
+        },
+        {
+            "id": 8,
+            "label": "DDAVP IV Treatment",
+            "color": "#008000"
+        },
+        {
+            "id": 9,
+            "label": "Desmopressin Nasal Medication",
+            "color": "#008000"
+        },
+        {
+            "id": 10,
+            "label": "Acetaminophen Medication",
+            "color": "#008000"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has condition",
+            "detailed_description": "The patient has a history of factor VIII deficiency.",
+            "facts_and_info": "Factor VIII deficiency is a bleeding disorder that affects the blood's ability to clot."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "experiencing",
+            "detailed_description": "The patient is experiencing right flank bruising and pain.",
+            "facts_and_info": "Right flank bruising and pain are symptoms of a possible internal bleeding."
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "involved in",
+            "detailed_description": "The patient was involved in a snowboarding accident.",
+            "facts_and_info": "Snowboarding accidents can cause injuries that may lead to internal bleeding."
+        },
+        {
+            "from": 2,
+            "to": 5,
+            "label": "causes",
+            "detailed_description": "Factor VIII deficiency can cause hematoma on the right aspect of the neck.",
+            "facts_and_info": "Hematoma is a possible complication of factor VIII deficiency."
+        },
+        {
+            "from": 2,
+            "to": 6,
+            "label": "causes",
+            "detailed_description": "Factor VIII deficiency can cause hematoma on the right flank.",
+            "facts_and_info": "Hematoma is a possible complication of factor VIII deficiency."
+        },
+        {
+            "from": 3,
+            "to": 7,
+            "label": "leads to",
+            "detailed_description": "Right flank bruising and pain can lead to low hemoglobin levels.",
+            "facts_and_info": "Low hemoglobin levels are a possible complication of internal bleeding."
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "received treatment",
+            "detailed_description": "The patient received DDAVP IV treatment.",
+            "facts_and_info": "DDAVP is a medication used to treat bleeding disorders such as factor VIII deficiency."
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "taking medication",
+            "detailed_description": "The patient is taking desmopressin nasal medication.",
+            "facts_and_info": "Desmopressin is a medication used to treat bleeding disorders such as factor VIII deficiency."
+        },
+        {
+            "from": 1,
+            "to": 10,
+            "label": "taking medication",
+            "detailed_description": "The patient is taking acetaminophen medication.",
+            "facts_and_info": "Acetaminophen is a pain reliever used to treat pain caused by internal bleeding."
+        }
+    ]
+}

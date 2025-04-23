@@ -1,7 +1,9 @@
 from Agents.LLMAgent import Agent
 import re
+import os
 from Utils.Helpers import *
 from Utils.Logger import TheLogger, Level
+from pydantic import BaseModel
 
 class ReportCreator(Agent):
     def __init__(
@@ -42,7 +44,7 @@ class ReportCreator(Agent):
         ]
 
 
-    def validateResponse(self, response):
+    def validateResponse(self, response, unstructured_report:str):
         # Add logic for response validation
         # look at super class for information on input output
         # pattern = r"```output(.*)```"
@@ -71,6 +73,11 @@ class ReportCreator(Agent):
 
         if not result["is_valid"]:
             result["errors"] += f"You must include these words in your headings: {', '.join(missing_headings)}"
+
+        # if not areNumbericallyEquivalent(response, unstructured_report):
+        #     result["is_valid"] = False
+        #     halucinated, missingNumbers = getMissingNumbers(text_og=unstructured_report, text_gen=response)
+        #     result["errors"] += f"Missing numerical values (value -> count): {missingNumbers}."
         return result
     
     def run(self, prompt, context = ""):
@@ -83,7 +90,7 @@ class ReportCreator(Agent):
             self.logger.log(Level.INFO, 1, "|")
             self.logger.log(Level.INFO, 1, f"|\tIteration [{self.MAX_ITERATIONS-max_iter+1}/{self.MAX_ITERATIONS}]", addTimePrefix=True)
             response = remove_think(super().run(prompt, context))
-            validation = self.validateResponse(response)
+            validation = self.validateResponse(response, unstructured_report=prompt)
             # Temporary Save
             saveReportAsText(validation["response"], tempFolder)
             
@@ -98,7 +105,7 @@ class ReportCreator(Agent):
                     context = f"Your Previous Response: \"\"\"{validation['response']}\"\"\"\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter -= 1
         
-        self.logger.log(Level.CRITIAL, 0,"="*50)
-        self.logger.log(Level.CRITIAL, 1,"HERMES-R FAILED (T_T)!")
-        self.logger.log(Level.CRITIAL, 0,"="*50)
+        self.logger.log(Level.CRITICAL, 0,"="*50)
+        self.logger.log(Level.CRITICAL, 1,"HERMES-R FAILED (T_T)!")
+        self.logger.log(Level.CRITICAL, 0,"="*50)
         exit()

@@ -1,0 +1,102 @@
+[
+    {
+        "Question": "Does the patient have a history of factor VIII deficiency?",
+        "Answer": "Yes, the patient has a history of mild FVIII deficiency."
+    },
+    {
+        "Question": "What is the patient experiencing?",
+        "Answer": "The patient is experiencing right flank bruising and pain after a snowboarding accident."
+    },
+    {
+        "Question": "Was the patient involved in an accident?",
+        "Answer": "Yes, the patient was involved in a snowboarding accident."
+    },
+    {
+        "Question": "Can factor VIII deficiency cause hematoma on the right aspect of the neck?",
+        "Answer": "Factor VIII deficiency may contribute to the development of hematomas, including one on the right aspect of the neck."
+    },
+    {
+        "Question": "What is a possible complication of factor VIII deficiency?",
+        "Answer": "A possible complication of factor VIII deficiency is ongoing bleeding and formation of hematomas."
+    },
+    {
+        "Question": "Can right flank bruising and pain lead to low hemoglobin levels?",
+        "Answer": "Yes, the patient's right flank bruising and pain may be contributing to their falling hemoglobin levels."
+    },
+    {
+        "Question": "What treatment did the patient receive for their bleeding disorder?",
+        "Answer": "The patient received IV DDAVP under the care of the hospital team."
+    },
+    {
+        "Question": "Is the patient taking desmopressin nasal medication?",
+        "Answer": "Yes, the patient is taking desmopressin nasal medication PRN for bleeding."
+    },
+    {
+        "Question": "Why is the patient taking acetaminophen medication?",
+        "Answer": "The patient is taking acetaminophen 1000 mg PO Q8H for pain management."
+    },
+    {
+        "Question": "What is a possible cause of the patient's right flank bruising and pain?",
+        "Answer": "A possible cause of the patient's right flank bruising and pain is an acute muscular hematoma due to their recent snowboarding accident."
+    },
+    {
+        "Question": "Is factor VIII deficiency a bleeding disorder?",
+        "Answer": "Yes, factor VIII deficiency is a type of bleeding disorder that can lead to hemophilia A."
+    },
+    {
+        "Question": "What is a symptom of possible internal bleeding?",
+        "Answer": "A symptom of possible internal bleeding is falling hemoglobin levels."
+    },
+    {
+        "Question": "Can snowboarding accidents cause injuries that may lead to internal bleeding?",
+        "Answer": "Yes, snowboarding accidents can cause injuries such as hematomas and internal bleeding due to trauma."
+    },
+    {
+        "Question": "What is the relationship between factor VIII deficiency and hematoma on the right flank?",
+        "Answer": "The patient's factor VIII deficiency may have contributed to the development of a hematoma on their right flank after the snowboarding accident."
+    },
+    {
+        "Question": "Is low hemoglobin levels a possible complication of internal bleeding?",
+        "Answer": "Yes, low hemoglobin levels can be a complication of internal bleeding due to blood loss."
+    },
+    {
+        "Question": "What is DDAVP used to treat?",
+        "Answer": "DDAVP is used to treat bleeding disorders such as factor VIII deficiency by increasing the patient's FVIII activity level."
+    },
+    {
+        "Question": "Is desmopressin used to treat bleeding disorders?",
+        "Answer": "Yes, desmopressin is used to treat bleeding disorders such as hemophilia A and factor VIII deficiency."
+    },
+    {
+        "Question": "What is acetaminophen used for in this case?",
+        "Answer": "Acetaminophen is used for pain management in this case."
+    },
+    {
+        "Question": "Is the patient experiencing any symptoms of internal bleeding?",
+        "Answer": "The patient is experiencing falling hemoglobin levels, which may be a symptom of internal bleeding."
+    },
+    {
+        "Question": "What may have led to the patient's low hemoglobin levels?",
+        "Answer": "The patient's recent snowboarding accident and resulting hematoma on their right flank may have contributed to their low hemoglobin levels."
+    },
+    {
+        "Question": "Is factor VIII deficiency related to hematoma on the right aspect of the neck?",
+        "Answer": "Factor VIII deficiency may contribute to the development of hematomas, including one on the right aspect of the neck."
+    },
+    {
+        "Question": "What is a possible effect of snowboarding accidents on the body?",
+        "Answer": "A possible effect of snowboarding accidents on the body is trauma leading to internal bleeding and formation of hematomas."
+    },
+    {
+        "Question": "Is desmopressin nasal medication used to treat factor VIII deficiency?",
+        "Answer": "Yes, desmopressin nasal medication is used to treat factor VIII deficiency by increasing the patient's FVIII activity level."
+    },
+    {
+        "Question": "What type of pain is the patient experiencing?",
+        "Answer": "The patient is experiencing right shoulder pain that has improved over time."
+    },
+    {
+        "Question": "Is acetaminophen effective in treating internal bleeding-related pain?",
+        "Answer": "Acetaminophen may be used to manage pain related to internal bleeding, but it does not treat the underlying cause of the pain."
+    }
+]

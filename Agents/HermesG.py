@@ -1,6 +1,6 @@
 from Agents.LLMAgent import Agent
 import json
-import re
+import os
 from Utils.Helpers import *
 from pydantic import BaseModel
 from Utils.Logger import TheLogger, Level
@@ -64,34 +64,42 @@ class KGCreator(Agent):
             return result
 
         # Validate nodes
-        node_ids = set()
-        for i, node in enumerate(data["nodes"]):
-            if not all(key in node for key in ["id", "label", "color"]):
-                result["is_valid"] = False
-                result["errors"].append(f"Node at index {i} missing required fields (id, label, or color)")
-            
-            if not isinstance(node["id"], int):
-                result["is_valid"] = False
-                result["errors"].append(f"Node {node.get('id')} has non-integer ID")
+        if len(data["nodes"]) < 2:
+            result["is_valid"] = False
+            result["errors"].append(f"Graph cannot be empty: only one nodee found")
+        else:           
+            node_ids = set()
+            for i, node in enumerate(data["nodes"]):
+                if not all(key in node for key in ["id", "label", "color"]):
+                    result["is_valid"] = False
+                    result["errors"].append(f"Node at index {i} missing required fields (id, label, or color)")
                 
-            if node["id"] in node_ids:
-                result["is_valid"] = False
-                result["errors"].append(f"Duplicate node ID: {node['id']}")
-            node_ids.add(node["id"])
+                if not isinstance(node["id"], int):
+                    result["is_valid"] = False
+                    result["errors"].append(f"Node {node.get('id')} has non-integer ID")
+                    
+                if node["id"] in node_ids:
+                    result["is_valid"] = False
+                    result["errors"].append(f"Duplicate node ID: {node['id']}")
+                node_ids.add(node["id"])
 
         # Validate edges
-        invalid_edge = False
-        existing_node_ids = {n["id"] for n in data["nodes"]}
-        for i, edge in enumerate(data["edges"]):
-            if not all(key in edge for key in ["from", "to", "label"]):
-                result["is_valid"] = False
-                result["errors"].append(f"Edge at index {i} missing required fields (from, to, or label)")
-                invalid_edge = True
-            if not invalid_edge:    
-                for endpoint in ["from", "to"]:
-                    if edge[endpoint] not in existing_node_ids:
-                        result["is_valid"] = False
-                        result["errors"].append(f"Edge {i} references non-existent node ID: {edge[endpoint]}")
+        if len(data["edges"]) < 1:
+            result["is_valid"] = False
+            result["errors"].append(f"Graph cannot be empty: No edge found")
+        else:
+            invalid_edge = False
+            existing_node_ids = {n["id"] for n in data["nodes"]}
+            for i, edge in enumerate(data["edges"]):
+                if not all(key in edge for key in ["from", "to", "label"]):
+                    result["is_valid"] = False
+                    result["errors"].append(f"Edge at index {i} missing required fields (from, to, or label)")
+                    invalid_edge = True
+                if not invalid_edge:    
+                    for endpoint in ["from", "to"]:
+                        if edge[endpoint] not in existing_node_ids:
+                            result["is_valid"] = False
+                            result["errors"].append(f"Edge {i} references non-existent node ID: {edge[endpoint]}")
 
         return result
     
@@ -135,6 +143,8 @@ class KGraph(BaseModel):
         source: int
         to: int
         label: str
+        detailed_description: str
+        facts_and_info: str
     
     nodes: list[Node]
     edges: list[Edge]

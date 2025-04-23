@@ -1,5 +1,5 @@
 {
-    "LLM": "llama3.3:70b-instruct-q3_K_M",
+    "LLM": "llama3.1:70b-instruct-q4_K_M",
     "Hermes-Iterations": 5,
     "Similarity-Threshold": 0.8,
     "Agents":{
@@ -8,14 +8,14 @@
             "max_iter": 5,
             "temperature": 0.4,
             "top_p": 0.2,
-            "context_length_multiplier": 8
+            "context_length_multiplier": 16
         },
         "Hermes_G": {
             "prompt_path": "Agents/prompts/Hermes-G/",
             "max_iter": 5,
             "temperature": 0.7,
             "top_p": 0.3,
-            "context_length_multiplier": 8
+            "context_length_multiplier": 16
         },
         "Hermes_Q": {
             "prompt_path": "Agents/prompts/Hermes-Q/",

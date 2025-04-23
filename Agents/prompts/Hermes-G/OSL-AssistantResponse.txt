@@ -15,7 +15,15 @@
         { 
             "from": 1, 
             "to": 2, 
-            "label": "roommate" 
+            "label": "roommate"
+            "detailed_description": "Bob is Alice's roommate"
+        },
+        { 
+            "from": 2, 
+            "to": 1, 
+            "label": "roommate"
+            "detailed_description": "Alice is Bob's roommate"
+            "facts_and_info": "Alice and Bob are roommates. Both of them live together in the same room."
         } 
     ] 
 }

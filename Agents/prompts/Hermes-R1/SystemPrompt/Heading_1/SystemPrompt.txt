@@ -1,0 +1,15 @@
+## Specific Task:
+From the provided text, extract only the following **Administrative & Identification Details**. Each detail must be present if available. Do not include any entities outside this list.
+
+### Administrative & Identification Details
+- **Patient Name:**
+- **Date of Birth (DOB):**
+- **Gender:**
+- **Patient ID / MRN:**
+- **Phone / Email:**
+- **Address:**
+- **Emergency Contact Person:**
+- **Emergency Contact Info:**
+- **Date CPP Last Updated:**
+
+## Input Text:

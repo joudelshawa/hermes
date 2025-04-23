@@ -1,8 +1,9 @@
 import networkx as nx
 import matplotlib.pyplot as plt
 import json
-import os
+import re
 from pyvis.network import Network
+from collections import Counter
 
 # ===========================================
 # ============== SAVE STUFF =================
@@ -152,3 +153,30 @@ def getFormattedElapsedTime(start, end) -> str:
 
     # Format the result as MM:SS
     return f"{minutes}min {seconds:02d}sec"
+
+def extractAllNumbers(text:str):
+        pattern = r"(?<![a-zA-Z])\d+\.\d+|(?<![a-zA-Z])(?<!\n)\d+" #(?<![a-zA-Z])\d+\.\d+|(?<![a-zA-Z])\d+
+        matches = [round(float(num), 8) for num in re.findall(pattern, text)]
+        return matches
+    
+def areNumbericallyEquivalent(text1:str, text2:str):
+    nums1 = extractAllNumbers(text1)
+    nums2 = extractAllNumbers(text2)
+    return sorted(nums1) == sorted(nums2)
+
+def getMissingNumbers(text_og: str, text_gen: str):
+    nums_og = extractAllNumbers(text_og)
+    nums_gen = extractAllNumbers(text_gen)
+
+    # Use Counter to count occurrences like a multiset
+    counter_og = Counter(nums_og)
+    counter_gen = Counter(nums_gen)
+
+    # Subtract counters to find what's missing
+    missing_in_gen = dict(counter_og - counter_gen) 
+    missing_in_og = dict(counter_gen - counter_og)
+    print("Missing: ", missing_in_gen)
+    print("Hallucinated: ", missing_in_og)
+
+    return missing_in_og, missing_in_gen
+     

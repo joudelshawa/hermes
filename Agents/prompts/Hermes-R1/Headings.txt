@@ -1,0 +1,34 @@
+CPP
+1. Administrative & Identification Details
+
+SOAP
+
+S
+2. Chief Complaint (CC)
+3. History of Present Illness (HPI)
+4. Past Medical History (PMH)
+5. Past Surgical History (PSH)
+6. Family History (FH)
+7. Social History (SH)
+8. Review of Systems (ROS)
+9. Current Medications and Allergies
+
+O
+10. Vital Signs (During Admission)
+11. Physical Examination
+12. Laboratory Data
+13. Imaging and Other Diagnostic Data
+14. Other Clinicians’ Notes (if applicable)
+
+A
+15. Problem List
+16. Differential Diagnoses
+
+17. P-Plan
+
+Discharge Conditions
+18. Physical Exam at Discharge
+19. Discharge Condition
+20. Discharge Instructions
+21. Disposition
+22. Brief Hospital Course

@@ -103,6 +103,7 @@ class SemanticEmbedder:
         embedding1 = torch.tensor(self.getEmbedding(sent1)).unsqueeze(0)
         embedding2 = torch.tensor(self.getEmbedding(sent2)).unsqueeze(0)
         sim = cosine_similarity(embedding1, embedding2).item()
+        # add numerical similarity.
         if show:
             print(f"\n\t\tSEMANTIC SIMILIARITY = {sim: 0.4}")
             print(f"\t\t|---> Sentence 1: {sent1}")
