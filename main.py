@@ -6,7 +6,7 @@ from Utils.Logger import TheLogger, Level
 from datetime import datetime
 import time
 
-REPORT_NUM = 2
+REPORT_NUM = 1
 PATH_DATA = "Data/"
 PATH_EXAMPLE = ""
 
