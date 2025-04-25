@@ -182,4 +182,8 @@ def getMissingNumbers(text_og: str, text_gen: str, return_nums_og: bool = False)
         return missing_in_og, missing_in_gen, nums_og, nums_gen
     else:
         return missing_in_og, missing_in_gen
+
+def getNumberOfNodes(graph_data: str):
+    graph = json.loads(graph_data)
+    return len(graph['nodes'])
      

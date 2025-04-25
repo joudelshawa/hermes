@@ -1,29 +1,155 @@
-{ 
-    "nodes": [ 
-        { 
-            "id": 1, 
-            "label": "Bob", 
-            "color": "#ffffff" 
-        }, 
-        { 
-            "id": 2, 
-            "label": "Alice", 
-            "color": "#ff7675" 
-        } 
-    ], 
-    "edges": [ 
-        { 
-            "from": 1, 
-            "to": 2, 
-            "label": "roommate"
-            "detailed_description": "Bob is Alice's roommate"
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
         },
-        { 
-            "from": 2, 
-            "to": 1, 
-            "label": "roommate"
-            "detailed_description": "Alice is Bob's roommate"
-            "facts_and_info": "Alice and Bob are roommates. Both of them live together in the same room."
-        } 
-    ] 
+        {
+            "id": 2,
+            "label": "Epistaxis",
+            "color": "#ffeb3b"
+        },
+        {
+            "id": 3,
+            "label": "Factor VIII deficiency",
+            "color": "#ff4444"
+        },
+        {
+            "id": 4,
+            "label": "Nasal fractures",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 5,
+            "label": "Mechanical fall",
+            "color": "#a1c9f2"
+        },
+        {
+            "id": 6,
+            "label": "RhinoRockets",
+            "color": "#00b894"
+        },
+        {
+            "id": 7,
+            "label": "Oxymetazoline nasal spray",
+            "color": "#00b894"
+        },
+        {
+            "id": 8,
+            "label": "CT scan",
+            "color": "#3498db"
+        },
+        {
+            "id": 9,
+            "label": "ENT consultation",
+            "color": "#3498db"
+        },
+        {
+            "id": 10,
+            "label": "Hematology consultation",
+            "color": "#3498db"
+        },
+        {
+            "id": 11,
+            "label": "Clopidogrel 75 mg PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 12,
+            "label": "Metoprolol Tartrate 50 mg PO TID",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 13,
+            "label": "Pravastatin 80 mg PO QPM",
+            "color": "#2ecc71"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has symptom",
+            "detailed_description": "The patient is experiencing epistaxis (nosebleed) which started after a mechanical fall.",
+            "facts_and_info": "Epistaxis is the medical term for nosebleed. The patient's episode began following a fall."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with factor VIII deficiency, a genetic bleeding disorder.",
+            "facts_and_info": "Factor VIII deficiency is a genetic condition leading to impaired blood clotting. The patient's mother also had a tendency to bleed."
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has nasal fractures resulting from the mechanical fall.",
+            "facts_and_info": "Nasal fractures were confirmed via CT scan of the head and neck. This injury is a direct result of the fall during snowboarding."
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "experienced event",
+            "detailed_description": "The patient experienced a mechanical fall while snowboarding.",
+            "facts_and_info": "The fall occurred during snowboarding and led to facial trauma without loss of consciousness. It resulted in epistaxis and nasal fractures."
+        },
+        {
+            "from": 2,
+            "to": 6,
+            "label": "treated with",
+            "detailed_description": "Epistaxis is being managed using RhinoRockets.",
+            "facts_and_info": "RhinoRockets are nasal tampons used to control bleeding in the nasal passages. They were placed to help stop the patient's nosebleed."
+        },
+        {
+            "from": 2,
+            "to": 7,
+            "label": "treated with",
+            "detailed_description": "Epistaxis is being managed using oxymetazoline nasal spray.",
+            "facts_and_info": "Oxymetazoline is a topical decongestant used to reduce nasal congestion and control bleeding. It was prescribed for the patient's epistaxis."
+        },
+        {
+            "from": 2,
+            "to": 8,
+            "label": "diagnosed via",
+            "detailed_description": "Epistaxis was diagnosed using a CT scan.",
+            "facts_and_info": "A CT scan of the head and neck confirmed nasal fractures contributing to the patient's epistaxis."
+        },
+        {
+            "from": 2,
+            "to": 9,
+            "label": "requires consultation with",
+            "detailed_description": "The patient requires follow-up consultation with ENT or Plastic Surgery.",
+            "facts_and_info": "ENT or Plastic Surgery follow-up is recommended for further evaluation and management of the nasal injuries causing epistaxis."
+        },
+        {
+            "from": 3,
+            "to": 10,
+            "label": "requires consultation with",
+            "detailed_description": "The patient requires consultation with Hematology due to factor VIII deficiency.",
+            "facts_and_info": "Hematology consultation is necessary for managing the patient's bleeding disorder and monitoring symptoms."
+        },
+        {
+            "from": 1,
+            "to": 11,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Clopidogrel 75 mg daily.",
+            "facts_and_info": "Clopidogrel is an antiplatelet medication used to prevent blood clots. The patient takes it once daily."
+        },
+        {
+            "from": 1,
+            "to": 12,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Metoprolol Tartrate 50 mg three times a day.",
+            "facts_and_info": "Metoprolol is a beta-blocker used to manage heart conditions. The patient takes 50 mg orally three times daily."
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Pravastatin 80 mg once daily at night.",
+            "facts_and_info": "Pravastatin is a statin used to lower cholesterol. The patient takes 80 mg each evening."
+        }
+    ]
 }

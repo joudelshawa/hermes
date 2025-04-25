@@ -107,9 +107,11 @@ class QACreator(Agent):
         
         return questions, answers
     
-    def run(self, prompt, context = ""):
+    def run(self, prompt:str, totalQuestions:int, context = ""):
         # prompt_dict = prompt
         # prompt = json.dumps(prompt_dict, indent=2) # convert to string since its a json dict
+        self.MINIMUM_QA = totalQuestions
+        prompt.replace("[MIN_QA]", f"{self.MINIMUM_QA}")
         prompt = "\n\n## Given Knowledge Graph:\n```json\n" + prompt + "\n```"
         max_iter = self.MAX_ITERATIONS
         tempFolder = os.path.join(self.logger.mainSaveFolder, "Temp/") 

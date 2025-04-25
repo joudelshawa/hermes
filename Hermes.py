@@ -127,8 +127,8 @@ class HermesAgenticSystem:
     def getKnowledgeGraph(self, prompt, context = "") -> str:
         return self.KGraphCreator.run(prompt=prompt, context=context)
 
-    def getQA(self, prompt, context = "") -> tuple[str, str]:
-        return self.QACreator.run(prompt=prompt, context=context)
+    def getQA(self, prompt, totalQuestions:int, context = "") -> tuple[str, str]:
+        return self.QACreator.run(prompt=prompt, context=context, totalQuestions=totalQuestions)
     
     def getAnswers(self, questions, unstructured_report, context = "") -> str:
         return self.AnswerValidator.run(questions=questions, unstructured_report=unstructured_report, context=context)
@@ -217,7 +217,7 @@ class HermesAgenticSystem:
             # Step3: Get Question Answer Pairs from HermesQ
             self.logger.log(Level.HEADING_2, 1,f"| Hermes-Q", addTimePrefix=True)
             self.logger.log(Level.INFO, 1, f"| Generating Question-Answer Pairs...")
-            qa_pairs, is_numericalAnswer = self.getQA(KGraph)
+            qa_pairs, is_numericalAnswer = self.getQA(KGraph, totalQuestions=getNumberOfNodes(KGraph))
             questions_Q, ans_Q = self.QACreator.getSeparatedQA(qa_pairs)
             self.logger.log(Level.INFO, 1,"|--------------------------------------------")
             self.logger.log(Level.INFO, 1,"|--------------------------------------------") 

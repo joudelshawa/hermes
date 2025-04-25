@@ -1,0 +1,35 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Ascites from portal hypertension",
+            "color": "#ff0000"
+        },
+        {
+            "id": 3,
+            "label": "Non-compliance with diuretics",
+            "color": "#ff0000"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with ascites from portal hypertension.",
+            "facts_and_info": "Ascites is an accumulation of fluid in the peritoneal cavity. Portal hypertension is a common cause and can lead to complications such as spontaneous bacterial peritonitis (SBP). The patient's lab results show elevated ALT/AST, low platelets, and slightly elevated INR, which are consistent with liver dysfunction."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with non-compliance with diuretics.",
+            "facts_and_info": "Non-compliance with diuretics can lead to worsening ascites and portal hypertension. The patient's current medications include Furosemide and Spironolactone, which are diuretics used to manage fluid retention."
+        }
+    ]
+}
