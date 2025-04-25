@@ -164,7 +164,7 @@ def areNumbericallyEquivalent(text1:str, text2:str):
     nums2 = extractAllNumbers(text2)
     return sorted(nums1) == sorted(nums2)
 
-def getMissingNumbers(text_og: str, text_gen: str):
+def getMissingNumbers(text_og: str, text_gen: str, return_nums_og: bool = False):
     nums_og = extractAllNumbers(text_og)
     nums_gen = extractAllNumbers(text_gen)
 
@@ -175,8 +175,11 @@ def getMissingNumbers(text_og: str, text_gen: str):
     # Subtract counters to find what's missing
     missing_in_gen = dict(counter_og - counter_gen) 
     missing_in_og = dict(counter_gen - counter_og)
-    print("Missing: ", missing_in_gen)
-    print("Hallucinated: ", missing_in_og)
-
-    return missing_in_og, missing_in_gen
+    # print("Missing: ", missing_in_gen)
+    # print("Hallucinated: ", missing_in_og)
+    
+    if return_nums_og:
+        return missing_in_og, missing_in_gen, nums_og, nums_gen
+    else:
+        return missing_in_og, missing_in_gen
      

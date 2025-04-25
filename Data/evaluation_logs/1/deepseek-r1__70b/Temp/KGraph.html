@@ -88,8 +88,8 @@
                   
 
                   // parsing and collecting nodes and edges from the python
-                  nodes = new vis.DataSet([{"color": "#ffffff", "font": {"color": "white"}, "id": 1, "label": "Patient", "shape": "dot"}, {"color": "#ff0000", "font": {"color": "white"}, "id": 2, "label": "Ascites from Portal Hypertension", "shape": "dot"}, {"color": "#ff0000", "font": {"color": "white"}, "id": 3, "label": "Non-compliance with medications", "shape": "dot"}]);
-                  edges = new vis.DataSet([{"arrows": "to", "color": "white", "from": 1, "label": "has diagnosis", "title": "has diagnosis", "to": 2}, {"arrows": "to", "color": "white", "from": 1, "label": "has diagnosis", "title": "has diagnosis", "to": 3}, {"arrows": "to", "color": "white", "from": 2, "label": "related to", "title": "related to", "to": 3}]);
+                  nodes = new vis.DataSet([{"color": "#ffffff", "font": {"color": "white"}, "id": 1, "label": "Patient", "shape": "dot"}, {"color": "#ff0000", "font": {"color": "white"}, "id": 2, "label": "Ascites from portal hypertension", "shape": "dot"}, {"color": "#ff0000", "font": {"color": "white"}, "id": 3, "label": "Non-compliance with diuretics", "shape": "dot"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "color": "white", "from": 1, "label": "has diagnosis", "title": "has diagnosis", "to": 2}, {"arrows": "to", "color": "white", "from": 1, "label": "has diagnosis", "title": "has diagnosis", "to": 3}]);
 
                   nodeColors = {};
                   allNodes = nodes.get({ returnType: "Object" });

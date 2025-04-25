@@ -7,12 +7,12 @@
         },
         {
             "id": 2,
-            "label": "Ascites from Portal Hypertension",
+            "label": "Ascites from portal hypertension",
             "color": "#ff0000"
         },
         {
             "id": 3,
-            "label": "Non-compliance with medications",
+            "label": "Non-compliance with diuretics",
             "color": "#ff0000"
         }
     ],
@@ -21,22 +21,15 @@
             "from": 1,
             "to": 2,
             "label": "has diagnosis",
-            "detailed_description": "The patient has been diagnosed with Ascites from Portal Hypertension.",
-            "facts_and_info": "Ascites is an accumulation of fluid in the peritoneal cavity. The patient's condition is likely due to portal hypertension, as indicated by imaging showing nodular liver and splenomegaly."
+            "detailed_description": "The patient has been diagnosed with ascites from portal hypertension.",
+            "facts_and_info": "Ascites is an accumulation of fluid in the peritoneal cavity. Portal hypertension is a common cause and can lead to complications such as spontaneous bacterial peritonitis (SBP). The patient's lab results show elevated ALT/AST, low platelets, and slightly elevated INR, which are consistent with liver dysfunction."
         },
         {
             "from": 1,
             "to": 3,
             "label": "has diagnosis",
-            "detailed_description": "The patient has been diagnosed with Non-compliance with medications.",
-            "facts_and_info": "Non-compliance with prescribed diuretics and low-sodium diet contributed to worsening symptoms. The patient discontinued Furosemide and Spironolactone on her own."
-        },
-        {
-            "from": 2,
-            "to": 3,
-            "label": "related to",
-            "detailed_description": "The non-compliance with medications is a contributing factor to the development of Ascites from Portal Hypertension.",
-            "facts_and_info": "Non-adherence to prescribed diuretics and low-sodium diet has led to worsening ascites. The patient's condition improved after resuming medications."
+            "detailed_description": "The patient has been diagnosed with non-compliance with diuretics.",
+            "facts_and_info": "Non-compliance with diuretics can lead to worsening ascites and portal hypertension. The patient's current medications include Furosemide and Spironolactone, which are diuretics used to manage fluid retention."
         }
     ]
 }

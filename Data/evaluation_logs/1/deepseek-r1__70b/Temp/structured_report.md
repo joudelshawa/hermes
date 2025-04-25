@@ -21,47 +21,45 @@
 ### S - Subjective
 
 #### 1. Chief Complaint (CC)
-> Worsening abdominal distension and pain
+> Worsening abdominal distension and pain  
 
 #### 2. History of Present Illness (HPI)
-- Onset: Over the past week  
-- Location: Abdomen  
-- Duration: Worsening for a week  
+- Onset: Presented with worsening symptoms over the past week  
+- Location: Abdominal area  
+- Duration: Over a week  
 - Character: Distension and discomfort  
 - Aggravating/Alleviating: Self-discontinued diuretics, not following low-sodium diet  
-- Radiation: Not noted  
+- Radiation: Denied  
 - Timing: Gradual worsening  
-- Severity: Significant enough to seek care  
+- Severity: Significant enough to seek medical attention  
 
 #### 3. Past Medical History (PMH)
-- HCV Cirrhosis  
+- HCV Cirrhosis with ascites  
 - HIV on ART  
 - History of IVDU  
 - COPD  
-- Bipolar affective disorder, currently manic, mild, and PTSD  
-- Past history of smoking  
-- Skin lesion biopsied as cancer, scheduled for removal  
-- Another forehead lesion biopsied to exclude sarcoma (pending results)  
+- Bipolar affective disorder  
+- PTSD  
 
 #### 4. Past Surgical History (PSH)
-- None provided  
+- ___  
 
 #### 5. Family History (FH)
-- Five siblings, no known GI or liver disease  
+- No known GI or liver disease in the family  
 
 #### 6. Social History (SH)
 - Last alcohol consumption: One drink two months ago  
 - Quit smoking a couple of years ago  
 
 #### 7. Review of Systems (ROS)
-- **General:** No edema  
+- **General:** No edema, SOB, or orthopnea  
 - **HEENT:** No issues  
-- **Respiratory:** No SOB  
-- **CVS:** No orthopnea  
-- **GI:** Abdominal distension  
-- **GU:** No dysuria  
-- **MSK:** No myalgias  
-- **Neuro:** No confusion  
+- **Respiratory:** Denies SOB  
+- **CVS:** No chest pain or palpitations  
+- **GI:** Worsening abdominal distension and discomfort  
+- **GU:** Denies dysuria or other symptoms  
+- **MSK:** No muscle weakness  
+- **Neuro:** Reports forgetfulness but no confusion  
 - **Skin:** No rashes  
 
 #### 8. Current Medications and Allergies
@@ -78,68 +76,64 @@
 ### O - Objective
 
 #### 1. Vital Signs (During Admission)
-- VS: 98.1 107/61 78 18 97RA  
+- 98.4°F, HR 70, BP 106/63, RR 16, SpO2 97% on RA  
 
 #### 2. Physical Examination
-- **General:** In NAD  
-- **HEENT:** CTAB, anicteric sclera, OP clear  
+- **General:** NAD  
+- **HEENT:** Anicteric sclerae, OP clear  
 - **Neck:** Supple, no LAD  
-- **CV:** RRR,S1S2, no m/r/g  
-- **Lungs:** CTAb, prolonged expiratory phase, no w/r/r  
-- **Abdomen:** Distended, mild diffuse tenderness, +flank dullness  
-- **Ext:** Wwp, no c/e/e, + clubbing  
-- **Neuro:** AAO3, converse normally  
+- **CV:** RRR, S1S2, no murmurs  
+- **Lungs:** Clear with prolonged expiratory phase  
+- **Abdomen:** Distended, mild diffuse tenderness, flank dullness  
+- **Extremities:** No clubbing, edema, or cyanosis  
+- **Neurological:** Alert and oriented  
 
 #### 3. Laboratory Data
-- ALT/AST: 100*/114*  
-- Total Bilirubin: 1.6*  
-- WBC: 5K  
-- Platelet: 77  
-- INR: 1.6  
+- ALT/AST: Elevated  
+- Total bilirubin: 1.6  
+- Platelets: Low  
+- INR: Slightly elevated  
 
 #### 4. Imaging and Other Diagnostic Data
-- Ultrasound: Nodular liver, ascites, splenomegaly  
 - CXR: No acute cardiopulmonary process  
+- Ultrasound: Nodular liver, ascites, splenomegaly, cholelithiasis  
 
 #### 5. Other Clinicians' Notes (if applicable)
-- The patient was noted to have a brief period of confusion in the ED but denied recent drug use or alcohol consumption. She reported some forgetfulness but no other cognitive issues.
+- Per ED report, patient had brief period of confusion and did not recall ultrasound or bloodwork at OSH.
+
+---
 
 ### A - Assessment
 
 #### 1. Problem List
-1. Ascites from Portal Hypertension  
-2. Non-compliance with medications  
+1. Ascites from portal hypertension  
+2. Non-compliance with diuretics  
 
 #### 2. Differential Diagnoses
-- **Ascites:** Likely due to portal hypertension, SBP negative  
+- SBP negative  
+- Heart failure ruled out  
 
 ### P - Plan
 
 #### Problem 1: Ascites from Portal Hypertension
-- **Investigations:** Paracentesis, Ultrasound  
-- **Therapeutic Interventions:** Furosemide 40 mg PO DAILY, Spironolactone 50 mg PO DAILY  
-- **Consults/Referrals:** Follow-up with PCP and Liver Clinic  
-- **Patient Education:** Importance of medications, low-sodium diet  
-
-#### Problem 2: Non-compliance with Medications
-- **Investigations:** None  
-- **Therapeutic Interventions:** Counseling on medication adherence  
-- **Consults/Referrals:** None  
-- **Patient Education:** Discussion on benefits of prescribed regimen  
+- **Investigations:** Ultrasound, CXR, labs  
+- **Therapeutic Interventions:** Increase Furosemide to 40 mg daily, Spironolactone 50 mg daily  
+- **Consults/Referrals:** Follow-up with PCP and Liver clinic for EGD  
+- **Patient Education:** Importance of medication adherence and low-sodium diet  
 
 ---
 
 ## C. Discharge Conditions (DC)
 
 ### 1. Physical Exam at Discharge
-- **Vitals / VS:** 98 105/70 95  
-- **General:** In NAD  
-- **HEENT:** Anicteric sclera, OP clear  
+- **Vitals / VS:** 98°F, HR 105, BP 70/95  
+- **General:** NAD  
+- **HEENT:** Anicteric sclerae, OP clear  
 - **Neck:** Supple, no LAD  
-- **CV:** RRR,S1S2, no m/r/g  
-- **Lungs:** CTAb, prolonged expiratory phase, no w/r/r  
+- **CV:** RRR, S1S2, no murmurs  
+- **Lung:** Clear with prolonged expiratory phase  
 - **Abdomen:** Distended but improved  
-- **Ext:** Wwp, no c/e/e, + clubbing  
+- **Extremities:** No clubbing, edema, or cyanosis  
 
 ### 2. Discharge Condition
 - **Mental Status:** Clear and coherent  
@@ -149,11 +143,13 @@
 ### 3. Discharge Instructions
 - Continue medications as prescribed  
 - Follow low-sodium diet  
-- Follow-up with PCP and Liver Clinic for further care  
+- Follow-up appointments scheduled  
 
 ### 4. Disposition
 - Home  
 
 ### 5. Brief Hospital Course
-- Patient presented with worsening abdominal distension and pain due to ascites from portal hypertension. Treated with diuretics and counseling on medication adherence. Improved and discharged home.
+- Treated for ascites with diuretics and paracentesis  
+- Scheduled follow-ups for further care  
+
 <|end-of-format|>
