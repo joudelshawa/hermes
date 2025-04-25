@@ -11,5 +11,5 @@ Your answers must contain the appropriate context and should not be longer than 
 
 ## WARNING
 Remember your answer to the question must not contain any additional context that has not been specifically asked.
-Answer each question in a single full sentence.
+Answer each question in a single full sentence. Do not give one word answers and do not give answers in multiple sentences.
 Do NOT use any information outside of what is provided by the unstructured report.

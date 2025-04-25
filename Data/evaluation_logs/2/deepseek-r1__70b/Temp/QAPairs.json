@@ -1,0 +1,126 @@
+[
+    {
+        "Question": "What is the patient's chief complaint?",
+        "Answer": "The patient presented with abdominal fullness and discomfort."
+    },
+    {
+        "Question": "What complication can ascites lead to?",
+        "Answer": "Ascites can lead to Hepatic Encephalopathy (HE)."
+    },
+    {
+        "Question": "What is the patient diagnosed with besides ascites?",
+        "Answer": "The patient has been diagnosed with Hepatic Encephalopathy (HE)."
+    },
+    {
+        "Question": "How is hyponatremia related to HE in this patient?",
+        "Answer": "Hyponatremia is a common complication in patients with HE."
+    },
+    {
+        "Question": "What condition is the patient managing with an INR of 1.4?",
+        "Answer": "The patient has been diagnosed with coagulopathy."
+    },
+    {
+        "Question": "Is the patient on HAART for HIV?",
+        "Answer": "Yes, the patient has HIV and is on HAART."
+    },
+    {
+        "Question": "What chronic respiratory condition does the patient have?",
+        "Answer": "The patient has COPD."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has bipolar affective disorder and PTSD."
+    },
+    {
+        "Question": "Does ascites increase the risk of SBP in this patient?",
+        "Answer": "Yes, ascites increases the risk of Spontaneous bacterial peritonitis (SBP)."
+    },
+    {
+        "Question": "What is a potential complication of decompensated cirrhosis with ascites?",
+        "Answer": "Hepatorenal syndrome is a potential complication."
+    },
+    {
+        "Question": "Can portal vein thrombosis occur in this patient?",
+        "Answer": "Yes, portal vein thrombosis can occur in patients with ascites and cirrhosis."
+    },
+    {
+        "Question": "What medication is the patient using for COPD management?",
+        "Answer": "The patient is on an Albuterol Inhaler."
+    },
+    {
+        "Question": "Why is the patient taking Truvada?",
+        "Answer": "Truvada is part of the patient's HIV treatment regimen."
+    },
+    {
+        "Question": "What diuretic is being used to manage ascites and edema?",
+        "Answer": "The patient is on Furosemide."
+    },
+    {
+        "Question": "Is Raltegravir part of the patient's HIV therapy?",
+        "Answer": "Yes, Raltegravir is part of the patient's antiretroviral therapy."
+    },
+    {
+        "Question": "Why was Spironolactone discontinued in this patient?",
+        "Answer": "Spironolactone was discontinued due to elevated potassium levels."
+    },
+    {
+        "Question": "What pain medication is the patient taking?",
+        "Answer": "The patient is on Acetaminophen for pain management."
+    },
+    {
+        "Question": "How is the patient managing their COPD symptoms?",
+        "Answer": "The patient uses Tiotropium Bromide as a maintenance medication."
+    },
+    {
+        "Question": "What medication is used to manage Hepatic Encephalopathy (HE)?",
+        "Answer": "Rifaximin is used to manage HE in this patient."
+    },
+    {
+        "Question": "Why is the patient taking Calcium Carbonate?",
+        "Answer": "Calcium Carbonate is taken as a supplement for bone health."
+    },
+    {
+        "Question": "What is the primary treatment for HE in this patient?",
+        "Answer": "Lactulose is the primary treatment for HE."
+    },
+    {
+        "Question": "For what purpose is Sulfameth/Trimethoprim DS prescribed?",
+        "Answer": "It is used for prophylaxis, likely related to HIV management."
+    },
+    {
+        "Question": "Is the patient allergic to Percocet?",
+        "Answer": "Yes, the patient is allergic to Percocet."
+    },
+    {
+        "Question": "What procedure was performed to diagnose ascites?",
+        "Answer": "Diagnostic paracentesis was performed for ascites."
+    },
+    {
+        "Question": "How much fluid was removed during therapeutic paracentesis?",
+        "Answer": "4.3L of ascitic fluid was removed."
+    },
+    {
+        "Question": "What imaging confirmed the presence of ascites?",
+        "Answer": "Abdominal ultrasound showed moderate ascites and patent portal vein."
+    },
+    {
+        "Question": "Why did the patient receive albumin replacement?",
+        "Answer": "Albumin was administered to manage hypoalbuminemia associated with cirrhosis."
+    },
+    {
+        "Question": "What diuretics is the patient on for ascites management?",
+        "Answer": "The patient is on Furosemide, and Spironolactone was discontinued due to elevated potassium."
+    },
+    {
+        "Question": "Why was a Hepatology consult initiated?",
+        "Answer": "Hepatology consult was initiated for TIPS evaluation."
+    },
+    {
+        "Question": "What type of consult was ordered for dietary management?",
+        "Answer": "A nutrition consult was ordered for dietary management of cirrhosis and HE."
+    },
+    {
+        "Question": "Why was a Psychiatry consult requested?",
+        "Answer": "Psychiatry consult was requested for mental health support related to HE."
+    }
+]

@@ -22,7 +22,7 @@
             "max_iter": 5,
             "temperature": 0.8,
             "top_p": 0.5,
-            "context_length_multiplier": 16
+            "context_length_multiplier": 20
         },
         "Hermes_A": {
             "prompt_path": "Agents/prompts/Hermes-A/",

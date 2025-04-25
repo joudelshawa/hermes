@@ -1,0 +1,110 @@
+[
+    {
+        "Question": "What is the primary diagnosis of the patient?",
+        "Answer": "The patient has been diagnosed with Ascites from Portal Hypertension."
+    },
+    {
+        "Question": "Does the patient have any other diagnoses?",
+        "Answer": "Yes, the patient has also been diagnosed with Non-compliance with medications."
+    },
+    {
+        "Question": "What is causing the ascites in the patient?",
+        "Answer": "The ascites is likely due to portal hypertension."
+    },
+    {
+        "Question": "Is there evidence of liver disease in the patient?",
+        "Answer": "Yes, imaging shows nodular liver and splenomegaly, indicating liver disease."
+    },
+    {
+        "Question": "What medications did the patient discontinue?",
+        "Answer": "The patient discontinued Furosemide and Spironolactone on her own."
+    },
+    {
+        "Question": "Why did the patient's ascites worsen?",
+        "Answer": "Non-compliance with prescribed diuretics and low-sodium diet contributed to worsening symptoms."
+    },
+    {
+        "Question": "Did resuming medications improve the patient's condition?",
+        "Answer": "Yes, the patient's condition improved after resuming medications."
+    },
+    {
+        "Question": "What is the relationship between non-compliance and ascites?",
+        "Answer": "Non-compliance with medications is a contributing factor to the development of Ascites from Portal Hypertension."
+    },
+    {
+        "Question": "Is portal hypertension linked to liver disease in this patient?",
+        "Answer": "Yes, portal hypertension is likely due to liver disease as indicated by imaging findings."
+    },
+    {
+        "Question": "What are the key factors contributing to the patient's ascites?",
+        "Answer": "Non-compliance with diuretics and low-sodium diet are key contributors to worsening ascites."
+    },
+    {
+        "Question": "Did the patient experience any improvement after resuming treatment?",
+        "Answer": "Yes, the patient\u2019s condition improved after resuming medications."
+    },
+    {
+        "Question": "What is the significance of splenomegaly in this case?",
+        "Answer": "Splenomegaly is indicative of portal hypertension and underlying liver disease."
+    },
+    {
+        "Question": "How does non-compliance affect the patient's condition?",
+        "Answer": "Non-compliance with medications led to worsening ascites symptoms."
+    },
+    {
+        "Question": "What imaging findings support the diagnosis of portal hypertension?",
+        "Answer": "Imaging shows nodular liver and splenomegaly, supporting the diagnosis of portal hypertension."
+    },
+    {
+        "Question": "Is there a connection between the patient's non-compliance and ascites progression?",
+        "Answer": "Yes, non-compliance with prescribed diuretics and low-sodium diet led to worsening ascites."
+    },
+    {
+        "Question": "What is the primary reason for the patient\u2019s ascites from portal hypertension?",
+        "Answer": "The primary reason is likely due to liver disease as indicated by imaging findings."
+    },
+    {
+        "Question": "Did the patient discontinue any medications without medical advice?",
+        "Answer": "Yes, the patient discontinued Furosemide and Spironolactone on her own."
+    },
+    {
+        "Question": "What are the prescribed treatments that the patient was non-compliant with?",
+        "Answer": "The patient was non-compliant with diuretics and a low-sodium diet."
+    },
+    {
+        "Question": "How did discontinuing Furosemide and Spironolactone affect the patient\u2019s condition?",
+        "Answer": "Discontinuing these medications led to worsening ascites symptoms."
+    },
+    {
+        "Question": "What is the significance of nodular liver in this context?",
+        "Answer": "Nodular liver suggests underlying liver disease contributing to portal hypertension."
+    },
+    {
+        "Question": "Is there evidence that medication adherence improved the patient\u2019s condition?",
+        "Answer": "Yes, resuming medications led to improvement in the patient's condition."
+    },
+    {
+        "Question": "What is the relationship between non-compliance and the progression of ascites?",
+        "Answer": "Non-compliance with prescribed treatments caused the ascites to worsen."
+    },
+    {
+        "Question": "Did the patient have any imaging findings indicative of liver disease?",
+        "Answer": "Yes, imaging showed nodular liver and splenomegaly, indicating liver disease."
+    },
+    {
+        "Question": "What is the role of portal hypertension in the development of ascites?",
+        "Answer": "Portal hypertension is a primary cause of ascites in this patient."
+    },
+    {
+        "Question": "How does non-compliance with medications impact the management of ascites?",
+        "Answer": "Non-compliance leads to worsening symptoms and progression of ascites."
+    },
+    {
+        "Question": "What are the consequences of discontinuing diuretics in this patient?",
+        "Answer": "Discontinuing diuretics led to worsening ascites due to fluid accumulation."
+    },
+    {
+        "Question": "Is there a correlation between medication adherence and clinical improvement in this case?",
+        "Answer": "Yes, resuming medications resulted in clinical improvement for the patient."
+    }
+]

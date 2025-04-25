@@ -68,7 +68,7 @@ class ReportCreator(Agent):
                     "Physical Examination",
                     "Laboratory Data",
                     "Imaging and Other Diagnostic Data",
-                    "Other Clinicians",
+                    "Other Clinicians' Notes",
                     "Problem List",
                     "Differential Diagnoses",
                     # "Problem 1",

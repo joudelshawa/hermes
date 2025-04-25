@@ -1,0 +1,42 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Ascites from Portal Hypertension",
+            "color": "#ff0000"
+        },
+        {
+            "id": 3,
+            "label": "Non-compliance with medications",
+            "color": "#ff0000"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with Ascites from Portal Hypertension.",
+            "facts_and_info": "Ascites is an accumulation of fluid in the peritoneal cavity. The patient's condition is likely due to portal hypertension, as indicated by imaging showing nodular liver and splenomegaly."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with Non-compliance with medications.",
+            "facts_and_info": "Non-compliance with prescribed diuretics and low-sodium diet contributed to worsening symptoms. The patient discontinued Furosemide and Spironolactone on her own."
+        },
+        {
+            "from": 2,
+            "to": 3,
+            "label": "related to",
+            "detailed_description": "The non-compliance with medications is a contributing factor to the development of Ascites from Portal Hypertension.",
+            "facts_and_info": "Non-adherence to prescribed diuretics and low-sodium diet has led to worsening ascites. The patient's condition improved after resuming medications."
+        }
+    ]
+}

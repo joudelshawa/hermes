@@ -1,0 +1,397 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Abdominal fullness and discomfort",
+            "color": "#ffeb3b"
+        },
+        {
+            "id": 3,
+            "label": "Ascites",
+            "color": "#ff4444"
+        },
+        {
+            "id": 4,
+            "label": "Hepatic Encephalopathy (HE)",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 5,
+            "label": "Hyponatremia",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 6,
+            "label": "Coagulopathy",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 7,
+            "label": "HIV on HAART",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 8,
+            "label": "COPD",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 9,
+            "label": "Bipolar affective disorder, PTSD",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 10,
+            "label": "Spontaneous bacterial peritonitis (SBP)",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 11,
+            "label": "Hepatorenal syndrome",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 12,
+            "label": "Portal vein thrombosis",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 13,
+            "label": "Albuterol Inhaler",
+            "color": "#00ff00"
+        },
+        {
+            "id": 14,
+            "label": "Truvada",
+            "color": "#00ff00"
+        },
+        {
+            "id": 15,
+            "label": "Furosemide",
+            "color": "#00ff00"
+        },
+        {
+            "id": 16,
+            "label": "Raltegravir",
+            "color": "#00ff00"
+        },
+        {
+            "id": 17,
+            "label": "Spironolactone",
+            "color": "#00ff00"
+        },
+        {
+            "id": 18,
+            "label": "Acetaminophen",
+            "color": "#00ff00"
+        },
+        {
+            "id": 19,
+            "label": "Tiotropium Bromide",
+            "color": "#00ff00"
+        },
+        {
+            "id": 20,
+            "label": "Rifaximin",
+            "color": "#00ff00"
+        },
+        {
+            "id": 21,
+            "label": "Calcium Carbonate",
+            "color": "#00ff00"
+        },
+        {
+            "id": 22,
+            "label": "Lactulose",
+            "color": "#00ff00"
+        },
+        {
+            "id": 23,
+            "label": "Sulfameth/Trimethoprim DS",
+            "color": "#00ff00"
+        },
+        {
+            "id": 24,
+            "label": "Percocet",
+            "color": "#ff4444"
+        },
+        {
+            "id": 25,
+            "label": "Diagnostic paracentesis",
+            "color": "#0000ff"
+        },
+        {
+            "id": 26,
+            "label": "Abdominal ultrasound",
+            "color": "#0000ff"
+        },
+        {
+            "id": 27,
+            "label": "Therapeutic paracentesis",
+            "color": "#0000ff"
+        },
+        {
+            "id": 28,
+            "label": "Albumin replacement",
+            "color": "#0000ff"
+        },
+        {
+            "id": 29,
+            "label": "Diuretics (spironolactone, furosemide)",
+            "color": "#0000ff"
+        },
+        {
+            "id": 30,
+            "label": "Hepatology consult for TIPS evaluation",
+            "color": "#0000ff"
+        },
+        {
+            "id": 31,
+            "label": "Nutrition consult",
+            "color": "#0000ff"
+        },
+        {
+            "id": 32,
+            "label": "Psychiatry consult for mental health support",
+            "color": "#0000ff"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "experiencing",
+            "detailed_description": "The patient is experiencing abdominal fullness and discomfort.",
+            "facts_and_info": "Patient presented with chief complaint of abdominal fullness and discomfort."
+        },
+        {
+            "from": 3,
+            "to": 4,
+            "label": "complication",
+            "detailed_description": "Ascites is a complication leading to Hepatic Encephalopathy (HE).",
+            "facts_and_info": "Ascites contributes to the development of HE in the patient."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has been diagnosed with ascites.",
+            "facts_and_info": "Patient has significant abdominal distention and visible veins due to ascites."
+        },
+        {
+            "from": 4,
+            "to": 5,
+            "label": "related condition",
+            "detailed_description": "Hepatic Encephalopathy (HE) is related to hyponatremia.",
+            "facts_and_info": "Hyponatremia is a common complication in patients with HE."
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has been diagnosed with Hepatic Encephalopathy (HE).",
+            "facts_and_info": "Patient is being managed with lactulose and rifaximin for HE."
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has been diagnosed with hyponatremia.",
+            "facts_and_info": "Hyponatremia is evident from the low sodium level of 125 mmol/L."
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has been diagnosed with coagulopathy.",
+            "facts_and_info": "Coagulopathy is indicated by an INR of 1.4."
+        },
+        {
+            "from": 1,
+            "to": 7,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has HIV on HAART.",
+            "facts_and_info": "Patient's HIV status and antiretroviral therapy are part of their medical history."
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has COPD.",
+            "facts_and_info": "COPD is a chronic condition the patient manages."
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "diagnosed with",
+            "detailed_description": "The patient has bipolar affective disorder and PTSD.",
+            "facts_and_info": "Mental health conditions are part of the patient's history."
+        },
+        {
+            "from": 3,
+            "to": 10,
+            "label": "risk factor",
+            "detailed_description": "Ascites increases the risk of Spontaneous bacterial peritonitis (SBP).",
+            "facts_and_info": "Patient is at higher risk for SBP due to ascites."
+        },
+        {
+            "from": 3,
+            "to": 11,
+            "label": "related condition",
+            "detailed_description": "Ascites is related to Hepatorenal syndrome.",
+            "facts_and_info": "Hepatorenal syndrome is a potential complication of decompensated cirrhosis with ascites."
+        },
+        {
+            "from": 3,
+            "to": 12,
+            "label": "related condition",
+            "detailed_description": "Ascites is related to Portal vein thrombosis.",
+            "facts_and_info": "Portal vein thrombosis can occur in patients with ascites and cirrhosis."
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "on medication",
+            "detailed_description": "The patient is on Albuterol Inhaler.",
+            "facts_and_info": "Used for COPD management."
+        },
+        {
+            "from": 1,
+            "to": 14,
+            "label": "on medication",
+            "detailed_description": "The patient is on Truvada.",
+            "facts_and_info": "Part of HIV treatment regimen."
+        },
+        {
+            "from": 1,
+            "to": 15,
+            "label": "on medication",
+            "detailed_description": "The patient is on Furosemide.",
+            "facts_and_info": "Diuretic used to manage ascites and edema."
+        },
+        {
+            "from": 1,
+            "to": 16,
+            "label": "on medication",
+            "detailed_description": "The patient is on Raltegravir.",
+            "facts_and_info": "HIV antiretroviral therapy."
+        },
+        {
+            "from": 1,
+            "to": 17,
+            "label": "on medication",
+            "detailed_description": "The patient is on Spironolactone.",
+            "facts_and_info": "Diuretic for ascites management, but discontinued due to elevated potassium."
+        },
+        {
+            "from": 1,
+            "to": 18,
+            "label": "on medication",
+            "detailed_description": "The patient is on Acetaminophen.",
+            "facts_and_info": "Used for pain management."
+        },
+        {
+            "from": 1,
+            "to": 19,
+            "label": "on medication",
+            "detailed_description": "The patient is on Tiotropium Bromide.",
+            "facts_and_info": "COPD maintenance medication."
+        },
+        {
+            "from": 1,
+            "to": 20,
+            "label": "on medication",
+            "detailed_description": "The patient is on Rifaximin.",
+            "facts_and_info": "Used to manage Hepatic Encephalopathy (HE)."
+        },
+        {
+            "from": 1,
+            "to": 21,
+            "label": "on medication",
+            "detailed_description": "The patient is on Calcium Carbonate.",
+            "facts_and_info": "Supplement for bone health."
+        },
+        {
+            "from": 1,
+            "to": 22,
+            "label": "on medication",
+            "detailed_description": "The patient is on Lactulose.",
+            "facts_and_info": "Primary treatment for HE."
+        },
+        {
+            "from": 1,
+            "to": 23,
+            "label": "on medication",
+            "detailed_description": "The patient is on Sulfameth/Trimethoprim DS.",
+            "facts_and_info": "Used for prophylaxis, likely related to HIV management."
+        },
+        {
+            "from": 1,
+            "to": 24,
+            "label": "allergic to",
+            "detailed_description": "The patient is allergic to Percocet.",
+            "facts_and_info": "Allergy noted in medical history."
+        },
+        {
+            "from": 3,
+            "to": 25,
+            "label": "diagnostic test",
+            "detailed_description": "Diagnostic paracentesis was performed for ascites.",
+            "facts_and_info": "4.3L of fluid removed during therapeutic paracentesis."
+        },
+        {
+            "from": 3,
+            "to": 26,
+            "label": "diagnostic imaging",
+            "detailed_description": "Abdominal ultrasound showed moderate ascites and patent portal vein.",
+            "facts_and_info": "Imaging confirmed the presence of ascites and ruled out portal vein thrombosis."
+        },
+        {
+            "from": 1,
+            "to": 27,
+            "label": "underwent procedure",
+            "detailed_description": "The patient underwent therapeutic paracentesis.",
+            "facts_and_info": "4.3L of ascitic fluid removed for relief."
+        },
+        {
+            "from": 1,
+            "to": 28,
+            "label": "received treatment",
+            "detailed_description": "Patient received albumin replacement.",
+            "facts_and_info": "Albumin administered to manage hypoalbuminemia associated with cirrhosis."
+        },
+        {
+            "from": 1,
+            "to": 29,
+            "label": "on medication",
+            "detailed_description": "The patient is on diuretics (spironolactone, furosemide).",
+            "facts_and_info": "Diuretics adjusted; spironolactone discontinued due to elevated potassium."
+        },
+        {
+            "from": 1,
+            "to": 30,
+            "label": "consultation",
+            "detailed_description": "Hepatology consult for TIPS evaluation.",
+            "facts_and_info": "Consult initiated to assess suitability for Transjugular Intrahepatic Portosystemic Shunt (TIPS)."
+        },
+        {
+            "from": 1,
+            "to": 31,
+            "label": "consultation",
+            "detailed_description": "Nutrition consult ordered.",
+            "facts_and_info": "Focus on dietary management of cirrhosis and HE."
+        },
+        {
+            "from": 4,
+            "to": 32,
+            "label": "consultation",
+            "detailed_description": "Psychiatry consult for mental health support related to HE.",
+            "facts_and_info": "Consult aimed at addressing mental health issues complicating HE treatment."
+        }
+    ]
+}

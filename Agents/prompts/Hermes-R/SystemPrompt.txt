@@ -30,7 +30,7 @@ Your task is to convert unstructured raw clinical notes into a structured report
 ### S - Subjective
 
 #### 1. Chief Complaint (CC)
-> *e.g., “I’ve been having chest pain for the past 2 days.”*  
+> *e.g., “I've been having chest pain for the past 2 days.”*  
 -  
 
 #### 2. History of Present Illness (HPI)
@@ -67,7 +67,7 @@ Your task is to convert unstructured raw clinical notes into a structured report
 - **Allergies:**
     - ...
 
-### O – Objective
+### O - Objective
 
 #### 1. Vital Signs (During Admission)
 -  
@@ -90,12 +90,12 @@ Your task is to convert unstructured raw clinical notes into a structured report
 #### 4. Imaging and Other Diagnostic Data
 -  
 
-#### 5. Other Clinicians’ Notes (if applicable)
+#### 5. Other Clinicians' Notes (if applicable)
 -  
 
 ---
 
-### A – Assessment
+### A - Assessment
 
 #### 1. Problem List
 1.  
@@ -105,7 +105,7 @@ Your task is to convert unstructured raw clinical notes into a structured report
 - **[Problem Name]**  
   -  ...
 
-### P – Plan
+### P - Plan
 
 #### Problem 1: [Name]
 - **Investigations:**  

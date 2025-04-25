@@ -133,9 +133,9 @@ class QACreator(Agent):
                     context = f"Your Previous Response: \n\"\"\"{validation['extracted_response']}\"\"\"\n\n## NOTE\nThe following errors were made in your previous response: \n{validation['errors']}\n"
             max_iter-=1
         
-        self.logger.log(Level.CRITIAL, 0,"="*50)
-        self.logger.log(Level.CRITIAL, 1,"HERMES-Q FAILED (T_T)!")
-        self.logger.log(Level.CRITIAL, 0,"="*50)
+        self.logger.log(Level.CRITICAL, 0,"="*50)
+        self.logger.log(Level.CRITICAL, 1,"HERMES-Q FAILED (T_T)!")
+        self.logger.log(Level.CRITICAL, 0,"="*50)
         exit()
 
 class QAPairs(BaseModel):

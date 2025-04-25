@@ -1,0 +1,126 @@
+[
+    {
+        "Question": "What is the patient's chief complaint?",
+        "Answer": "Abdominal fullness and discomfort."
+    },
+    {
+        "Question": "What complication can ascites lead to?",
+        "Answer": "Ascites can lead to Spontaneous Bacterial Peritonitis (SBP)."
+    },
+    {
+        "Question": "What is the patient diagnosed with besides ascites?",
+        "Answer": "The patient is also diagnosed with HCV cirrhosis, HIV, hyponatremia, and COPD."
+    },
+    {
+        "Question": "How is hyponatremia related to HE in this patient?",
+        "Answer": "Hyponatremia is likely due to third spacing from worsening ascites and fluid overload, contributing to the patient's mild encephalopathy."
+    },
+    {
+        "Question": "What condition is the patient managing with an INR of 1.4?",
+        "Answer": "The patient is managing coagulopathy with an INR of 1.4."
+    },
+    {
+        "Question": "Is the patient on HAART for HIV?",
+        "Answer": "Yes, the patient is on HAART for HIV."
+    },
+    {
+        "Question": "What chronic respiratory condition does the patient have?",
+        "Answer": "The patient has COPD."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has bipolar affective disorder and PTSD."
+    },
+    {
+        "Question": "Does ascites increase the risk of SBP in this patient?",
+        "Answer": "Yes, ascites increases the risk of Spontaneous Bacterial Peritonitis (SBP) in this patient."
+    },
+    {
+        "Question": "What is a potential complication of decompensated cirrhosis with ascites?",
+        "Answer": "A potential complication is diuretic refractory ascites."
+    },
+    {
+        "Question": "Can portal vein thrombosis occur in this patient?",
+        "Answer": "No, the RUQ US showed no PV thrombus."
+    },
+    {
+        "Question": "What medication is the patient using for COPD management?",
+        "Answer": "The patient uses Albuterol Inhaler and Tiotropium Bromide for COPD management."
+    },
+    {
+        "Question": "Why is the patient taking Truvada?",
+        "Answer": "Truvada is part of the patient's HIV therapy as an antiretroviral medication."
+    },
+    {
+        "Question": "What diuretic is being used to manage ascites and edema?",
+        "Answer": "The patient is using Furosemide (Lasix) to manage ascites and edema."
+    },
+    {
+        "Question": "Is Raltegravir part of the patient's HIV therapy?",
+        "Answer": "Yes, Raltegravir is part of the patient's HIV therapy."
+    },
+    {
+        "Question": "Why was Spironolactone discontinued in this patient?",
+        "Answer": "Spironolactone was discontinued due to elevated potassium levels (hyperkalemia)."
+    },
+    {
+        "Question": "What pain medication is the patient taking?",
+        "Answer": "The patient is taking Acetaminophen for pain."
+    },
+    {
+        "Question": "How is the patient managing their COPD symptoms?",
+        "Answer": "The patient uses Albuterol Inhaler and Tiotropium Bromide, and is on intermittent home oxygen therapy."
+    },
+    {
+        "Question": "What medication is used to manage Hepatic Encephalopathy (HE)?",
+        "Answer": "Lactulose and Rifaximin are used to manage Hepatic Encephalopathy (HE)."
+    },
+    {
+        "Question": "Why is the patient taking Calcium Carbonate?",
+        "Answer": "The patient is taking Calcium Carbonate likely for bone health or as a supplement."
+    },
+    {
+        "Question": "What is the primary treatment for HE in this patient?",
+        "Answer": "The primary treatments are Lactulose and Rifaximin."
+    },
+    {
+        "Question": "For what purpose is Sulfameth/Trimethoprim DS prescribed?",
+        "Answer": "Sulfameth/Trimethoprim DS is prescribed for PCP prophylaxis, which also serves as SBP prophylaxis."
+    },
+    {
+        "Question": "Is the patient allergic to Percocet?",
+        "Answer": "Yes, the patient is allergic to Percocet."
+    },
+    {
+        "Question": "What procedure was performed to diagnose ascites?",
+        "Answer": "Diagnostic paracentesis was performed to diagnose ascites."
+    },
+    {
+        "Question": "How much fluid was removed during therapeutic paracentesis?",
+        "Answer": "4.3 liters of fluid were removed during therapeutic paracentesis."
+    },
+    {
+        "Question": "What imaging confirmed the presence of ascites?",
+        "Answer": "RUQ ultrasound confirmed moderate ascites."
+    },
+    {
+        "Question": "Why did the patient receive albumin replacement?",
+        "Answer": "The patient received albumin replacement after therapeutic paracentesis to prevent complications related to volume depletion."
+    },
+    {
+        "Question": "What diuretics is the patient on for ascites management?",
+        "Answer": "The patient is taking Furosemide (Lasix) 40mg daily and previously Spironolactone, which was discontinued."
+    },
+    {
+        "Question": "Why was a Hepatology consult initiated?",
+        "Answer": "A Hepatology consult was initiated for further management of decompensated cirrhosis with ascites."
+    },
+    {
+        "Question": "What type of consult was ordered for dietary management?",
+        "Answer": "A nutrition consult was ordered for dietary management, specifically low sodium diet and fluid restriction."
+    },
+    {
+        "Question": "Why was a Psychiatry consult requested?",
+        "Answer": "A Psychiatry consult was requested due to the patient's bipolar affective disorder and PTSD."
+    }
+]
