@@ -1,0 +1,78 @@
+[
+    {
+        "Question": "What is the primary symptom experienced by the patient?",
+        "Answer": "The primary symptom experienced by the patient is abdominal fullness and discomfort."
+    },
+    {
+        "Question": "What is the diagnosis of the patient's liver condition?",
+        "Answer": "The patient has HCV cirrhosis complicated by ascites and hepatic encephalopathy (HE)."
+    },
+    {
+        "Question": "What type of ascites does the patient have?",
+        "Answer": "The patient has diuretic refractory ascites."
+    },
+    {
+        "Question": "What is the patient's HIV status?",
+        "Answer": "The patient is HIV positive and on HAART (Highly Active Antiretroviral Therapy)."
+    },
+    {
+        "Question": "What lung disease does the patient have?",
+        "Answer": "The patient has COPD (Chronic Obstructive Pulmonary Disease)."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has bipolar affective disorder, currently manic, mild, and PTSD."
+    },
+    {
+        "Question": "What substances has the patient used in the past?",
+        "Answer": "The patient has a history of cocaine and heroin use."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's abdominal fullness and discomfort?",
+        "Answer": "Furosemide (Lasix) is being used to manage the patient's diuretic refractory ascites."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's HIV?",
+        "Answer": "Truvada (a combination of emtricitabine and tenofovir disoproxil fumarate) and Isentress (raltegravir) are being used to treat the patient's HIV."
+    },
+    {
+        "Question": "What diuretic is being used to manage the patient's HCV Cirrhosis with ascites and HE?",
+        "Answer": "Furosemide (Lasix) is being used as a diuretic to manage the patient's HCV cirrhosis with ascites and hepatic encephalopathy."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's diuretic refractory ascites?",
+        "Answer": "Furosemide (Lasix) is being used to treat the patient's diuretic refractory ascites, and the dose was increased to 40mg daily."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's pain and fever?",
+        "Answer": "Acetaminophen is being used to manage the patient's pain and fever."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's COPD?",
+        "Answer": "Tiotropium Bromide (Spiriva) is being used to treat the patient's COPD, along with Albuterol Inhaler for wheezing and shortness of breath."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's bipolar affective disorder, currently manic, mild, and PTSD?",
+        "Answer": "No specific medication is mentioned in the report as being used to manage the patient's bipolar affective disorder or PTSD."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's history of cocaine and heroin use?",
+        "Answer": "No specific medication is mentioned in the report as being used to treat the patient's history of cocaine and heroin use."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's constipation?",
+        "Answer": "Lactulose is being used to manage the patient's constipation, with a goal of achieving 3 bowel movements daily."
+    },
+    {
+        "Question": "What medication is being used to treat infections in the patient?",
+        "Answer": "Sulfameth/Trimethoprim DS (Bactrim) is being used as prophylaxis for PCP and SBP, and Rifaximin is being used to manage hepatic encephalopathy."
+    },
+    {
+        "Question": "Why is Albuterol Inhaler prescribed to the patient?",
+        "Answer": "Albuterol Inhaler is prescribed to the patient for wheezing and shortness of breath (SOB)."
+    },
+    {
+        "Question": "What is the purpose of Furosemide in the patient's treatment plan?",
+        "Answer": "Furosemide (Lasix) is being used as a diuretic to manage the patient's HCV cirrhosis with ascites and hepatic encephalopathy, and its dose was increased to 40mg daily."
+    }
+]

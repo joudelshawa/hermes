@@ -1,0 +1,253 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Worsening abdominal distension and pain",
+            "color": "#ffff00"
+        },
+        {
+            "id": 3,
+            "label": "HCV Cirrhosis with ascites",
+            "color": "#ff0000"
+        },
+        {
+            "id": 4,
+            "label": "HIV on ART",
+            "color": "#ff0000"
+        },
+        {
+            "id": 5,
+            "label": "History of IVDU",
+            "color": "#a1c9f2"
+        },
+        {
+            "id": 6,
+            "label": "COPD",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 7,
+            "label": "Bipolar affective disorder",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 8,
+            "label": "PTSD",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 9,
+            "label": "Furosemide 40 mg PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 10,
+            "label": "Spironolactone 50 mg PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 11,
+            "label": "Albuterol Inhaler 2 PUFF IH Q4H:PRN wheezing, SOB",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 12,
+            "label": "Raltegravir 400 mg PO BID",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 13,
+            "label": "Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 14,
+            "label": "Nicotine Patch 14 mg TD DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 15,
+            "label": "Ipratropium Bromide Neb 1 NEB IH Q6H SOB",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 16,
+            "label": "Ascites from portal hypertension",
+            "color": "#ff0000"
+        },
+        {
+            "id": 17,
+            "label": "Non-compliance with diuretics",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 18,
+            "label": "Ultrasound",
+            "color": "#3498db"
+        },
+        {
+            "id": 19,
+            "label": "CXR",
+            "color": "#3498db"
+        },
+        {
+            "id": 20,
+            "label": "Labs",
+            "color": "#ffa07a"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has symptom",
+            "detailed_description": "The patient is experiencing worsening abdominal distension and pain.",
+            "facts_and_info": "Abdominal distension and pain are the primary symptoms presented by the patient."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with HCV Cirrhosis with ascites.",
+            "facts_and_info": "HCV Cirrhosis is a liver disease caused by the hepatitis C virus. Ascites, an accumulation of fluid in the abdomen, is a complication of cirrhosis."
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with HIV on ART.",
+            "facts_and_info": "HIV (Human Immunodeficiency Virus) is a viral infection that attacks the body's immune system. ART (Antiretroviral Therapy) is used to manage the condition."
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "has history",
+            "detailed_description": "The patient has a history of IVDU.",
+            "facts_and_info": "IVDU stands for Intravenous Drug Use, which is a risk factor for various health conditions including infections and addiction."
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with COPD.",
+            "facts_and_info": "COPD (Chronic Obstructive Pulmonary Disease) is a progressive lung disease that makes it hard to breathe."
+        },
+        {
+            "from": 1,
+            "to": 7,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with bipolar affective disorder.",
+            "facts_and_info": "Bipolar affective disorder is a mental health condition that affects mood, causing extreme highs and lows."
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with PTSD.",
+            "facts_and_info": "PTSD (Post-Traumatic Stress Disorder) is a mental health condition that's triggered by a terrifying event."
+        },
+        {
+            "from": 1,
+            "to": 9,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Furosemide 40 mg PO DAILY.",
+            "facts_and_info": "Furosemide is a diuretic used to treat fluid retention and swelling caused by congestive heart failure, liver disease, or kidney disorder."
+        },
+        {
+            "from": 1,
+            "to": 10,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Spironolactone 50 mg PO DAILY.",
+            "facts_and_info": "Spironolactone is a potassium-sparing diuretic used to treat fluid retention and swelling caused by congestive heart failure, liver disease, or kidney disorder."
+        },
+        {
+            "from": 1,
+            "to": 11,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Albuterol Inhaler 2 PUFF IH Q4H:PRN wheezing, SOB.",
+            "facts_and_info": "Albuterol is a bronchodilator used to treat or prevent bronchospasm, primarily in conditions such as asthma and COPD."
+        },
+        {
+            "from": 1,
+            "to": 12,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Raltegravir 400 mg PO BID.",
+            "facts_and_info": "Raltegravir is an antiretroviral drug used to treat HIV infection."
+        },
+        {
+            "from": 1,
+            "to": 13,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY.",
+            "facts_and_info": "Emtricitabine-Tenofovir, also known as Truvada, is a combination of two antiretroviral drugs used to treat HIV infection."
+        },
+        {
+            "from": 1,
+            "to": 14,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Nicotine Patch 14 mg TD DAILY.",
+            "facts_and_info": "Nicotine patches are a form of nicotine replacement therapy used to help quit smoking."
+        },
+        {
+            "from": 1,
+            "to": 15,
+            "label": "on medication",
+            "detailed_description": "The patient is taking Ipratropium Bromide Neb 1 NEB IH Q6H SOB.",
+            "facts_and_info": "Ipratropium bromide is an anticholinergic bronchodilator used to treat COPD and asthma."
+        },
+        {
+            "from": 3,
+            "to": 16,
+            "label": "complication",
+            "detailed_description": "Ascites from portal hypertension is a complication of HCV Cirrhosis.",
+            "facts_and_info": "Portal hypertension, often caused by cirrhosis, leads to ascites, an accumulation of fluid in the abdomen."
+        },
+        {
+            "from": 9,
+            "to": 16,
+            "label": "treats",
+            "detailed_description": "Furosemide is used to treat Ascites from portal hypertension.",
+            "facts_and_info": "Furosemide helps reduce fluid retention and swelling associated with ascites."
+        },
+        {
+            "from": 10,
+            "to": 16,
+            "label": "treats",
+            "detailed_description": "Spironolactone is used to treat Ascites from portal hypertension.",
+            "facts_and_info": "Spironolactone helps reduce fluid retention and swelling associated with ascites."
+        },
+        {
+            "from": 1,
+            "to": 17,
+            "label": "has issue",
+            "detailed_description": "The patient has an issue with non-compliance with diuretics.",
+            "facts_and_info": "Non-adherence to prescribed diuretic medication can exacerbate conditions like ascites."
+        },
+        {
+            "from": 16,
+            "to": 18,
+            "label": "diagnosed via",
+            "detailed_description": "Ascites from portal hypertension was diagnosed using ultrasound.",
+            "facts_and_info": "Ultrasound imaging helps detect fluid accumulation in the abdomen, indicative of ascites."
+        },
+        {
+            "from": 16,
+            "to": 19,
+            "label": "diagnosed via",
+            "detailed_description": "Ascites from portal hypertension was diagnosed using CXR.",
+            "facts_and_info": "CXR (chest X-ray) can show signs of fluid accumulation in the abdomen, though it's not as specific as ultrasound for ascites."
+        },
+        {
+            "from": 16,
+            "to": 20,
+            "label": "diagnosed via",
+            "detailed_description": "Ascites from portal hypertension was diagnosed using labs.",
+            "facts_and_info": "Laboratory tests can indicate liver dysfunction and complications such as ascites, though imaging is more direct."
+        }
+    ]
+}

@@ -1,3 +1,4 @@
+<|start-of-format|>
 # Patient Report
 
 ## A. Comprehensive Patient Profile (CPP)
@@ -5,11 +6,11 @@
 ### Administrative & Identification Details
 - **Patient Name:** ___  
 - **Date of Birth (DOB):** ___  
-- **Gender:** M  
+- **Gender:** F  
 - **Patient ID / MRN:** ___  
 - **Phone / Email:** ___  
 - **Address:** ___  
-- **Emergency Contact Person:** None  
+- **Emergency Contact Person:** ___  
 - **Emergency Contact Info:** ___  
 - **Date CPP Last Updated:** ___  
 
@@ -20,125 +21,119 @@
 ### S - Subjective
 
 #### 1. Chief Complaint (CC)
-> Epistaxis
+> Worsening abdominal distension and pain  
 
 #### 2. History of Present Illness (HPI)
-> Onset: After a mechanical fall  
-Location: Nasal area  
-Duration: Ongoing since the fall  
-Character: Persistent nosebleed  
-Aggravating/Alleviating: None specified  
-Radiation: None  
-Timing: Continuous  
-Severity: Significant enough to require hospitalization  
-
-The patient is a male with a history of factor VIII deficiency who presented after a fall with right neck swelling and epistaxis. The fall occurred while snowboarding, resulting in facial trauma without loss of consciousness. He was transferred to another hospital for further care due to persistent bleeding.
+- Onset: Presented with worsening symptoms over the past week  
+- Location: Abdominal area  
+- Duration: Over a week  
+- Character: Distension and discomfort  
+- Aggravating/Alleviating: Self-discontinued diuretics, not following low-sodium diet  
+- Radiation: Denied  
+- Timing: Gradual worsening  
+- Severity: Significant enough to seek medical attention  
 
 #### 3. Past Medical History (PMH)
-- Mild factor VIII deficiency  
+- HCV Cirrhosis with ascites  
+- HIV on ART  
+- History of IVDU  
+- COPD  
+- Bipolar affective disorder  
+- PTSD  
 
 #### 4. Past Surgical History (PSH)
-- None  
+- ___  
 
 #### 5. Family History (FH)
-- The patient's mother had a tendency to bleed.  
+- No known GI or liver disease in the family  
 
 #### 6. Social History (SH)
-- None  
+- Last alcohol consumption: One drink two months ago  
+- Quit smoking a couple of years ago  
 
 #### 7. Review of Systems (ROS)
-- **General:** Alert, oriented, no acute distress  
-- **HEENT:** Bruising under both eyes, swollen nose with mild tenderness, RhinoRockets in place  
-- **Respiratory:** Mild hypoxia, focal consolidation at the left lung base  
-- **CVS:** RRR, (+)S1/S2 no m/r/g  
-- **GI:** Soft, non-tender, non-distended abdomen  
-- **GU:** Deferred  
-- **MSK:** Warm, well-perfused extremities, 2+ pulses  
-- **Neuro:** CN II-XII grossly intact, motor function normal  
-- **Skin:** No excoriations or rash  
+- **General:** No edema, SOB, or orthopnea  
+- **HEENT:** No issues  
+- **Respiratory:** Denies SOB  
+- **CVS:** No chest pain or palpitations  
+- **GI:** Worsening abdominal distension and discomfort  
+- **GU:** Denies dysuria or other symptoms  
+- **MSK:** No muscle weakness  
+- **Neuro:** Reports forgetfulness but no confusion  
+- **Skin:** No rashes  
 
 #### 8. Current Medications and Allergies
 - **Medications:**
-  - Clopidogrel 75 mg PO DAILY  
-  - Metoprolol Tartrate 50 mg PO TID  
-  - Pravastatin 80 mg PO QPM  
+    - Furosemide 20 mg PO DAILY  
+    - Spironolactone 50 mg PO DAILY  
+    - Albuterol Inhaler 2 PUFF IH Q4H:PRN wheezing, SOB  
+    - Raltegravir 400 mg PO BID  
+    - Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY  
+    - Nicotine Patch 14 mg TD DAILY  
+    - Ipratropium Bromide Neb 1 NEB IH Q6H SOB  
 - **Allergies:** No known allergies  
 
-### O – Objective
+### O - Objective
 
 #### 1. Vital Signs (During Admission)
-- VS: 98.5, 142/65 mmHg, 95, 18, 98% RA  
+- 98.4°F, HR 70, BP 106/63, RR 16, SpO2 97% on RA  
 
 #### 2. Physical Examination
-- **General:** Alert, oriented, no acute distress  
-- **HEENT:** Sclerae anicteric, MMM, oropharynx clear, bruising under both eyes, swollen nose with mild tenderness, RhinoRockets in place  
-- **Neck:** Supple, without LAD  
-- **Respiratory:** Clear bilaterally, focal consolidation at the left lung base  
-- **CVS:** RRR, (+)S1/S2 no m/r/g  
-- **Abdomen:** Soft, non-tender, non-distended  
-- **Extremities:** Warm, well-perfused, 2+ pulses  
-- **Neuro:** CN II-XII grossly intact, motor function normal  
-- **Skin:** No excoriations or rash  
+- **General:** NAD  
+- **HEENT:** Anicteric sclerae, OP clear  
+- **Neck:** Supple, no LAD  
+- **CV:** RRR, S1S2, no murmurs  
+- **Lungs:** Clear with prolonged expiratory phase  
+- **Abdomen:** Distended, mild diffuse tenderness, flank dullness  
+- **Extremities:** No clubbing, edema, or cyanosis  
+- **Neurological:** Alert and oriented  
 
 #### 3. Laboratory Data
-- WBC: 11.3 (91%N)  
-- Hgb: 14.1, Hct: 40.2  
-- Plt: ___  
-- BUN/Cr: 36/1.5  
-- Glucose: 159  
-- Cardiac Markers: Elevated troponin (0.04*)  
+- ALT/AST: Elevated  
+- Total bilirubin: 1.6  
+- Platelets: Low  
+- INR: Slightly elevated  
 
 #### 4. Imaging and Other Diagnostic Data
-- CT Head/Neck: Nasal bone and septal fractures  
-- CXR: Focal consolidation at the left lung base  
-- ECHO: Mild aortic stenosis, mild aortic regurgitation  
+- CXR: No acute cardiopulmonary process  
+- Ultrasound: Nodular liver, ascites, splenomegaly, cholelithiasis  
 
-#### 5. Other Clinicians’ Notes (if applicable)
-- None  
+#### 5. Other Clinicians' Notes
+- Per ED report, patient had brief period of confusion and did not recall ultrasound or bloodwork at OSH.
 
 ---
 
-### A – Assessment
+### A - Assessment
 
 #### 1. Problem List
-1. Epistaxis  
-2. Factor VIII deficiency  
+1. Ascites from portal hypertension  
+2. Non-compliance with diuretics  
 
 #### 2. Differential Diagnoses
-- **Epistaxis:** Traumatic injury, nasal fractures  
-- **Factor VIII deficiency:** Genetic predisposition  
+- SBP negative  
+- Heart failure ruled out  
 
-### P – Plan
+### P - Plan
 
-#### Problem 1: Epistaxis
-- **Investigations:** CT scan, monitoring of vital signs  
-- **Therapeutic Interventions:** RhinoRockets, oxymetazoline nasal spray  
-- **Consults/Referrals:** ENT or Plastic Surgery follow-up  
-- **Patient Education:** Avoid NSAIDs, use oxymetazoline as needed  
-- **Follow-Up/Monitoring:** Repeat CBC in one week  
-
-#### Problem 2: Factor VIII deficiency
-- **Investigations:** None specified  
-- **Therapeutic Interventions:** Monitoring of bleeding symptoms  
-- **Consults/Referrals:** Hematology consultation  
-- **Patient Education:** Bleeding precautions, follow-up with PCP  
-- **Follow-Up/Monitoring:** Regular check-ups  
+#### Problem 1: Ascites from Portal Hypertension
+- **Investigations:** Ultrasound, CXR, labs  
+- **Therapeutic Interventions:** Increase Furosemide to 40 mg daily, Spironolactone 50 mg daily  
+- **Consults/Referrals:** Follow-up with PCP and Liver clinic for EGD  
+- **Patient Education:** Importance of medication adherence and low-sodium diet  
 
 ---
 
 ## C. Discharge Conditions (DC)
 
 ### 1. Physical Exam at Discharge
-- **Vitals / VS:** 98.4, 125/55 mmHg, 73, 18, 94% RA  
-- **General:** Alert, oriented, no acute distress  
-- **HEENT:** Sclerae anicteric, MMM, oropharynx clear, bruising under both eyes, swollen nose with mild tenderness, RhinoRockets in place  
-- **Neck:** Supple, without LAD  
-- **Respiratory:** Clear bilaterally  
-- **CVS:** RRR, (+)S1/S2 no m/r/g  
-- **Abdomen:** Soft, non-tender, non-distended  
-- **Extremities:** Warm, well-perfused, 2+ pulses  
-- **Neuro:** CN II-XII grossly intact, motor function normal  
-- **Skin:** No excoriations or rash  
+- **Vitals / VS:** 98°F, HR 105, BP 70/95  
+- **General:** NAD  
+- **HEENT:** Anicteric sclerae, OP clear  
+- **Neck:** Supple, no LAD  
+- **CV:** RRR, S1S2, no murmurs  
+- **Lung:** Clear with prolonged expiratory phase  
+- **Abdomen:** Distended but improved  
+- **Extremities:** No clubbing, edema, or cyanosis  
 
 ### 2. Discharge Condition
 - **Mental Status:** Clear and coherent  
@@ -146,13 +141,15 @@ The patient is a male with a history of factor VIII deficiency who presented aft
 - **Activity Status:** Ambulatory - Independent  
 
 ### 3. Discharge Instructions
-- Use oxymetazoline nasal spray as needed for nosebleeds  
-- Avoid NSAID medications like ibuprofen  
-- Follow-up with PCP to discuss stress test results  
-- Repeat chest x-ray in ___ weeks to ensure resolution of the LLL infiltrative process  
+- Continue medications as prescribed  
+- Follow low-sodium diet  
+- Follow-up appointments scheduled  
 
 ### 4. Disposition
-- Home With Service  
+- Home  
 
 ### 5. Brief Hospital Course
-- The patient presented with epistaxis and nasal fractures after a mechanical fall. He was treated with RhinoRockets and medications for bleeding control. During his stay, he experienced an NSTEMI, likely due to demand ischemia. His medications were adjusted, and he was discharged with instructions for follow-up care.
+- Treated for ascites with diuretics and paracentesis  
+- Scheduled follow-ups for further care  
+
+<|end-of-format|>

@@ -1,0 +1,82 @@
+[
+    {
+        "Question": "What is the primary symptom presented by the patient?",
+        "Answer": "The patient presented with worsening abdominal distension and pain."
+    },
+    {
+        "Question": "What is the diagnosis of the patient's liver condition?",
+        "Answer": "The patient has HCV cirrhosis."
+    },
+    {
+        "Question": "What is the patient's HIV status?",
+        "Answer": "The patient is HIV positive and on antiretroviral therapy (ART)."
+    },
+    {
+        "Question": "What is the patient's history of substance use?",
+        "Answer": "The patient has a history of intravenous drug use (IVDU) and past use of cocaine and heroin."
+    },
+    {
+        "Question": "What respiratory condition does the patient have?",
+        "Answer": "The patient has chronic obstructive pulmonary disease (COPD)."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has bipolar affective disorder and post-traumatic stress disorder (PTSD)."
+    },
+    {
+        "Question": "What diuretic medication is the patient taking for fluid retention?",
+        "Answer": "The patient is taking Furosemide 40 mg PO DAILY."
+    },
+    {
+        "Question": "What potassium-sparing diuretic is the patient taking?",
+        "Answer": "The patient is taking Spironolactone 50 mg PO DAILY."
+    },
+    {
+        "Question": "Why is the patient taking Albuterol Inhaler?",
+        "Answer": "The patient is taking Albuterol Inhaler for wheezing and shortness of breath (SOB)."
+    },
+    {
+        "Question": "What antiretroviral medication is the patient taking for HIV infection?",
+        "Answer": "The patient is taking Raltegravir 400 mg PO BID."
+    },
+    {
+        "Question": "What combination of antiretroviral drugs is the patient taking?",
+        "Answer": "The patient is taking Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY, in addition to Raltegravir."
+    },
+    {
+        "Question": "Why is the patient using a Nicotine Patch?",
+        "Answer": "The patient is using a Nicotine Patch to help quit smoking."
+    },
+    {
+        "Question": "What bronchodilator is the patient taking for COPD and asthma?",
+        "Answer": "The patient is taking Ipratropium Bromide Neb 1 NEB IH Q6H for SOB."
+    },
+    {
+        "Question": "What complication of HCV Cirrhosis does the patient have?",
+        "Answer": "The patient has Ascites from portal hypertension due to HCV cirrhosis."
+    },
+    {
+        "Question": "How do Furosemide and Spironolactone help treat Ascites from portal hypertension?",
+        "Answer": "Furosemide and Spironolactone help remove excess fluid from the body, thereby reducing ascites."
+    },
+    {
+        "Question": "What issue does the patient have regarding diuretic medication?",
+        "Answer": "The patient was non-compliant with diuretic medications prior to admission, which contributed to worsening ascites."
+    },
+    {
+        "Question": "How was Ascites from portal hypertension diagnosed in the patient?",
+        "Answer": "Ascites from portal hypertension was diagnosed based on clinical presentation and ultrasound findings showing nodular liver appearance compatible with cirrhosis and signs of portal hypertension."
+    },
+    {
+        "Question": "What is the primary cause of ascites in this patient?",
+        "Answer": "The primary cause of ascites in this patient is portal hypertension due to HCV cirrhosis."
+    },
+    {
+        "Question": "Why are Furosemide and Spironolactone important for managing Ascites from portal hypertension?",
+        "Answer": "Furosemide and Spironolactone are important for managing ascites by removing excess fluid from the body, thereby reducing abdominal distension and discomfort."
+    },
+    {
+        "Question": "What is the significance of non-compliance with diuretics in this patient's treatment plan?",
+        "Answer": "Non-compliance with diuretics led to worsening ascites and highlights the importance of adherence to medication regimen for effective management of portal hypertension and prevention of complications."
+    }
+]

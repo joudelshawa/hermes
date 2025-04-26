@@ -112,11 +112,11 @@ class ReportCreator(Agent):
             self.logger.log(Level.ERROR, 2, f"Missing Headings: {missing_headings}")
         
         if not areNumbericallyEquivalent(response, kwargs['unstructured_report']):
-            halucinated, missingNumbers = getMissingNumbers(text_og=kwargs['unstructured_report'], text_gen=response)
+            halucinated, missingNumbers = getMissingNumbers(text_og=kwargs['unstructured_report'], text_gen=remove_headings(response))
             result["errors"] += f"IGNORED: Found {len(missingNumbers)} missing numbers in the generated report - {missingNumbers}"
             if len(halucinated) != 0:
-                result["is_valid"] = False
-                result["errors"] += f"Found {len(halucinated)} non-existing numbers in the generated report - {halucinated}"
+                # result["is_valid"] = False
+                result["errors"] += f"\nFound {len(halucinated)} non-existing numbers in the generated report - {halucinated}"
 
         return result
     

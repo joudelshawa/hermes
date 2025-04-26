@@ -21,25 +21,24 @@
 ### S - Subjective
 
 #### 1. Chief Complaint (CC)
-> Worsening abdominal distension and pain  
+> Abdominal fullness and discomfort  
 
 #### 2. History of Present Illness (HPI)
-- Onset: Presented with worsening symptoms over the past week  
-- Location: Abdominal area  
+- Onset: Recently admitted to ___ for the same symptoms  
+- Location: Abdomen  
 - Duration: Over a week  
-- Character: Distension and discomfort  
+- Character: Distension and pain  
 - Aggravating/Alleviating: Self-discontinued diuretics, not following low-sodium diet  
 - Radiation: Denied  
 - Timing: Gradual worsening  
 - Severity: Significant enough to seek medical attention  
 
 #### 3. Past Medical History (PMH)
-- HCV Cirrhosis with ascites  
-- HIV on ART  
-- History of IVDU  
+- HCV Cirrhosis with ascites and HE  
+- HIV on HAART  
 - COPD  
-- Bipolar affective disorder  
-- PTSD  
+- Bipolar affective disorder, currently manic, mild, and PTSD  
+- History of cocaine and heroin use  
 
 #### 4. Past Surgical History (PSH)
 - ___  
@@ -64,25 +63,29 @@
 
 #### 8. Current Medications and Allergies
 - **Medications:**
+    - Albuterol Inhaler 2 PUFF IH Q6H:PRN wheezing, SOB  
+    - ___ (Truvada) 1 TAB PO DAILY  
     - Furosemide 20 mg PO DAILY  
-    - Spironolactone 50 mg PO DAILY  
-    - Albuterol Inhaler 2 PUFF IH Q4H:PRN wheezing, SOB  
     - Raltegravir 400 mg PO BID  
-    - Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY  
-    - Nicotine Patch 14 mg TD DAILY  
-    - Ipratropium Bromide Neb 1 NEB IH Q6H SOB  
-- **Allergies:** No known allergies  
+    - Spironolactone 50 mg PO DAILY  
+    - Acetaminophen 500 mg PO Q6H:PRN pain,fever  
+    - Tiotropium Bromide 1 CAP IH DAILY  
+    - Rifaximin 550 mg PO BID  
+    - Calcium Carbonate 1250 mg PO BID  
+    - Lactulose 15 mL PO TID  
+    - Sulfameth/Trimethoprim DS 1 TAB PO DAILY  
+- **Allergies:** Percocet  
 
 ### O - Objective
 
 #### 1. Vital Signs (During Admission)
-- 98.4°F, HR 70, BP 106/63, RR 16, SpO2 97% on RA  
+- 98.9°F, HR 88, BP 116/88, RR 18, SpO2 97% on RA  
 
 #### 2. Physical Examination
-- **General:** NAD  
-- **HEENT:** Anicteric sclerae, OP clear  
+- **General:** Thin chronically ill appearing woman in no acute distress  
+- **HEENT:** Sclera anicteric, MMM, no oral lesions  
 - **Neck:** Supple, no LAD  
-- **CV:** RRR, S1S2, no murmurs  
+- **CV:** RRR, normal S1 S2, no murmurs  
 - **Lungs:** Clear with prolonged expiratory phase  
 - **Abdomen:** Distended, mild diffuse tenderness, flank dullness  
 - **Extremities:** No clubbing, edema, or cyanosis  
@@ -106,8 +109,10 @@
 ### A - Assessment
 
 #### 1. Problem List
-1. Ascites from portal hypertension  
-2. Non-compliance with diuretics  
+1. Diuretic refractory ascites  
+2. HCV cirrhosis with ascites and HE  
+3. HIV on HAART  
+4. COPD  
 
 #### 2. Differential Diagnoses
 - SBP negative  
@@ -115,9 +120,9 @@
 
 ### P - Plan
 
-#### Problem 1: Ascites from Portal Hypertension
+#### Problem 1: Diuretic Refractory Ascites
 - **Investigations:** Ultrasound, CXR, labs  
-- **Therapeutic Interventions:** Increase Furosemide to 40 mg daily, Spironolactone 50 mg daily  
+- **Therapeutic Interventions:** Increase Furosemide to 40 mg daily, Spironolactone discontinued due to high potassium  
 - **Consults/Referrals:** Follow-up with PCP and Liver clinic for EGD  
 - **Patient Education:** Importance of medication adherence and low-sodium diet  
 
@@ -126,11 +131,11 @@
 ## C. Discharge Conditions (DC)
 
 ### 1. Physical Exam at Discharge
-- **Vitals / VS:** 98°F, HR 105, BP 70/95  
-- **General:** NAD  
-- **HEENT:** Anicteric sclerae, OP clear  
+- **Vitals / VS:** 98°F, HR 80, BP 95/55, RR 18, SpO2 97% on RA  
+- **General:** Thin chronically ill appearing woman in no acute distress  
+- **HEENT:** Sclera anicteric, MMM, no oral lesions  
 - **Neck:** Supple, no LAD  
-- **CV:** RRR, S1S2, no murmurs  
+- **CV:** RRR, normal S1 S2, no murmurs  
 - **Lung:** Clear with prolonged expiratory phase  
 - **Abdomen:** Distended but improved  
 - **Extremities:** No clubbing, edema, or cyanosis  

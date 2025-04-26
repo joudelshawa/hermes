@@ -186,4 +186,9 @@ def getMissingNumbers(text_og: str, text_gen: str, return_nums_og: bool = False)
 def getNumberOfNodes(graph_data: str):
     graph = json.loads(graph_data)
     return len(graph['nodes'])
+
+def remove_headings(text):
+    pattern = r'^(#{1,4})\s+.*\n?'
+    cleaned_text = re.sub(pattern, '', text, flags=re.MULTILINE)
+    return cleaned_text
      

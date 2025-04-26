@@ -1,0 +1,227 @@
+{
+    "nodes": [
+        {
+            "id": 1,
+            "label": "Patient",
+            "color": "#ffffff"
+        },
+        {
+            "id": 2,
+            "label": "Abdominal fullness and discomfort",
+            "color": "#ffff00"
+        },
+        {
+            "id": 3,
+            "label": "HCV Cirrhosis with ascites and HE",
+            "color": "#ff0000"
+        },
+        {
+            "id": 4,
+            "label": "Diuretic refractory ascites",
+            "color": "#ffcccc"
+        },
+        {
+            "id": 5,
+            "label": "HIV on HAART",
+            "color": "#ff0000"
+        },
+        {
+            "id": 6,
+            "label": "COPD",
+            "color": "#ff0000"
+        },
+        {
+            "id": 7,
+            "label": "Bipolar affective disorder, currently manic, mild, and PTSD",
+            "color": "#ff0000"
+        },
+        {
+            "id": 8,
+            "label": "History of cocaine and heroin use",
+            "color": "#a1c9f2"
+        },
+        {
+            "id": 9,
+            "label": "Albuterol Inhaler 2 PUFF IH Q6H:PRN wheezing, SOB",
+            "color": "#00b894"
+        },
+        {
+            "id": 10,
+            "label": "(Truvada) 1 TAB PO DAILY",
+            "color": "#00b894"
+        },
+        {
+            "id": 11,
+            "label": "Furosemide 20 mg PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 12,
+            "label": "Raltegravir 400 mg PO BID",
+            "color": "#00b894"
+        },
+        {
+            "id": 13,
+            "label": "Spironolactone 50 mg PO DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 14,
+            "label": "Acetaminophen 500 mg PO Q6H:PRN pain,fever",
+            "color": "#00b894"
+        },
+        {
+            "id": 15,
+            "label": "Tiotropium Bromide 1 CAP IH DAILY",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 16,
+            "label": "Rifaximin 550 mg PO BID",
+            "color": "#00b894"
+        },
+        {
+            "id": 17,
+            "label": "Calcium Carbonate 1250 mg PO BID",
+            "color": "#2ecc71"
+        },
+        {
+            "id": 18,
+            "label": "Lactulose 15 mL PO TID",
+            "color": "#00b894"
+        },
+        {
+            "id": 19,
+            "label": "Sulfameth/Trimethoprim DS 1 TAB PO DAILY",
+            "color": "#2ecc71"
+        }
+    ],
+    "edges": [
+        {
+            "from": 1,
+            "to": 2,
+            "label": "has symptom",
+            "detailed_description": "The patient is experiencing abdominal fullness and discomfort.",
+            "facts_and_info": "Abdominal fullness and discomfort are the primary symptoms."
+        },
+        {
+            "from": 1,
+            "to": 3,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with HCV Cirrhosis with ascites and HE.",
+            "facts_and_info": "HCV Cirrhosis is a liver disease caused by the hepatitis C virus."
+        },
+        {
+            "from": 1,
+            "to": 4,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with diuretic refractory ascites.",
+            "facts_and_info": "Diuretic refractory ascites is a condition where the body does not respond to diuretics."
+        },
+        {
+            "from": 1,
+            "to": 5,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with HIV on HAART.",
+            "facts_and_info": "HIV is a viral infection that attacks the body's immune system."
+        },
+        {
+            "from": 1,
+            "to": 6,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with COPD.",
+            "facts_and_info": "COPD is a lung disease that makes it difficult to breathe."
+        },
+        {
+            "from": 1,
+            "to": 7,
+            "label": "has diagnosis",
+            "detailed_description": "The patient has been diagnosed with bipolar affective disorder, currently manic, mild, and PTSD.",
+            "facts_and_info": "Bipolar affective disorder is a mental health condition that affects mood."
+        },
+        {
+            "from": 1,
+            "to": 8,
+            "label": "has history of",
+            "detailed_description": "The patient has a history of cocaine and heroin use.",
+            "facts_and_info": "Cocaine and heroin are illicit substances that can have negative effects on the body."
+        },
+        {
+            "from": 2,
+            "to": 9,
+            "label": "treated with",
+            "detailed_description": "Abdominal fullness and discomfort are being managed using Albuterol Inhaler.",
+            "facts_and_info": "Albuterol is a medication used to treat wheezing and shortness of breath."
+        },
+        {
+            "from": 2,
+            "to": 10,
+            "label": "treated with",
+            "detailed_description": "Abdominal fullness and discomfort are being managed using (Truvada).",
+            "facts_and_info": "(Truvada) is a medication used to treat HIV."
+        },
+        {
+            "from": 3,
+            "to": 11,
+            "label": "treated with",
+            "detailed_description": "HCV Cirrhosis with ascites and HE is being managed using Furosemide.",
+            "facts_and_info": "Furosemide is a diuretic used to treat fluid retention."
+        },
+        {
+            "from": 3,
+            "to": 12,
+            "label": "treated with",
+            "detailed_description": "HCV Cirrhosis with ascites and HE is being managed using Raltegravir.",
+            "facts_and_info": "Raltegravir is a medication used to treat HIV."
+        },
+        {
+            "from": 4,
+            "to": 13,
+            "label": "treated with",
+            "detailed_description": "Diuretic refractory ascites is being managed using Spironolactone.",
+            "facts_and_info": "Spironolactone is a diuretic used to treat fluid retention."
+        },
+        {
+            "from": 5,
+            "to": 14,
+            "label": "treated with",
+            "detailed_description": "HIV on HAART is being managed using Acetaminophen.",
+            "facts_and_info": "Acetaminophen is a medication used to treat pain and fever."
+        },
+        {
+            "from": 6,
+            "to": 15,
+            "label": "treated with",
+            "detailed_description": "COPD is being managed using Tiotropium Bromide.",
+            "facts_and_info": "Tiotropium is a medication used to treat COPD."
+        },
+        {
+            "from": 7,
+            "to": 16,
+            "label": "treated with",
+            "detailed_description": "Bipolar affective disorder, currently manic, mild, and PTSD is being managed using Rifaximin.",
+            "facts_and_info": "Rifaximin is a medication used to treat mental health conditions."
+        },
+        {
+            "from": 8,
+            "to": 17,
+            "label": "treated with",
+            "detailed_description": "History of cocaine and heroin use is being managed using Calcium Carbonate.",
+            "facts_and_info": "Calcium carbonate is a medication used to treat addiction."
+        },
+        {
+            "from": 9,
+            "to": 18,
+            "label": "treated with",
+            "detailed_description": "Albuterol Inhaler is being managed using Lactulose.",
+            "facts_and_info": "Lactulose is a medication used to treat constipation."
+        },
+        {
+            "from": 10,
+            "to": 19,
+            "label": "treated with",
+            "detailed_description": "(Truvada) is being managed using Sulfameth/Trimethoprim DS.",
+            "facts_and_info": "Sulfameth/Trimethoprim is a medication used to treat infections."
+        }
+    ]
+}

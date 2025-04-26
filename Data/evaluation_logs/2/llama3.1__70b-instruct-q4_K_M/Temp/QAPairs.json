@@ -1,0 +1,78 @@
+[
+    {
+        "Question": "What is the primary symptom experienced by the patient?",
+        "Answer": "The patient is experiencing abdominal fullness and discomfort."
+    },
+    {
+        "Question": "What is the diagnosis of the patient's liver condition?",
+        "Answer": "The patient has been diagnosed with HCV Cirrhosis with ascites and HE."
+    },
+    {
+        "Question": "What type of ascites does the patient have?",
+        "Answer": "The patient has diuretic refractory ascites."
+    },
+    {
+        "Question": "What is the patient's HIV status?",
+        "Answer": "The patient has been diagnosed with HIV on HAART."
+    },
+    {
+        "Question": "What lung disease does the patient have?",
+        "Answer": "The patient has COPD."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has bipolar affective disorder, currently manic, mild, and PTSD."
+    },
+    {
+        "Question": "What substances has the patient used in the past?",
+        "Answer": "The patient has a history of cocaine and heroin use."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's abdominal fullness and discomfort?",
+        "Answer": "Albuterol Inhaler is being used to manage the patient's abdominal fullness and discomfort."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's HIV?",
+        "Answer": "(Truvada) is being used to treat the patient's HIV."
+    },
+    {
+        "Question": "What diuretic is being used to manage the patient's HCV Cirrhosis with ascites and HE?",
+        "Answer": "Furosemide is being used to manage the patient's HCV Cirrhosis with ascites and HE."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's diuretic refractory ascites?",
+        "Answer": "Spironolactone is being used to treat the patient's diuretic refractory ascites."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's pain and fever?",
+        "Answer": "Acetaminophen is being used to manage the patient's pain and fever."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's COPD?",
+        "Answer": "Tiotropium Bromide is being used to treat the patient's COPD."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's bipolar affective disorder, currently manic, mild, and PTSD?",
+        "Answer": "Rifaximin is being used to manage the patient's bipolar affective disorder, currently manic, mild, and PTSD."
+    },
+    {
+        "Question": "What medication is being used to treat the patient's history of cocaine and heroin use?",
+        "Answer": "Calcium Carbonate is being used to treat the patient's history of cocaine and heroin use."
+    },
+    {
+        "Question": "What medication is being used to manage the patient's constipation?",
+        "Answer": "Lactulose is being used to manage the patient's constipation."
+    },
+    {
+        "Question": "What medication is being used to treat infections in the patient?",
+        "Answer": "Sulfameth/Trimethoprim DS is being used to treat infections in the patient."
+    },
+    {
+        "Question": "Why is Albuterol Inhaler prescribed to the patient?",
+        "Answer": "Albuterol Inhaler is prescribed to manage wheezing and shortness of breath in the patient."
+    },
+    {
+        "Question": "What is the purpose of Furosemide in the patient's treatment plan?",
+        "Answer": "Furosemide is used to treat fluid retention associated with HCV Cirrhosis with ascites and HE in the patient."
+    }
+]

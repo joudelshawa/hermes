@@ -1,0 +1,82 @@
+[
+    {
+        "Question": "What is the primary symptom presented by the patient?",
+        "Answer": "The patient is experiencing worsening abdominal distension and pain."
+    },
+    {
+        "Question": "What is the diagnosis of the patient's liver condition?",
+        "Answer": "The patient has been diagnosed with HCV Cirrhosis with ascites."
+    },
+    {
+        "Question": "What is the patient's HIV status?",
+        "Answer": "The patient has been diagnosed with HIV on ART."
+    },
+    {
+        "Question": "What is the patient's history of substance use?",
+        "Answer": "The patient has a history of IVDU."
+    },
+    {
+        "Question": "What respiratory condition does the patient have?",
+        "Answer": "The patient has been diagnosed with COPD."
+    },
+    {
+        "Question": "What mental health conditions does the patient have?",
+        "Answer": "The patient has been diagnosed with bipolar affective disorder and PTSD."
+    },
+    {
+        "Question": "What diuretic medication is the patient taking for fluid retention?",
+        "Answer": "The patient is taking Furosemide 40 mg PO DAILY."
+    },
+    {
+        "Question": "What potassium-sparing diuretic is the patient taking?",
+        "Answer": "The patient is taking Spironolactone 50 mg PO DAILY."
+    },
+    {
+        "Question": "Why is the patient taking Albuterol Inhaler?",
+        "Answer": "The patient is taking Albuterol Inhaler to treat or prevent bronchospasm, primarily in conditions such as asthma and COPD."
+    },
+    {
+        "Question": "What antiretroviral medication is the patient taking for HIV infection?",
+        "Answer": "The patient is taking Raltegravir 400 mg PO BID."
+    },
+    {
+        "Question": "What combination of antiretroviral drugs is the patient taking?",
+        "Answer": "The patient is taking Emtricitabine-Tenofovir (Truvada) 1 TAB PO DAILY."
+    },
+    {
+        "Question": "Why is the patient using a Nicotine Patch?",
+        "Answer": "The patient is using a Nicotine Patch as part of nicotine replacement therapy to help quit smoking."
+    },
+    {
+        "Question": "What bronchodilator is the patient taking for COPD and asthma?",
+        "Answer": "The patient is taking Ipratropium Bromide Neb 1 NEB IH Q6H SOB."
+    },
+    {
+        "Question": "What complication of HCV Cirrhosis does the patient have?",
+        "Answer": "Ascites from portal hypertension is a complication of HCV Cirrhosis."
+    },
+    {
+        "Question": "How do Furosemide and Spironolactone help treat Ascites from portal hypertension?",
+        "Answer": "Furosemide and Spironolactone are used to reduce fluid retention and swelling associated with ascites."
+    },
+    {
+        "Question": "What issue does the patient have regarding diuretic medication?",
+        "Answer": "The patient has an issue with non-compliance with diuretics."
+    },
+    {
+        "Question": "How was Ascites from portal hypertension diagnosed in the patient?",
+        "Answer": "Ascites from portal hypertension was diagnosed using ultrasound, CXR, and labs."
+    },
+    {
+        "Question": "What is the primary cause of ascites in this patient?",
+        "Answer": "Portal hypertension, often caused by cirrhosis, leads to ascites in this patient."
+    },
+    {
+        "Question": "Why are Furosemide and Spironolactone important for managing Ascites from portal hypertension?",
+        "Answer": "Furosemide and Spironolactone help reduce fluid retention and swelling associated with ascites, thereby alleviating symptoms of Ascites from portal hypertension."
+    },
+    {
+        "Question": "What is the significance of non-compliance with diuretics in this patient's treatment plan?",
+        "Answer": "Non-adherence to prescribed diuretic medication can exacerbate conditions like ascites and worsen the patient's condition."
+    }
+]
